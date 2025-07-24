@@ -35,17 +35,25 @@ def fetch_documents(limit=100) -> List[Dict]:
     max_chars = 2000
     conn = psycopg2.connect(**DB_CONFIG)
     cur = conn.cursor()
-    cur.execute('SELECT document_id, text FROM "2500567RAG2" LIMIT %s;', (limit,))
-    docs = []
-    for row in cur.fetchall():
-        doc_id = row[0]
-        text = row[1]
-        if not isinstance(text, str):
-            text = str(text)
-        text = text.strip()[:max_chars]
-        docs.append({"document_id": doc_id, "text": text})
+    
+    cur.execute('SELECT DISTINCT source_table FROM "2500567RAG2";')
+    source_types = [row[0] for row in cur.fetchall()]
+    
+    result = {}
+
+    for s_type in source_types:
+        cur.execute('SELECT document_id, text FROM "2500567RAG2" WHERE source_table = %s LIMIT %s;', (s_type, limit))
+        docs = []
+        for row in cur.fetchall():
+            doc_id, text = row
+            if not isinstance(text, str):
+                text = str(text)
+            text = text.strip()[:max_chars]
+            docs.append({"document_id": doc_id, "text": text, "source_table": s_type})
+        result[s_type] = docs
+    
     conn.close()
-    return docs
+    return result
 
 # ----- 生成假問題 -----
 def generate_questions_for_docs(docs: List[Dict], total_questions=100) -> List[Dict]:
@@ -114,12 +122,12 @@ def generate_answer(text: str, question: str) -> str:
 
 
 
-def save_fake_question(question: str, answer: str, document_id):
+def save_question(question: str, answer: str, document_id: str, source_table: str):
     conn = psycopg2.connect(**DB_CONFIG)
     cur = conn.cursor()
     cur.execute(
-        'INSERT INTO "2500567RAG" (question, answer, document_id) VALUES (%s, %s, %s);',
-        (question, answer, document_id)
+        'INSERT INTO "2500567RAG" (question, answer, document_id, source_table) VALUES (%s, %s, %s, %s);',
+        (question, answer, document_id, source_table)
     )
     conn.commit()
     conn.close()
@@ -153,32 +161,37 @@ def check_and_clear_table_if_needed():
 
 
 # ----- 主程式 -----
+# 更新後主程式
 def main():
-    
     proceed = check_and_clear_table_if_needed()
     if not proceed:
         return
-    
-    print("抽取資料...")
-    docs = fetch_documents(limit=50)
-    print(f"共抽取 {len(docs)} 條資料")
 
-    print("開始生成假問題...")
-    questions = generate_questions_for_docs(docs, total_questions=100)
-    print(f"共生成 {len(questions)} 條假問題")
+    print("開始依照 source_table 類型抽取資料...")
+    grouped_docs = fetch_documents(limit=100)
 
-    print("開始生成答案並寫入 2500567RAG 資料表...")
-    for q in tqdm(questions, desc="保存假問題"):
-        # 找到對應原始 text 來生成答案
-        doc = next((d for d in docs if d["document_id"] == q["document_id"]), None)
-        if doc:
-            answer = generate_answer(doc["text"], q["question"])
-            save_fake_question(
-                question=q["question"],
-                answer=answer,
-                document_id=doc["document_id"]
-            )
-    print("✅ 假問題及答案已成功寫入資料庫！")
+    total_all_questions = 0
+    for source_table, docs in grouped_docs.items():
+        print(f"\n🗂️ 類型: {source_table}，共 {len(docs)} 筆")
+        print("🔄 開始生成問題...")
+        questions = generate_questions_for_docs(docs, total_questions=50)
+        print(f"✅ 共為類型 {source_table} 生成 {len(questions)} 筆問題")
+
+        print("💾 生成答案並寫入資料庫...")
+        for q in tqdm(questions, desc=f"{source_table} - 寫入中"):
+            doc = next((d for d in docs if d["document_id"] == q["document_id"]), None)
+            if doc:
+                answer = generate_answer(doc["text"], q["question"])
+                save_question(
+                    question=q["question"],
+                    answer=answer,
+                    document_id=doc["document_id"],
+                    source_table=doc["source_table"]
+                )
+        total_all_questions += len(questions)
+
+    print(f"\n✅ 全部類型問題與答案生成完畢！總數: {total_all_questions} 筆")
+
 
 
 if __name__ == "__main__":
