@@ -135,6 +135,7 @@ def check_and_clear_table_if_needed():
             resp = input("清除現有資料並重新處理？(y/N): ")
             if resp.lower() == 'y':
                 cur.execute('DELETE FROM public."2500567RAG"')
+                cur.execute('TRUNCATE TABLE public."2500567RAG" RESTART IDENTITY;')
                 conn.commit()
                 print("✅ 已清除資料")
             else:
