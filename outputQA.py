@@ -14,6 +14,8 @@ print("DEBUG: AOAI_ENDPOINT =", os.getenv("AOAI_ENDPOINT"))
 print("DEBUG: AOAI_API_VERSION =", os.getenv("AOAI_API_VERSION"))
 print("DEBUG: AOAI_CHAT_DEPLOYMENT =", os.getenv("AOAI_CHAT_DEPLOYMENT"))
 
+
+
 # 初始化 AzureOpenAI client
 client = AzureOpenAI(
     api_key=os.getenv("AOAI_KEY"),
@@ -31,7 +33,7 @@ DB_CONFIG = {
 }
 
 # ----- 抽取資料庫文件 -----
-def fetch_documents(limit=100) -> List[Dict]:
+def fetch_documents(limit=1000) -> List[Dict]:
     max_chars = 2000
     conn = psycopg2.connect(**DB_CONFIG)
     cur = conn.cursor()
@@ -56,9 +58,10 @@ def fetch_documents(limit=100) -> List[Dict]:
     return result
 
 # ----- 生成假問題 -----
-def generate_questions_for_docs(docs: List[Dict], total_questions=100) -> List[Dict]:
+def generate_questions_for_docs(docs: List[Dict], total_questions=200) -> List[Dict]:
     chat_deployment = os.getenv("AOAI_CHAT_DEPLOYMENT")
     questions = []
+    existing_questions = set()  # ➤ 用於避免重複問題
     num_docs = len(docs)
     if num_docs == 0:
         return []
@@ -68,30 +71,49 @@ def generate_questions_for_docs(docs: List[Dict], total_questions=100) -> List[D
 
     for idx, doc in enumerate(tqdm(docs, desc="生成假問題中")):
         n = questions_per_doc + (1 if idx < extra else 0)
+
         for _ in range(n):
-            prompt = (
-                f"請針對以下內容，提出一個可以直接從內文找到答案的測試問題。\n"
-                f"要求：\n"
-                f"1️⃣ 問題僅根據內文，不做額外推測。\n"
-                f"2️⃣ 問題簡短具體。\n"
-                f"3️⃣ 使用繁體中文。\n"
-                f"僅輸出問題內容，不要加「問題：」或其他說明。\n\n"
-                f"內容：\n{doc['text']}"
-            )
-            try:
-                response = client.chat.completions.create(
-                    model=chat_deployment,
-                    messages=[{"role": "user", "content": prompt}],
-                    temperature=0.5,
-                    max_tokens=100
+            retry = 0
+            max_retry = 3  # 最多重試次數
+
+            while retry < max_retry:
+                prompt = (
+                    f"請針對以下內容，提出一個可以直接從內文找到答案的測試問題，並包含『能唯一指涉答案的關鍵字』，"
+                    f"例如數值、公司名、年份或具體事件等，使問題明確對應單一答案。\n"
+                    f"要求：\n"
+                    f"1️⃣ 問題僅根據內文，不做額外推測。\n"
+                    f"2️⃣ 問題簡短具體。\n"
+                    f"3️⃣ 使用繁體中文。\n"
+                    f"4️⃣ 僅輸出問題內容，不要加「問題：」或其他說明。\n\n"
+                    f"範例：\n"
+                    f"❌『這家公司營收如何？』（不具唯一性）\n"
+                    f"✅『2023 年該公司營收為多少？』（具體、明確）\n\n"
+                    f"內文：\n{doc['text']}"
                 )
-                q = response.choices[0].message.content.strip()
-                questions.append({
-                    "document_id": doc["document_id"],
-                    "question": q
-                })
-            except Exception as e:
-                print(f"⚠️ 生成假問題失敗 document_id={doc['document_id']}，原因: {e}")
+
+                try:
+                    response = client.chat.completions.create(
+                        model=chat_deployment,
+                        messages=[{"role": "user", "content": prompt}],
+                        temperature=0.5,
+                        max_tokens=100
+                    )
+                    q = response.choices[0].message.content.strip()
+
+                    if q in existing_questions:
+                        retry += 1
+                        continue  # 重複問題就重試
+                    else:
+                        existing_questions.add(q)
+                        questions.append({
+                            "document_id": doc["document_id"],
+                            "question": q
+                        })
+                        break  # 成功生成問題就跳出 retry 迴圈
+
+                except Exception as e:
+                    print(f"⚠️ 生成假問題失敗 document_id={doc['document_id']}，原因: {e}")
+                    break  # 若是 LLM API 失敗就跳出 retry
     return questions
 
 def generate_answer(text: str, question: str) -> str:
@@ -168,13 +190,13 @@ def main():
         return
 
     print("開始依照 source_table 類型抽取資料...")
-    grouped_docs = fetch_documents(limit=100)
+    grouped_docs = fetch_documents(limit=1000)
 
     total_all_questions = 0
     for source_table, docs in grouped_docs.items():
         print(f"\n🗂️ 類型: {source_table}，共 {len(docs)} 筆")
         print("🔄 開始生成問題...")
-        questions = generate_questions_for_docs(docs, total_questions=50)
+        questions = generate_questions_for_docs(docs, total_questions=200)
         print(f"✅ 共為類型 {source_table} 生成 {len(questions)} 筆問題")
 
         print("💾 生成答案並寫入資料庫...")
