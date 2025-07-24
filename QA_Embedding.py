@@ -1,3 +1,7 @@
+# ===========================================
+# 📄 QA_Embedding
+# 功能：生成問題並比較模型
+# ===========================================
 import os
 import psycopg2
 import numpy as np
@@ -128,32 +132,6 @@ def generate_questions_for_docs(docs: List[Dict], total_questions=100) -> List[D
                     break  # 若是 LLM API 失敗就跳出 retry
     return questions
 
-
-def generate_answer(text: str, question: str) -> str:
-    chat_deployment = os.getenv("AOAI_CHAT_DEPLOYMENT")
-    prompt = (
-        f"請根據以下內文，回答問題。\n"
-        f"要求：\n"
-        f"1️⃣ 答案必須簡短具體。\n"
-        f"2️⃣ 僅使用繁體中文。\n"
-        f"3️⃣ 答案內容必須直接來源於內文。\n"
-        f"僅輸出答案本身，不要加上「答案：」或其他說明。\n\n"
-        f"內文：\n{text}\n\n"
-        f"問題：\n{question}"
-    )
-    try:
-        response = client.chat.completions.create(
-            model=chat_deployment,
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.3,
-            max_tokens=100
-        )
-        answer = response.choices[0].message.content.strip()
-        return answer
-    except Exception as e:
-        print(f"⚠️ 生成答案失敗，原因: {e}")
-        return ""
-
 # ----- embedding 函數 -----
 
 def embed_openai(text: str) -> np.ndarray:
@@ -229,12 +207,13 @@ def check_and_clear_table_if_needed():
 
 
 # ----- 主程式 -----
-# 更新後主程式
+
 def main():
     proceed = check_and_clear_table_if_needed()
     if not proceed:
         return
 
+# =============開始抽取資料=============
     print("開始依照 source_table 類型抽取資料...")
     grouped_docs = fetch_documents(limit=1000)
 
@@ -249,7 +228,7 @@ def main():
         for q in tqdm(questions, desc=f"{source_table} - 寫入中"):
             doc = next((d for d in docs if d["document_id"] == q["document_id"]), None)
             if doc:
-                answer = generate_answer(doc["text"], q["question"])
+                answer = doc["text"]
                 q_emb_bge = embed_bge(q["question"])
                 q_emb_openai = embed_openai(q["question"])
                 a_emb_bge = embed_bge(answer)
