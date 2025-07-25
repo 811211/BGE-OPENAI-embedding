@@ -2,16 +2,25 @@
 # 📄 demo2
 # 功能：讀取固定問題集，生成 Embedding，並用 Faiss 對比模型效果
 # ===========================================
+
 import os
-import psycopg2
+import shutil
+import tkinter as tk
+from tkinter import filedialog
+from collections import defaultdict
+from typing import List, Dict
+
 import numpy as np
 import faiss
 from tqdm import tqdm
-from typing import List, Dict
-from openai import AzureOpenAI
 from dotenv import load_dotenv
-from psycopg2.extras import execute_values
+import psycopg2
+from psycopg2.extras import RealDictCursor, execute_values
+
+from openai import AzureOpenAI
 from FlagEmbedding import BGEM3FlagModel
+
+
 
 # ----- 環境配置 -----
 load_dotenv()
@@ -83,56 +92,76 @@ def build_faiss_index(vectors: np.ndarray):
 
 # ----- 評估指標計算 -----
 
-def evaluate_retrieval(index, query_vecs, true_indices, top_k=5):
-    faiss.normalize_L2(query_vecs)
-    D, I = index.search(query_vecs, top_k)
+def evaluate_retrieval(index, queries, ground_truth, k=5):
+    D, I = index.search(queries, k)
+    recall_at_k = []
+    precision_at_k = []
+    top_k_accuracy = []
+    mean_rank = []
+    reciprocal_ranks = []
 
-    total = len(true_indices)
-    recall, precision, mrr, mean_rank, topk = 0, 0, 0, 0, 0
-
-    for i in range(total):
-        pred = I[i]
-        ans = true_indices[i]
-
-        if ans in pred:
-            recall += 1
-            rank = np.where(pred == ans)[0][0] + 1
-            mean_rank += rank
-            mrr += 1 / rank
-            if rank == 1:
-                topk += 1
-
-        precision += int(ans in pred) / top_k
+    for i, retrieved in enumerate(I):
+        relevant = ground_truth[i]
+        try:
+            rank = list(retrieved).index(relevant)
+            recall_at_k.append(1)
+            precision_at_k.append(1 / (rank + 1))
+            top_k_accuracy.append(1 if rank == 0 else 0)
+            mean_rank.append(rank + 1)
+            reciprocal_ranks.append(1 / (rank + 1))
+        except ValueError:
+            recall_at_k.append(0)
+            precision_at_k.append(0)
+            top_k_accuracy.append(0)
+            mean_rank.append(k + 1)
+            reciprocal_ranks.append(0)
 
     return {
-        "Recall@K": recall / total,
-        "Precision@K": precision / total,
-        "Top-K Accuracy": topk / total,
-        "Mean Rank": mean_rank / total,
-        "MRR": mrr / total
+        "Recall@K": round(np.mean(recall_at_k), 4),
+        "Precision@K": round(np.mean(precision_at_k), 4),
+        "Top-1 Accuracy": round(np.mean(top_k_accuracy), 4),
+        "Mean Rank": round(np.mean(mean_rank), 4),
+        "MRR": round(np.mean(reciprocal_ranks), 4),
     }
-    
+
 # ----- 資料儲存 -----
 
-def save_question(entry: Dict):
-    conn = psycopg2.connect(**DB_CONFIG)
-    cur = conn.cursor()
-    cur.execute(
-        'INSERT INTO "2500567RAG" (document_id, source_table, question, answer, question_embedding_bge, question_embedding_openai, answer_embedding_bge, answer_embedding_openai, text) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);',
-        (
-            entry["document_id"],
-            entry["source_table"],
-            entry["question"],
-            entry["answer"],
-            entry["q_emb_bge"].tolist(),
-            entry["q_emb_openai"].tolist(),
-            entry["a_emb_bge"].tolist(),
-            entry["a_emb_openai"].tolist(),
-            entry["text"]
-        )
+def save_evaluation_to_txt(results: dict, run_count: int):
+    filename = f"BGE-OPENAI-embedding test({run_count}).txt"
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write(f"BGE-OPENAI Embedding Evaluation Report (Runs = {run_count})\n")
+        f.write("=" * 60 + "\n\n")
+        for source, models in results.items():
+            f.write(f"📄 Source Table: {source}\n")
+            f.write("-" * 60 + "\n")
+            for model_name, metric_data in models.items():
+                f.write(f"🔹 {model_name}:\n")
+                for metric, values in metric_data.items():
+                    if run_count == 1:
+                        f.write(f"{metric}: {values[0]}\n")
+                    else:
+                        avg = round(sum(values) / len(values), 4)
+                        f.write(f"{metric}: Run1={values[0]}  Run2={values[1]}  Run3={values[2]}  Avg={avg}\n")
+                f.write("\n")
+    return filename
+
+
+
+def prompt_save_as(src_path):
+    root = tk.Tk()
+    root.withdraw()
+    save_path = filedialog.asksaveasfilename(
+        title="另存結果為",
+        defaultextension=".txt",
+        filetypes=[("Text Files", "*.txt")]
     )
-    conn.commit()
-    conn.close()
+    if save_path:
+        shutil.copyfile(src_path, save_path)
+        print(f"✅ 成功另存為：{save_path}")
+    else:
+        print("❌ 取消另存")
+
+
 
 def check_and_clear_table_if_needed():
     try:
@@ -178,43 +207,42 @@ def check_and_clear_table_if_needed():
 
 # ----- 主程式 -----
 
+from collections import defaultdict
+
 def main():
-    
-    proceed = check_and_clear_table_if_needed()
-    if not proceed:
-        return
-    
     conn = psycopg2.connect(**DB_CONFIG)
     cur = conn.cursor(cursor_factory=RealDictCursor)
-    cur.execute('SELECT id, question, answer, question_embedding_bge, question_embedding_openai, answer_embedding_bge, answer_embedding_openai FROM "2500567RAG" ORDER BY id;')
+    cur.execute('SELECT id, question, answer, question_embedding_bge, question_embedding_openai, answer_embedding_bge, answer_embedding_openai, source_table FROM "2500567RAG" ORDER BY id;')
     rows = cur.fetchall()
-
-    bge_q_vecs, bge_a_vecs, openai_q_vecs, openai_a_vecs = [], [], [], []
-    ground_truth = []  # 對應每一筆 question 的正解是第幾筆 answer
-
-    for i, row in enumerate(rows):
-        bge_q_vecs.append(row["question_embedding_bge"])
-        bge_a_vecs.append(row["answer_embedding_bge"])
-        openai_q_vecs.append(row["question_embedding_openai"])
-        openai_a_vecs.append(row["answer_embedding_openai"])
-        ground_truth.append(i)
-
-    bge_q = np.array(bge_q_vecs, dtype='float32')
-    bge_a = np.array(bge_a_vecs, dtype='float32')
-    openai_q = np.array(openai_q_vecs, dtype='float32')
-    openai_a = np.array(openai_a_vecs, dtype='float32')
-
-    print("\n[🔍] 評估 BGE...")
-    result_bge = evaluate_retrieval(build_faiss_index(bge_a), bge_q, ground_truth)
-    for k, v in result_bge.items():
-        print(f"{k}: {v:.4f}")
-
-    print("\n[🔍] 評估 OpenAI...")
-    result_openai = evaluate_retrieval(build_faiss_index(openai_a), openai_q, ground_truth)
-    for k, v in result_openai.items():
-        print(f"{k}: {v:.4f}")
-
     conn.close()
+
+    grouped = defaultdict(list)
+    for row in rows:
+        grouped[row['source_table']].append(row)
+
+    run_count = 1
+    all_results = {}
+    
+    print(f"🔍 開始依照 source_table 共 {len(grouped)} 組資料進行評估...\n")
+    for source, items in tqdm(grouped.items(), desc="評估中", unit="組"):
+        bge_q = np.array([row["question_embedding_bge"] for row in items], dtype='float32')
+        bge_a = np.array([row["answer_embedding_bge"] for row in items], dtype='float32')
+        openai_q = np.array([row["question_embedding_openai"] for row in items], dtype='float32')
+        openai_a = np.array([row["answer_embedding_openai"] for row in items], dtype='float32')
+        ground_truth = list(range(len(items)))
+
+        result_bge = evaluate_retrieval(build_faiss_index(bge_a), bge_q, ground_truth)
+        result_openai = evaluate_retrieval(build_faiss_index(openai_a), openai_q, ground_truth)
+
+        all_results[source] = {
+            "BGE": {k: [v] for k, v in result_bge.items()},      
+            "OpenAI": {k: [v] for k, v in result_openai.items()}
+        }
+
+    output_file = save_evaluation_to_txt(all_results, run_count)
+    prompt_save_as(output_file)
+
+
 
 if __name__ == "__main__":
     main()
