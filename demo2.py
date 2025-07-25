@@ -57,6 +57,48 @@ DB_CONFIG = {
     "port": 65432
 }
 
+# ----- 工具函數 -----
+def check_and_clear_table_if_needed():
+    try:
+        conn = psycopg2.connect(**DB_CONFIG)
+        cur = conn.cursor()
+        cur.execute('SELECT COUNT(*) FROM public."2500567RAG"')
+        existing_count = cur.fetchone()[0]
+        
+        if existing_count > 0:
+            print(f"⚠️ 資料庫已有 {existing_count} 筆記錄")
+            resp = input("請選擇動作：\n"
+                        "y = 刪除資料並重新處理\n"
+                        "n = 保留資料並繼續處理\n"
+                        "exit = 離開程式\n"
+                        "輸入選項 (y/n/exit): ").strip().lower()
+            
+            if resp.lower() == 'y':
+                cur.execute('DELETE FROM public."2500567RAG"')
+                cur.execute('TRUNCATE TABLE public."2500567RAG" RESTART IDENTITY;')
+                conn.commit()
+                print("✅ 已清除資料，重新開始處理")
+            elif resp == 'n':
+                print("✅ 保留現有資料，繼續處理")
+            elif resp == 'exit':
+                print("🚪 已取消處理，結束程式")
+                cur.close()
+                conn.close()
+                return False
+            else:
+                print("⚠️ 無效選項，請重新執行並輸入 y/n/exit")
+                cur.close()
+                conn.close()
+                return False
+        cur.close()
+        conn.close()
+        return True
+    
+    except Exception as e:
+        print(f"檢查/清除資料失敗: {e}")
+        return False
+    
+
 # ----- embedding 函數 -----
 
 def embed_openai(text: str) -> np.ndarray:
@@ -146,7 +188,6 @@ def save_evaluation_to_txt(results: dict, run_count: int):
     return filename
 
 
-
 def prompt_save_as(src_path):
     root = tk.Tk()
     root.withdraw()
@@ -163,45 +204,38 @@ def prompt_save_as(src_path):
 
 
 
-def check_and_clear_table_if_needed():
-    try:
-        conn = psycopg2.connect(**DB_CONFIG)
-        cur = conn.cursor()
-        cur.execute('SELECT COUNT(*) FROM public."2500567RAG"')
-        existing_count = cur.fetchone()[0]
-        
-        if existing_count > 0:
-            print(f"⚠️ 資料庫已有 {existing_count} 筆記錄")
-            resp = input("請選擇動作：\n"
-                        "y = 刪除資料並重新處理\n"
-                        "n = 保留資料並繼續處理\n"
-                        "exit = 離開程式\n"
-                        "輸入選項 (y/n/exit): ").strip().lower()
-            
-            if resp.lower() == 'y':
-                cur.execute('DELETE FROM public."2500567RAG"')
-                cur.execute('TRUNCATE TABLE public."2500567RAG" RESTART IDENTITY;')
-                conn.commit()
-                print("✅ 已清除資料，重新開始處理")
-            elif resp == 'n':
-                print("✅ 保留現有資料，繼續處理")
-            elif resp == 'exit':
-                print("🚪 已取消處理，結束程式")
-                cur.close()
-                conn.close()
-                return False
-            else:
-                print("⚠️ 無效選項，請重新執行並輸入 y/n/exit")
-                cur.close()
-                conn.close()
-                return False
-        cur.close()
-        conn.close()
-        return True
-    
-    except Exception as e:
-        print(f"檢查/清除資料失敗: {e}")
-        return False
+
+def generate_analysis(results_dict):
+    import json
+    return analyze_results_with_llm(json.dumps(results_dict, ensure_ascii=False, indent=2))
+
+
+
+def analyze_results_with_llm(text: str) -> str:
+    analysis_prompt = f"""
+你是一個資訊檢索與分析專家，請根據以下模型對比結果進行深入分析。
+請特別關注 Top-1 accuracy 與 Recall@K 是否存在準確 vs. 覆蓋的平衡問題。
+
+你需要根據以下面向來產出結果分析與討論完整報告：
+
+1. 整體準確性比較（哪個模型 consistently 領先？）
+2. 錯誤案例可能原因（哪些情況下兩者差異大）
+3. 性能與成本比較（OpenAI API 的延遲和費用 vs. 本地部署BGE模型的計算開銷）
+4. 結論： 綜合量化指標和質化分析，給出應用建議。
+
+
+請以清晰條列方式產出分析報告。以下是指標結果：
+{text}
+"""
+    response = client.chat.completions.create(
+        model=os.getenv("AOAI_CHAT_DEPLOYMENT"),
+        messages=[{"role": "user", "content": analysis_prompt}],
+        temperature=0.4,
+        max_tokens=1000
+    )
+    return response.choices[0].message.content.strip()
+
+
 
 
 
@@ -241,7 +275,15 @@ def main():
 
     output_file = save_evaluation_to_txt(all_results, run_count)
     prompt_save_as(output_file)
+    
+    with open(output_file, "r", encoding="utf-8") as f:
+        content = f.read()
+        print("\n[🧠] LLM 分析報告生成中...\n")
+        summary = analyze_results_with_llm(content)
+        print(summary)
 
+        with open("LLM_分析報告.txt", "w", encoding="utf-8") as out:
+            out.write(summary)
 
 
 if __name__ == "__main__":

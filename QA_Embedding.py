@@ -292,8 +292,8 @@ def main():
                 # 計算向量
                 q_emb_bge = embed_bge(q["question"])
                 q_emb_openai = embed_openai(q["question"])
-                a_emb_bge = embed_bge(answer)
-                a_emb_openai = embed_openai(answer)
+                a_emb_bge = embed_bge(doc["text"])
+                a_emb_openai = embed_openai(doc["text"])
                 
                 # 儲存資料
                 entry = {
