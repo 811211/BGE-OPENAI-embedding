@@ -62,7 +62,7 @@ def fetch_documents(limit=1000) -> List[Dict]:
     return result
 
 # ----- 生成假問題 -----
-def generate_questions_for_docs(docs: List[Dict], total_questions=200) -> List[Dict]:
+def generate_questions_for_docs(docs: List[Dict], total_questions=100) -> List[Dict]:
     chat_deployment = os.getenv("AOAI_CHAT_DEPLOYMENT")
     questions = []
     existing_questions = set()  # ➤ 用於避免重複問題
@@ -172,7 +172,7 @@ def main():
     for source_table, docs in grouped_docs.items():
         print(f"\n🗂️ 類型: {source_table}，共 {len(docs)} 筆")
         print("🔄 開始生成問題...")
-        questions = generate_questions_for_docs(docs, total_questions=200)
+        questions = generate_questions_for_docs(docs, total_questions=100)
         print(f"✅ 共為類型 {source_table} 生成 {len(questions)} 筆問題")
 
         print("💾 生成答案並寫入資料庫...")

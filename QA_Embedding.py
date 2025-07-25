@@ -74,7 +74,7 @@ def fetch_documents(limit=1000) -> List[Dict]:
     return result
 
 # ----- 生成假問題 -----
-def generate_questions_for_docs(docs: List[Dict], total_questions=100) -> List[Dict]:
+def generate_questions_for_docs(docs: List[Dict], total_questions=10) -> List[Dict]:
     chat_deployment = os.getenv("AOAI_CHAT_DEPLOYMENT")
     questions = []
     existing_questions = set()  # ➤ 用於避免重複問題
@@ -115,6 +115,7 @@ def generate_questions_for_docs(docs: List[Dict], total_questions=100) -> List[D
                         max_tokens=100
                     )
                     q = response.choices[0].message.content.strip()
+                    a = extract_answer_from_text(doc["text"], q, client, chat_deployment)
 
                     if q in existing_questions:
                         retry += 1
@@ -123,7 +124,8 @@ def generate_questions_for_docs(docs: List[Dict], total_questions=100) -> List[D
                         existing_questions.add(q)
                         questions.append({
                             "document_id": doc["document_id"],
-                            "question": q
+                            "question": q,
+                            "answer": a
                         })
                         break  # 成功生成問題就跳出 retry 迴圈
 
@@ -131,6 +133,31 @@ def generate_questions_for_docs(docs: List[Dict], total_questions=100) -> List[D
                     print(f"⚠️ 生成假問題失敗 document_id={doc['document_id']}，原因: {e}")
                     break  # 若是 LLM API 失敗就跳出 retry
     return questions
+
+# ----- 從text擷取answer -----
+
+def extract_answer_from_text(text: str, question: str, client=None, deployment=None) -> str:
+    prompt = (
+        f"根據以下內容與問題，請從內文中擷取**最精準的一段文字**作為答案，不要自行改寫或補充，"
+        f"答案必須是原文中的一段話。\n\n"
+        f"【內文】\n{text}\n\n"
+        f"【問題】\n{question}\n\n"
+        f"【答案】"
+    )
+
+    try:
+        response = client.chat.completions.create(
+            model=deployment,
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.2,
+            max_tokens=100
+        )
+        return response.choices[0].message.content.strip()
+    except Exception as e:
+        print(f"⚠️ 擷取答案失敗：{e}")
+        return ""  # or return None
+
+
 
 # ----- embedding 函數 -----
 
@@ -184,22 +211,36 @@ def check_and_clear_table_if_needed():
         cur = conn.cursor()
         cur.execute('SELECT COUNT(*) FROM public."2500567RAG"')
         existing_count = cur.fetchone()[0]
+        
         if existing_count > 0:
             print(f"⚠️ 資料庫已有 {existing_count} 筆記錄")
-            resp = input("清除現有資料並重新處理？(y/N): ")
+            resp = input("請選擇動作：\n"
+                        "y = 刪除資料並重新處理\n"
+                        "n = 保留資料並繼續處理\n"
+                        "exit = 離開程式\n"
+                        "輸入選項 (y/n/exit): ").strip().lower()
+            
             if resp.lower() == 'y':
                 cur.execute('DELETE FROM public."2500567RAG"')
                 cur.execute('TRUNCATE TABLE public."2500567RAG" RESTART IDENTITY;')
                 conn.commit()
-                print("✅ 已清除資料")
+                print("✅ 已清除資料，重新開始處理")
+            elif resp == 'n':
+                print("✅ 保留現有資料，繼續處理")
+            elif resp == 'exit':
+                print("🚪 已取消處理，結束程式")
+                cur.close()
+                conn.close()
+                return False
             else:
-                print("取消處理")
+                print("⚠️ 無效選項，請重新執行並輸入 y/n/exit")
                 cur.close()
                 conn.close()
                 return False
         cur.close()
         conn.close()
         return True
+    
     except Exception as e:
         print(f"檢查/清除資料失敗: {e}")
         return False
@@ -218,21 +259,29 @@ def main():
     grouped_docs = fetch_documents(limit=1000)
 
     total_all_questions = 0
+    
     for source_table, docs in grouped_docs.items():
         print(f"\n🗂️ 類型: {source_table}，共 {len(docs)} 筆")
         print("🔄 開始生成問題...")
-        questions = generate_questions_for_docs(docs, total_questions=100)
+        
+        questions = generate_questions_for_docs(docs, total_questions=10)
         print(f"✅ 共為類型 {source_table} 生成 {len(questions)} 筆問題")
 
         print("💾 生成答案並寫入資料庫...")
         for q in tqdm(questions, desc=f"{source_table} - 寫入中"):
             doc = next((d for d in docs if d["document_id"] == q["document_id"]), None)
             if doc:
-                answer = doc["text"]
+                
+                # 擷取答案
+                answer = answer = extract_answer_from_text(doc["text"], q["question"], client, os.getenv("AOAI_CHAT_DEPLOYMENT"))
+                
+                # 計算向量
                 q_emb_bge = embed_bge(q["question"])
                 q_emb_openai = embed_openai(q["question"])
                 a_emb_bge = embed_bge(answer)
                 a_emb_openai = embed_openai(answer)
+                
+                # 儲存資料
                 entry = {
                     "document_id": doc["document_id"],
                     "source_table": doc["source_table"],
@@ -245,6 +294,7 @@ def main():
                     "text": doc["text"]
                 }
                 save_question(entry)
+                
         total_all_questions += len(questions)
 
     print(f"\n✅ 全部類型問題與答案生成完畢！總數: {total_all_questions} 筆")
