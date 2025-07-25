@@ -2,6 +2,7 @@
 # 📄 QA_Embedding
 # 功能：生成問題並比較模型
 # ===========================================
+import json
 import os
 import psycopg2
 import numpy as np
@@ -74,7 +75,7 @@ def fetch_documents(limit=1000) -> List[Dict]:
     return result
 
 # ----- 生成假問題 -----
-def generate_questions_for_docs(docs: List[Dict], total_questions=10) -> List[Dict]:
+def generate_questions_for_docs(docs: List[Dict], total_questions=100) -> List[Dict]:
     chat_deployment = os.getenv("AOAI_CHAT_DEPLOYMENT")
     questions = []
     existing_questions = set()  # ➤ 用於避免重複問題
@@ -138,21 +139,34 @@ def generate_questions_for_docs(docs: List[Dict], total_questions=10) -> List[Di
 
 def extract_answer_from_text(text: str, question: str, client=None, deployment=None) -> str:
     prompt = (
-        f"根據以下內容與問題，請從內文中擷取**最精準的一段文字**作為答案，不要自行改寫或補充，"
-        f"答案必須是原文中的一段話。\n\n"
-        f"【內文】\n{text}\n\n"
-        f"【問題】\n{question}\n\n"
-        f"【答案】"
-    )
+    f"""根據以下內容與問題，請從內文中擷取**最精準的一段文字**作為答案，不要自行改寫或補充，\n
+    答案必須是原文中的一段話。\n
+    答案格式必須為：**「關鍵詞:數字」**（例如：股價變化:500、營收:1200、淨利:80 等）。\n
+    且必須遵循以下json格式:
+    
+    {text}
+        
+    【問題】
+    {question}
 
+    【輸出】
+    {{
+    "answer": "股價變化:500"
+    }}
+    """
+    )
     try:
         response = client.chat.completions.create(
             model=deployment,
             messages=[{"role": "user", "content": prompt}],
             temperature=0.2,
-            max_tokens=100
+            max_tokens=100,
+            response_format={ "type": "json_object" }
         )
-        return response.choices[0].message.content.strip()
+        
+        
+        json_data = json.loads(response.choices[0].message.content.strip())
+        return json_data.get("answer", "")
     except Exception as e:
         print(f"⚠️ 擷取答案失敗：{e}")
         return ""  # or return None
@@ -264,7 +278,7 @@ def main():
         print(f"\n🗂️ 類型: {source_table}，共 {len(docs)} 筆")
         print("🔄 開始生成問題...")
         
-        questions = generate_questions_for_docs(docs, total_questions=10)
+        questions = generate_questions_for_docs(docs, total_questions=100)
         print(f"✅ 共為類型 {source_table} 生成 {len(questions)} 筆問題")
 
         print("💾 生成答案並寫入資料庫...")
@@ -302,4 +316,5 @@ def main():
 
 
 if __name__ == "__main__":
+    extract_answer_from_text("測試問題", "來源名稱", client, os.getenv("AOAI_CHAT_DEPLOYMENT"))
     main()
