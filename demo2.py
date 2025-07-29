@@ -12,6 +12,7 @@ from typing import List, Dict
 
 import numpy as np
 import faiss
+import pandas as pd
 from tqdm import tqdm
 from dotenv import load_dotenv
 import psycopg2
@@ -144,7 +145,42 @@ def build_faiss_index(vectors: np.ndarray):
 
 # ----- 評估指標計算 -----
 
-def evaluate_retrieval(index, queries, ground_truth, k=5):
+def save_error_cases(details: list, id2text: dict = None, output_dir: str = "report", filename: str = "error_cases.csv"):
+    error_cases = [d for d in details if not d.get("hit", False)]
+    
+    rows = []
+    for d in error_cases:
+        row = {
+            "query_id": d["query_id"],
+            "ground_truth": d["ground_truth"],
+            "retrieved_ids": d["retrieved_ids"],
+            "similarities": d["similarities"],
+            "rank": d["rank"],
+            "precision": d["precision"],
+            "recall": d["recall"],
+            "mrr": d["reciprocal_rank"]
+        }
+
+        if id2text:
+            meta = id2text.get(d["ground_truth"], {})
+            row["ground_truth_text"] = meta.get("text", "")
+            row["query_text"] = id2text.get(d["query_id"], {}).get("query", "")  
+            row["document_id"] = meta.get("document_id", "")
+            row["source_table"] = meta.get("source_table", "")
+            row["retrieved_texts"] = [
+                id2text.get(rid, {}).get("text", "") for rid in d["retrieved_ids"]
+            ]
+
+
+        rows.append(row)
+
+    df = pd.DataFrame(rows)
+    os.makedirs(output_dir, exist_ok=True)
+    output_path = os.path.join(output_dir, filename)
+    df.to_csv(output_path, index=False, encoding="utf-8-sig")
+    print(f"❌ 錯誤案例已儲存：{output_path}")
+    
+def evaluate_retrieval(index, queries, ground_truth, k=5, id2text=None):
     D, I = index.search(queries, k)
     recall_at_k = []
     precision_at_k = []
@@ -195,6 +231,9 @@ def evaluate_retrieval(index, queries, ground_truth, k=5):
             reciprocal_ranks.append(0)
             
         details.append(detail)
+        
+        # 🔸 儲存錯誤案例 CSV
+    save_error_cases(details, id2text=id2text)
 
     return {
         "Recall@K": round(np.mean(recall_at_k), 4),
@@ -327,7 +366,7 @@ from collections import defaultdict
 def main():
     conn = psycopg2.connect(**DB_CONFIG)
     cur = conn.cursor(cursor_factory=RealDictCursor)
-    cur.execute('SELECT id, question, answer, question_embedding_bge, question_embedding_openai, answer_embedding_bge, answer_embedding_openai, source_table FROM "2500567RAG" ORDER BY id;')
+    cur.execute('SELECT id, question, answer, question_embedding_bge, question_embedding_openai, answer_embedding_bge, answer_embedding_openai, source_table, text FROM "2500567RAG" ORDER BY id;')
     rows = cur.fetchall()
     conn.close()
 
@@ -345,9 +384,18 @@ def main():
         openai_q = np.array([row["question_embedding_openai"] for row in items], dtype='float32')
         openai_a = np.array([row["answer_embedding_openai"] for row in items], dtype='float32')
         ground_truth = list(range(len(items)))
+        id2text = {
+            i: {
+                "text": row["answer"],
+                "query": row["question"],
+                "document_id": row["id"],
+                "source_table": row["source_table"]
+            }
+            for i, row in enumerate(items)
+        } 
 
-        result_bge = evaluate_retrieval(build_faiss_index(bge_a), bge_q, ground_truth)
-        result_openai = evaluate_retrieval(build_faiss_index(openai_a), openai_q, ground_truth)
+        result_bge = evaluate_retrieval(build_faiss_index(bge_a), bge_q, ground_truth, id2text=id2text)
+        result_openai = evaluate_retrieval(build_faiss_index(openai_a), openai_q, ground_truth, id2text=id2text)
 
         all_results[source] = {
             "BGE": wrap_metrics(result_bge),
