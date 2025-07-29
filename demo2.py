@@ -158,12 +158,18 @@ def evaluate_retrieval(index, queries, ground_truth, k=5):
         retrieved_list = list(retrieved)
         detail = {
             "query_id": i,
-            "retrieved_ids": retrieved_list,
             "ground_truth": relevant,
+            "retrieved_ids": [int(x) for x in retrieved_list],
+            "similarities": [float(x) for x in D[i]],
             "hit": False,
-            "rank": None
+            "rank": None,
+            "recall": 0,
+            "precision": 0,
+            "mean_rank": k + 1,
+            "reciprocal_rank": 0,
+            "top1_hit": False
         }
-        
+    
         try:
             rank = retrieved_list.index(relevant)
             recall_at_k.append(1)
@@ -172,8 +178,15 @@ def evaluate_retrieval(index, queries, ground_truth, k=5):
             top_k_accuracy.append(1 if rank < k else 0)    # Top-K Accuracy rank <  k → Top-k 命中
             mean_rank.append(rank + 1)
             reciprocal_ranks.append(1 / (rank + 1))
-            detail["hit"] = True
-            detail["rank"] = rank + 1
+            detail.update({
+                "hit": True,
+                "rank": rank + 1,
+                "recall": 1,
+                "precision": round(1 / (rank + 1), 4),
+                "mean_rank": rank + 1,
+                "reciprocal_rank": round(1 / (rank + 1), 4),
+                "top1_hit": rank == 0
+            })
         except ValueError:
             recall_at_k.append(0)
             precision_at_k.append(0)
@@ -194,24 +207,24 @@ def evaluate_retrieval(index, queries, ground_truth, k=5):
 
 # ----- 資料儲存 -----
 
-def save_evaluation_to_txt(results: dict, run_count: int):
-    filename = f"BGE-OPENAI-embedding test({run_count}).txt"
-    with open(filename, "w", encoding="utf-8") as f:
-        f.write(f"BGE-OPENAI Embedding Evaluation Report (Runs = {run_count})\n")
-        f.write("=" * 60 + "\n\n")
-        for source, models in results.items():
-            f.write(f"📄 Source Table: {source}\n")
-            f.write("-" * 60 + "\n")
-            for model_name, metric_data in models.items():
-                f.write(f"🔹 {model_name}:\n")
-                for metric, values in metric_data.items():
-                    if run_count == 1:
-                        f.write(f"{metric}: {values[0]}\n")
-                    else:
-                        avg = round(sum(values) / len(values), 4)
-                        f.write(f"{metric}: Run1={values[0]}  Run2={values[1]}  Run3={values[2]}  Avg={avg}\n")
-                f.write("\n")
-    return filename
+# def save_evaluation_to_txt(results: dict, run_count: int):
+#     filename = f"BGE-OPENAI-embedding test({run_count}).txt"
+#     with open(filename, "w", encoding="utf-8") as f:
+#         f.write(f"BGE-OPENAI Embedding Evaluation Report (Runs = {run_count})\n")
+#         f.write("=" * 60 + "\n\n")
+#         for source, models in results.items():
+#             f.write(f"📄 Source Table: {source}\n")
+#             f.write("-" * 60 + "\n")
+#             for model_name, metric_data in models.items():
+#                 f.write(f"🔹 {model_name}:\n")
+#                 for metric, values in metric_data.items():
+#                     if run_count == 1:
+#                         f.write(f"{metric}: {values[0]}\n")
+#                     else:
+#                         avg = round(sum(values) / len(values), 4)
+#                         f.write(f"{metric}: Run1={values[0]}  Run2={values[1]}  Run3={values[2]}  Avg={avg}\n")
+#                 f.write("\n")
+#     return filename
 
 
 def prompt_save_as(src_path):
@@ -230,16 +243,15 @@ def prompt_save_as(src_path):
         
 def format_details_human_readable(details: List[Dict]) -> str:
     lines = []
-    lines.append(f"{'Query ID':<10}{'Ground Truth':<15}{'Retrieved IDs':<40}{'Rank':<6}{'Hit'}")
-    lines.append("-" * 80)
+    header = f"{'Query':<6}{'GT':<6}{'TopK IDs':<30}{'Rank':<6}{'Top1':<6}{'Recall':<8}{'Prec':<8}{'MRR':<8}"
+    lines.append(header)
+    lines.append("-" * len(header))
     for d in details:
-        qid = int(d['query_id'])
-        gt = int(d['ground_truth'])
-        retrieved = [int(x) for x in d['retrieved_ids']]
-        rank = d['rank'] if d['rank'] is not None else "-"
-        hit = "✅" if d['hit'] else "❌"
-        lines.append(f"{qid:<10}{gt:<15}{str(retrieved):<40}{rank:<6}{hit}")
+        line = f"{d['query_id']:<6}{d['ground_truth']:<6}{str(d['retrieved_ids'])[:28]:<30}{str(d['rank'] or '-'):<6}"
+        line += f"{'✅' if d['top1_hit'] else '❌':<6}{d['recall']:<8}{d['precision']:<8}{d['reciprocal_rank']:<8}"
+        lines.append(line)
     return "\n".join(lines)
+
         
 def save_full_report(results_dict, summary_text, run_count):
     import json
@@ -281,13 +293,10 @@ def save_full_report(results_dict, summary_text, run_count):
 
 # ----- LLM 分析 -----
 
-def generate_analysis(results_dict):
+def analyze_results_with_llm(results_dict: dict) -> str:
     import json
-    return analyze_results_with_llm(json.dumps(results_dict, ensure_ascii=False, indent=2))
+    text = json.dumps(results_dict, ensure_ascii=False, indent=2)
 
-
-
-def analyze_results_with_llm(text: str) -> str:
     analysis_prompt = f"""
 你是一個資訊檢索與分析專家，請根據以下模型對比結果進行深入分析。
 請特別關注 Top-1 accuracy 與 Recall@K 是否存在準確 vs. 覆蓋的平衡問題。
@@ -299,7 +308,6 @@ def analyze_results_with_llm(text: str) -> str:
 3. 性能與成本比較（OpenAI API 的延遲和費用 vs. 本地部署BGE模型的計算開銷）
 4. 結論： 綜合量化指標和質化分析，給出應用建議。
 
-
 請以清晰條列方式產出分析報告。以下是指標結果：
 {text}
 """
@@ -310,9 +318,6 @@ def analyze_results_with_llm(text: str) -> str:
         max_tokens=1000
     )
     return response.choices[0].message.content.strip()
-
-
-
 
 
 # ----- 主程式 -----
@@ -351,8 +356,20 @@ def main():
 
     # Step 1: 產生分析報告
     print("\n[🧠] LLM 分析報告生成中...\n")
-    summary = analyze_results_with_llm(str(all_results)) 
+
+    # 過濾掉 Details，只保留指標數值
+    summary_input = {
+        source: {
+            model: {k: v for k, v in metrics.items() if k != "Details"}
+            for model, metrics in models.items()
+        }
+        for source, models in all_results.items()
+    }
+
+    # 丟給 LLM 分析
+    summary = analyze_results_with_llm(summary_input)
     print(summary)
+
 
     # Step 2: 整合成單一完整報告
     full_report_path = save_full_report(all_results, summary, run_count)
