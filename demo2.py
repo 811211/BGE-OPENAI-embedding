@@ -98,6 +98,16 @@ def check_and_clear_table_if_needed():
         print(f"檢查/清除資料失敗: {e}")
         return False
     
+def wrap_metrics(metrics: dict) -> dict:
+    result = {}
+    for k, v in metrics.items():
+        if k == "Details":
+            result[k] = v  # 不包成 list
+        else:
+            result[k] = [v]  # 正常指標包成 list
+    return result
+
+    
 
 # ----- embedding 函數 -----
 
@@ -141,29 +151,45 @@ def evaluate_retrieval(index, queries, ground_truth, k=5):
     top_k_accuracy = []
     mean_rank = []
     reciprocal_ranks = []
+    details = []
 
     for i, retrieved in enumerate(I):
         relevant = ground_truth[i]
+        retrieved_list = list(retrieved)
+        detail = {
+            "query_id": i,
+            "retrieved_ids": retrieved_list,
+            "ground_truth": relevant,
+            "hit": False,
+            "rank": None
+        }
+        
         try:
-            rank = list(retrieved).index(relevant)
+            rank = retrieved_list.index(relevant)
             recall_at_k.append(1)
             precision_at_k.append(1 / (rank + 1))
-            top_k_accuracy.append(1 if rank == 0 else 0)
+            # top_k_accuracy.append(1 if rank == 0 else 0) # Top-1 Accuracy rank == 0 → Top-1 命中。
+            top_k_accuracy.append(1 if rank < k else 0)    # Top-K Accuracy rank <  k → Top-k 命中
             mean_rank.append(rank + 1)
             reciprocal_ranks.append(1 / (rank + 1))
+            detail["hit"] = True
+            detail["rank"] = rank + 1
         except ValueError:
             recall_at_k.append(0)
             precision_at_k.append(0)
             top_k_accuracy.append(0)
             mean_rank.append(k + 1)
             reciprocal_ranks.append(0)
+            
+        details.append(detail)
 
     return {
         "Recall@K": round(np.mean(recall_at_k), 4),
         "Precision@K": round(np.mean(precision_at_k), 4),
-        "Top-1 Accuracy": round(np.mean(top_k_accuracy), 4),
+        "Top-K Accuracy": round(np.mean(top_k_accuracy), 4),
         "Mean Rank": round(np.mean(mean_rank), 4),
         "MRR": round(np.mean(reciprocal_ranks), 4),
+        "Details": details
     }
 
 # ----- 資料儲存 -----
@@ -201,9 +227,59 @@ def prompt_save_as(src_path):
         print(f"✅ 成功另存為：{save_path}")
     else:
         print("❌ 取消另存")
+        
+def format_details_human_readable(details: List[Dict]) -> str:
+    lines = []
+    lines.append(f"{'Query ID':<10}{'Ground Truth':<15}{'Retrieved IDs':<40}{'Rank':<6}{'Hit'}")
+    lines.append("-" * 80)
+    for d in details:
+        qid = int(d['query_id'])
+        gt = int(d['ground_truth'])
+        retrieved = [int(x) for x in d['retrieved_ids']]
+        rank = d['rank'] if d['rank'] is not None else "-"
+        hit = "✅" if d['hit'] else "❌"
+        lines.append(f"{qid:<10}{gt:<15}{str(retrieved):<40}{rank:<6}{hit}")
+    return "\n".join(lines)
+        
+def save_full_report(results_dict, summary_text, run_count):
+    import json
 
+    filename = f"完整評估報告_Run{run_count}.txt"
+    with open(filename, "w", encoding="utf-8") as f:
+        # 標題
+        f.write(f"[📊] BGE-OPENAI Embedding Evaluation Report (Run {run_count})\n")
+        f.write("=" * 80 + "\n\n")
 
+        # 每組結果
+        for source, models in results_dict.items():
+            f.write(f"📄 Source Table: {source}\n")
+            f.write("-" * 80 + "\n")
+            for model_name, metric_data in models.items():
+                f.write(f"🔹 {model_name} 模型:\n")
+                for metric, values in metric_data.items():
+                    if run_count == 1:
+                        f.write(f"{metric}: {values[0]}\n")
+                    else:
+                        avg = round(sum(values) / len(values), 4)
+                        f.write(f"{metric}: Run1={values[0]}  Run2={values[1]}  Run3={values[2]}  Avg={avg}\n")
+                f.write("\n")
 
+        f.write("\n[🧠] LLM 模型分析報告\n")
+        f.write("=" * 80 + "\n")
+        f.write(summary_text + "\n\n")
+
+        f.write("[🔍] Retrieval 詳細過程記錄\n")
+        f.write("=" * 80 + "\n")
+
+        for source, models in results_dict.items():
+            for model_name, metric_data in models.items():
+                if "Details" in metric_data:
+                    f.write(f"📂 {source} - {model_name} Retrieval Details:\n")
+                    text = format_details_human_readable(metric_data["Details"])
+                    f.write(text + "\n\n")               
+    return filename
+
+# ----- LLM 分析 -----
 
 def generate_analysis(results_dict):
     import json
@@ -269,21 +345,21 @@ def main():
         result_openai = evaluate_retrieval(build_faiss_index(openai_a), openai_q, ground_truth)
 
         all_results[source] = {
-            "BGE": {k: [v] for k, v in result_bge.items()},      
-            "OpenAI": {k: [v] for k, v in result_openai.items()}
+            "BGE": wrap_metrics(result_bge),
+            "OpenAI": wrap_metrics(result_openai)
         }
 
-    output_file = save_evaluation_to_txt(all_results, run_count)
-    prompt_save_as(output_file)
-    
-    with open(output_file, "r", encoding="utf-8") as f:
-        content = f.read()
-        print("\n[🧠] LLM 分析報告生成中...\n")
-        summary = analyze_results_with_llm(content)
-        print(summary)
+    # Step 1: 產生分析報告
+    print("\n[🧠] LLM 分析報告生成中...\n")
+    summary = analyze_results_with_llm(str(all_results)) 
+    print(summary)
 
-        with open("LLM_分析報告.txt", "w", encoding="utf-8") as out:
-            out.write(summary)
+    # Step 2: 整合成單一完整報告
+    full_report_path = save_full_report(all_results, summary, run_count)
+
+    # Step 3: 提供使用者另存
+    prompt_save_as(full_report_path)
+
 
 
 if __name__ == "__main__":
