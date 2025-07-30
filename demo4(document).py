@@ -213,10 +213,12 @@ def evaluate_retrieval(index, queries, ground_truth, k=5, id2text=None, index_to
     for i, retrieved in enumerate(I):
         relevant = ground_truth[i]
         retrieved_list = list(retrieved)
+        retrieved_doc_ids = [index_to_doc_id[idx] for idx in retrieved_list]
+
         detail = {
             "query_id": i,
             "ground_truth": relevant,
-            "retrieved_ids": [int(x) for x in retrieved_list],
+            "retrieved_ids": retrieved_doc_ids,
             "similarities": [float(x) for x in D[i]],
             "hit": False,
             "rank": None,
@@ -226,21 +228,12 @@ def evaluate_retrieval(index, queries, ground_truth, k=5, id2text=None, index_to
             "reciprocal_rank": 0,
             "top1_hit": False
         }
-    
-        try:
-            retrieved_doc_ids = [index_to_doc_id[idx] for idx in retrieved_list]
 
-            detail["retrieved_ids"] = retrieved_doc_ids  # 替換原本 FAISS 索引編號為真實 document_id
-
-            if ground_truth[i] in retrieved_doc_ids:
-                rank = retrieved_doc_ids.index(ground_truth[i])
-            else:
-               rank = None  # 或跳過
-
+        if relevant in retrieved_doc_ids:
+            rank = retrieved_doc_ids.index(relevant)
             recall_at_k.append(1)
             precision_at_k.append(1 / (rank + 1))
-            # top_k_accuracy.append(1 if rank == 0 else 0) # Top-1 Accuracy rank == 0 → Top-1 命中。
-            top_k_accuracy.append(1 if rank < k else 0)    # Top-K Accuracy rank <  k → Top-k 命中
+            top_k_accuracy.append(1 if rank < k else 0)
             mean_rank.append(rank + 1)
             reciprocal_ranks.append(1 / (rank + 1))
             detail.update({
@@ -252,16 +245,25 @@ def evaluate_retrieval(index, queries, ground_truth, k=5, id2text=None, index_to
                 "reciprocal_rank": round(1 / (rank + 1), 4),
                 "top1_hit": rank == 0
             })
-        except ValueError:
+        else:
             recall_at_k.append(0)
             precision_at_k.append(0)
             top_k_accuracy.append(0)
             mean_rank.append(k + 1)
             reciprocal_ranks.append(0)
-            
+
+        # 額外錯誤輸出欄位（僅供 CSV）
+        if id2text:
+            meta = id2text.get(relevant, {})
+            detail["query_text"] = meta.get("query", "")
+            detail["ground_truth_text"] = meta.get("text", "")
+            detail["source_table"] = meta.get("source_table", "")
+            detail["retrieved_texts"] = [
+                id2text.get(rid, {}).get("text", "") for rid in retrieved_doc_ids
+            ]
+
         details.append(detail)
-        
-        # 🔸 儲存錯誤案例 CSV
+
     save_error_cases(details, id2text=id2text)
 
     return {
@@ -272,6 +274,7 @@ def evaluate_retrieval(index, queries, ground_truth, k=5, id2text=None, index_to
         "MRR": round(np.mean(reciprocal_ranks), 4),
         "Details": details
     }
+
 
 # ----- 資料儲存 -----
 
@@ -396,7 +399,7 @@ def main():
     
     conn = psycopg2.connect(**DB_CONFIG)
     cur = conn.cursor(cursor_factory=RealDictCursor)
-    cur.execute('SELECT id, question, answer, source_table, text FROM "2500567RAG" ORDER BY id;')
+    cur.execute('SELECT id, document_id, question, answer, source_table, text FROM "2500567RAG" ORDER BY id;')
     rows = cur.fetchall()
     conn.close()
 

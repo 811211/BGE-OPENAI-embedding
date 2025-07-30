@@ -4,24 +4,24 @@
 📄 Source Table: rshcontent
 --------------------------------------------------------------------------------
 🔹 BGE 模型:
-Recall@K: 0.8764
-Precision@K: 0.7949
+Precision@K: 0.1753
 Top-K Accuracy: 0.8764
+Top-1 Accuracy: 0.7303
 Mean Rank: 1.8202
 MRR: 0.7949
-Details: {'query_id': 0, 'ground_truth': 'rshcontent_202309010147 _003', 'retrieved_ids': ['rshcontent_202309010147 _003', 'rshcontent_202309010202 _llm_item_1_001', 'rshcontent_202309010202 _llm_item_0_001', 'rshcontent_202309010147 _004', 'rshcontent_202309010145 _002'], 'similarities': [0.6879539489746094, 0.46369150280952454, 0.46369150280952454, 0.4594699740409851, 0.4586724042892456], 'hit': True, 'rank': 1, 'recall': 1, 'precision': 1.0, 'mean_rank': 1, 'reciprocal_rank': 1.0, 'top1_hit': True}
+Details: {'query_id': 0, 'ground_truth': 'rshcontent_202309010147 _003', 'retrieved_ids': ['rshcontent_202309010147 _003', 'rshcontent_202309010202 _llm_item_1_001', 'rshcontent_202309010202 _llm_item_0_001', 'rshcontent_202309010147 _004', 'rshcontent_202309010145 _002'], 'similarities': [0.6879539489746094, 0.46369150280952454, 0.46369150280952454, 0.4594699740409851, 0.4586724042892456], 'hit': True, 'rank': 1, 'precision': 0.2, 'mean_rank': 1, 'reciprocal_rank': 1.0, 'top1_hit': True}
 
 🔸 Avg bge_max_answer_similarity: 0.0
 🔸 Avg bge_max_question_similarity: 0.0
 🔸 Avg openai_max_answer_similarity: 0.0
 🔸 Avg openai_max_question_similarity: 0.0
 🔹 OpenAI 模型:
-Recall@K: 0.7191
-Precision@K: 0.5994
+Precision@K: 0.1438
 Top-K Accuracy: 0.7191
+Top-1 Accuracy: 0.5169
 Mean Rank: 2.764
 MRR: 0.5994
-Details: {'query_id': 0, 'ground_truth': 'rshcontent_202309010147 _003', 'retrieved_ids': ['rshcontent_202309010147 _003', 'rshcontent_202309010137 _001', 'rshcontent_202309010145 _000', 'rshcontent_202309010145 _002', 'rshcontent_202309010204 _llm_item_2_000'], 'similarities': [0.7891669869422913, 0.7636895179748535, 0.7547651529312134, 0.7533024549484253, 0.7530480027198792], 'hit': True, 'rank': 1, 'recall': 1, 'precision': 1.0, 'mean_rank': 1, 'reciprocal_rank': 1.0, 'top1_hit': True}
+Details: {'query_id': 0, 'ground_truth': 'rshcontent_202309010147 _003', 'retrieved_ids': ['rshcontent_202309010147 _003', 'rshcontent_202309010137 _001', 'rshcontent_202309010145 _000', 'rshcontent_202309010145 _002', 'rshcontent_202309010204 _llm_item_2_000'], 'similarities': [0.7891669869422913, 0.7636895179748535, 0.75465327501297, 0.7533024549484253, 0.7530480027198792], 'hit': True, 'rank': 1, 'precision': 0.2, 'mean_rank': 1, 'reciprocal_rank': 1.0, 'top1_hit': True}
 
 🔸 Avg bge_max_answer_similarity: 0.0
 🔸 Avg bge_max_question_similarity: 0.0
@@ -30,24 +30,24 @@ Details: {'query_id': 0, 'ground_truth': 'rshcontent_202309010147 _003', 'retrie
 📄 Source Table: ntnx1netrtnews
 --------------------------------------------------------------------------------
 🔹 BGE 模型:
-Recall@K: 0.99
-Precision@K: 0.9117
+Precision@K: 0.198
 Top-K Accuracy: 0.99
+Top-1 Accuracy: 0.85
 Mean Rank: 1.24
 MRR: 0.9117
-Details: {'query_id': 0, 'ground_truth': 'ntnx1netrtnews_160_llm_item_0_000', 'retrieved_ids': ['ntnx1netrtnews_167_llm_item_0_000', 'ntnx1netrtnews_167_llm_item_5_000', 'ntnx1netrtnews_160_llm_item_0_000', 'ntnx1netrtnews_167_llm_item_6_000', 'ntnx1netrtnews_170_llm_item_2_000'], 'similarities': [0.5509676933288574, 0.5189559459686279, 0.518427312374115, 0.4986152648925781, 0.4977981150150299], 'hit': True, 'rank': 3, 'recall': 1, 'precision': 0.3333, 'mean_rank': 3, 'reciprocal_rank': 0.3333, 'top1_hit': False}
+Details: {'query_id': 0, 'ground_truth': 'ntnx1netrtnews_160_llm_item_0_000', 'retrieved_ids': ['ntnx1netrtnews_167_llm_item_0_000', 'ntnx1netrtnews_167_llm_item_5_000', 'ntnx1netrtnews_160_llm_item_0_000', 'ntnx1netrtnews_167_llm_item_6_000', 'ntnx1netrtnews_170_llm_item_2_000'], 'similarities': [0.5509676933288574, 0.5189559459686279, 0.518427312374115, 0.4986152648925781, 0.4977981150150299], 'hit': True, 'rank': 3, 'precision': 0.2, 'mean_rank': 3, 'reciprocal_rank': 0.3333, 'top1_hit': False}
 
 🔸 Avg bge_max_answer_similarity: 0.0
 🔸 Avg bge_max_question_similarity: 0.0
 🔸 Avg openai_max_answer_similarity: 0.0
 🔸 Avg openai_max_question_similarity: 0.0
 🔹 OpenAI 模型:
-Recall@K: 0.82
-Precision@K: 0.7312
+Precision@K: 0.164
 Top-K Accuracy: 0.82
+Top-1 Accuracy: 0.67
 Mean Rank: 2.15
 MRR: 0.7312
-Details: {'query_id': 0, 'ground_truth': 'ntnx1netrtnews_160_llm_item_0_000', 'retrieved_ids': ['ntnx1netrtnews_159_llm_item_1_000', 'ntnx1netrtnews_159_llm_item_4_000', 'ntnx1netrtnews_159_llm_item_3_000', 'ntnx1netrtnews_159_llm_item_6_000', 'ntnx1netrtnews_159_llm_item_7_000'], 'similarities': [0.8266407251358032, 0.8265931606292725, 0.8260392546653748, 0.825911283493042, 0.8256969451904297], 'hit': False, 'rank': None, 'recall': 0, 'precision': 0, 'mean_rank': 6, 'reciprocal_rank': 0, 'top1_hit': False}
+Details: {'query_id': 0, 'ground_truth': 'ntnx1netrtnews_160_llm_item_0_000', 'retrieved_ids': ['ntnx1netrtnews_159_llm_item_1_000', 'ntnx1netrtnews_159_llm_item_4_000', 'ntnx1netrtnews_159_llm_item_3_000', 'ntnx1netrtnews_159_llm_item_6_000', 'ntnx1netrtnews_159_llm_item_7_000'], 'similarities': [0.8266407251358032, 0.8265931606292725, 0.8260392546653748, 0.825911283493042, 0.8256969451904297], 'hit': False, 'rank': None, 'precision': 0, 'mean_rank': 6, 'reciprocal_rank': 0, 'top1_hit': False}
 
 🔸 Avg bge_max_answer_similarity: 0.0
 🔸 Avg bge_max_question_similarity: 0.0
@@ -56,24 +56,24 @@ Details: {'query_id': 0, 'ground_truth': 'ntnx1netrtnews_160_llm_item_0_000', 'r
 📄 Source Table: ntn001rtnews
 --------------------------------------------------------------------------------
 🔹 BGE 模型:
-Recall@K: 0.94
-Precision@K: 0.9158
+Precision@K: 0.188
 Top-K Accuracy: 0.94
+Top-1 Accuracy: 0.9
 Mean Rank: 1.37
 MRR: 0.9158
-Details: {'query_id': 0, 'ground_truth': 'ntn001rtnews_5417354_llm_item_0_000', 'retrieved_ids': ['ntn001rtnews_5417354_llm_item_0_000', 'ntn001rtnews_5417354_llm_item_6_000', 'ntn001rtnews_5417354_llm_item_8_000', 'ntn001rtnews_5417354_llm_item_3_000', 'ntn001rtnews_5417354_llm_item_2_000'], 'similarities': [0.6509429216384888, 0.6184526085853577, 0.6176471710205078, 0.6157858967781067, 0.6149852275848389], 'hit': True, 'rank': 1, 'recall': 1, 'precision': 1.0, 'mean_rank': 1, 'reciprocal_rank': 1.0, 'top1_hit': True}
+Details: {'query_id': 0, 'ground_truth': 'ntn001rtnews_5417354_llm_item_0_000', 'retrieved_ids': ['ntn001rtnews_5417354_llm_item_0_000', 'ntn001rtnews_5417354_llm_item_6_000', 'ntn001rtnews_5417354_llm_item_8_000', 'ntn001rtnews_5417354_llm_item_3_000', 'ntn001rtnews_5417354_llm_item_2_000'], 'similarities': [0.6509429216384888, 0.6184526085853577, 0.6176471710205078, 0.6157858967781067, 0.6149852275848389], 'hit': True, 'rank': 1, 'precision': 0.2, 'mean_rank': 1, 'reciprocal_rank': 1.0, 'top1_hit': True}
 
 🔸 Avg bge_max_answer_similarity: 0.0
 🔸 Avg bge_max_question_similarity: 0.0
 🔸 Avg openai_max_answer_similarity: 0.0
 🔸 Avg openai_max_question_similarity: 0.0
 🔹 OpenAI 模型:
-Recall@K: 0.7
-Precision@K: 0.591
+Precision@K: 0.14
 Top-K Accuracy: 0.7
+Top-1 Accuracy: 0.53
 Mean Rank: 2.85
 MRR: 0.591
-Details: {'query_id': 0, 'ground_truth': 'ntn001rtnews_5417354_llm_item_0_000', 'retrieved_ids': ['ntn001rtnews_5417354_llm_item_0_000', 'ntn001rtnews_5417354_llm_item_8_000', 'ntn001rtnews_5417354_llm_item_6_000', 'ntn001rtnews_5417354_llm_item_5_000', 'ntn001rtnews_5417354_llm_item_4_000'], 'similarities': [0.8314288854598999, 0.8190401196479797, 0.8150801658630371, 0.8089699745178223, 0.8088674545288086], 'hit': True, 'rank': 1, 'recall': 1, 'precision': 1.0, 'mean_rank': 1, 'reciprocal_rank': 1.0, 'top1_hit': True}
+Details: {'query_id': 0, 'ground_truth': 'ntn001rtnews_5417354_llm_item_0_000', 'retrieved_ids': ['ntn001rtnews_5417354_llm_item_0_000', 'ntn001rtnews_5417354_llm_item_8_000', 'ntn001rtnews_5417354_llm_item_6_000', 'ntn001rtnews_5417354_llm_item_5_000', 'ntn001rtnews_5417354_llm_item_4_000'], 'similarities': [0.8314288854598999, 0.8190401196479797, 0.8150801658630371, 0.8089699745178223, 0.8088674545288086], 'hit': True, 'rank': 1, 'precision': 0.2, 'mean_rank': 1, 'reciprocal_rank': 1.0, 'top1_hit': True}
 
 🔸 Avg bge_max_answer_similarity: 0.0
 🔸 Avg bge_max_question_similarity: 0.0
@@ -82,24 +82,24 @@ Details: {'query_id': 0, 'ground_truth': 'ntn001rtnews_5417354_llm_item_0_000', 
 📄 Source Table: ntn002rtnews
 --------------------------------------------------------------------------------
 🔹 BGE 模型:
-Recall@K: 0.98
-Precision@K: 0.8915
+Precision@K: 0.196
 Top-K Accuracy: 0.98
+Top-1 Accuracy: 0.83
 Mean Rank: 1.36
 MRR: 0.8915
-Details: {'query_id': 0, 'ground_truth': 'ntn002rtnews_2015915_llm_item_3_000', 'retrieved_ids': ['ntn002rtnews_2015915_llm_item_3_000', 'ntn002rtnews_2015915_llm_item_9_000', 'ntn002rtnews_2015915_llm_item_11_000', 'ntn002rtnews_2015915_llm_item_6_000', 'ntn002rtnews_2015915_llm_item_5_000'], 'similarities': [0.6845521926879883, 0.5947937369346619, 0.5674763917922974, 0.5674155950546265, 0.5650331377983093], 'hit': True, 'rank': 1, 'recall': 1, 'precision': 1.0, 'mean_rank': 1, 'reciprocal_rank': 1.0, 'top1_hit': True}
+Details: {'query_id': 0, 'ground_truth': 'ntn002rtnews_2015915_llm_item_3_000', 'retrieved_ids': ['ntn002rtnews_2015915_llm_item_3_000', 'ntn002rtnews_2015915_llm_item_9_000', 'ntn002rtnews_2015915_llm_item_11_000', 'ntn002rtnews_2015915_llm_item_6_000', 'ntn002rtnews_2015915_llm_item_5_000'], 'similarities': [0.6845521926879883, 0.5947937369346619, 0.5674763917922974, 0.5674155950546265, 0.5650331377983093], 'hit': True, 'rank': 1, 'precision': 0.2, 'mean_rank': 1, 'reciprocal_rank': 1.0, 'top1_hit': True}
 
 🔸 Avg bge_max_answer_similarity: 0.0
 🔸 Avg bge_max_question_similarity: 0.0
 🔸 Avg openai_max_answer_similarity: 0.0
 🔸 Avg openai_max_question_similarity: 0.0
 🔹 OpenAI 模型:
-Recall@K: 0.94
-Precision@K: 0.8112
+Precision@K: 0.188
 Top-K Accuracy: 0.94
+Top-1 Accuracy: 0.71
 Mean Rank: 1.64
 MRR: 0.8112
-Details: {'query_id': 0, 'ground_truth': 'ntn002rtnews_2015915_llm_item_3_000', 'retrieved_ids': ['ntn002rtnews_2015915_llm_item_3_000', 'ntn002rtnews_2015915_llm_item_5_000', 'ntn002rtnews_2015915_llm_item_9_000', 'ntn002rtnews_2015881_llm_item_0_000', 'ntn002rtnews_2015915_llm_item_13_000'], 'similarities': [0.8428089618682861, 0.8292979598045349, 0.8282002210617065, 0.8263810873031616, 0.8256934881210327], 'hit': True, 'rank': 1, 'recall': 1, 'precision': 1.0, 'mean_rank': 1, 'reciprocal_rank': 1.0, 'top1_hit': True}
+Details: {'query_id': 0, 'ground_truth': 'ntn002rtnews_2015915_llm_item_3_000', 'retrieved_ids': ['ntn002rtnews_2015915_llm_item_3_000', 'ntn002rtnews_2015915_llm_item_5_000', 'ntn002rtnews_2015915_llm_item_9_000', 'ntn002rtnews_2015881_llm_item_0_000', 'ntn002rtnews_2015915_llm_item_13_000'], 'similarities': [0.8428089618682861, 0.8292979598045349, 0.8282002210617065, 0.8263810873031616, 0.8256934881210327], 'hit': True, 'rank': 1, 'precision': 0.2, 'mean_rank': 1, 'reciprocal_rank': 1.0, 'top1_hit': True}
 
 🔸 Avg bge_max_answer_similarity: 0.0
 🔸 Avg bge_max_question_similarity: 0.0
@@ -111,846 +111,850 @@ Details: {'query_id': 0, 'ground_truth': 'ntn002rtnews_2015915_llm_item_3_000', 
 ### 分析報告：模型對比結果分析
 
 #### 1. 整體準確性比較
-- **BGE模型**在所有數據集上均表現出色，無論是Recall@K、Precision@K還是Top-K Accuracy，都明顯高於OpenAI模型。
-  - **rshcontent**: BGE的Top-K Accuracy為0.8764，OpenAI為0.7191。
-  - **ntnx1netrtnews**: BGE的Top-K Accuracy為0.99，OpenAI為0.82。
-  - **ntn001rtnews**: BGE的Top-K Accuracy為0.94，OpenAI為0.7。
-  - **ntn002rtnews**: BGE的Top-K Accuracy為0.98，OpenAI為0.94。
-- **結論**: BGE模型在整體準確性上持續領先於OpenAI模型。
+- **BGE模型**在所有測試數據集上均表現出色，特別是在**Top-1 Accuracy**和**Top-K Accuracy**方面：
+  - 在`rshcontent`上，BGE的Top-1 Accuracy為0.7303，而OpenAI僅為0.5169。
+  - 在`ntnx1netrtnews`上，BGE的Top-1 Accuracy為0.85，OpenAI為0.67。
+  - 在`ntn001rtnews`上，BGE的Top-1 Accuracy為0.9，OpenAI為0.53。
+  - 在`ntn002rtnews`上，BGE的Top-1 Accuracy為0.83，OpenAI為0.71。
+  
+- **結論**：BGE模型在準確性上持續領先於OpenAI模型，特別是在Top-1和Top-K準確度上。
 
 #### 2. 錯誤案例可能原因
-- **錯誤案例分析**:
-  - 在某些情況下，特別是涉及到語境理解和複雜查詢的情況下，OpenAI模型的表現較差，可能是因為其訓練數據的多樣性不足或對特定領域的理解不夠深入。
-  - 例如，在**ntn001rtnews**數據集上，BGE的Recall@K為0.94，而OpenAI僅為0.7，這可能是因為BGE模型更好地捕捉了該領域的特徵。
-- **差異情況**: 當查詢涉及到特定的、專業的或上下文豐富的主題時，BGE模型的優勢更為明顯。
+- **差異大的情況**：
+  - **數據集特性**：某些數據集可能包含更具挑戰性的樣本，導致OpenAI模型的表現不佳。特別是在`ntn001rtnews`和`ntn002rtnews`中，BGE的Top-1 Accuracy顯著高於OpenAI。
+  - **模型架構**：BGE的模型架構可能更適合處理特定類型的數據，例如新聞報導，而OpenAI的模型可能在某些情況下缺乏足夠的上下文理解能力。
+  
+- **錯誤案例分析**：
+  - BGE在處理具體主題或上下文相似的文本時，能夠更準確地識別關鍵字和主題，從而提高準確性。
+  - OpenAI模型在面對多義詞或語境不明確的情況下，可能會出現較高的錯誤率。
 
 #### 3. 性能與成本比較
-- **OpenAI API**:
-  - **延遲**: 由於是雲端服務，可能面臨網絡延遲，影響即時性應用。
-  - **費用**: 按使用量計費，長期使用可能導致高昂的成本。
+- **OpenAI API**：
+  - **延遲**：使用OpenAI API可能會面臨網絡延遲，尤其是在高流量時期。
+  - **費用**：基於使用量計費，長期使用可能會造成高額費用。
   
-- **本地部署BGE模型**:
-  - **計算開銷**: 雖然需要一定的硬體資源，但一次性投資後，長期使用成本較低。
-  - **性能**: 本地運行可減少延遲，提升響應速度，適合需要高效能的應用場景。
+- **本地部署BGE模型**：
+  - **計算開銷**：需要考量本地硬體的性能，但一旦部署完成，運行成本相對固定，並且不受網絡影響。
+  - **性能**：BGE模型在本地運行時，能夠提供更快的響應時間。
 
 #### 4. 結論
-- **綜合量化指標**: BGE模型在所有指標上均優於OpenAI模型，特別是在Recall@K和Top-K Accuracy上有顯著的優勢。
-- **質化分析**: BGE模型在特定領域的理解和處理能力更強，適合需要高準確性和即時反應的應用場景。
-- **應用建議**:
-  - 若應用場景需要高準確性且可承擔初期的硬體投資，建議選擇BGE模型。
-  - 若需要快速部署且不在乎長期成本，OpenAI API可作為選擇，但需考慮延遲問題。
+- **綜合量化指標**：BGE模型在Top-1 Accuracy和Top-K Accuracy上均顯示出優越的表現，且在多個數據集上保持一致性。
+- **質化分析**：BGE的架構可能更適合特定類型的文本，尤其是新聞類內容，而OpenAI在某些情況下則可能無法提供相同的準確性。
+- **應用建議**：
+  - 若應用場景重視準確性且有穩定的計算資源，建議選擇本地部署的BGE模型。
+  - 若需要快速部署且不介意API延遲，可以考慮使用OpenAI API，但需注意長期成本。
 
-總結來看，BGE模型在準確性和性能上均表現優異，適合用於高要求的資訊檢索任務。
+總結來說，BGE模型在準確性和性能上均表現優異，適合需要高準確度的應用場景。
 
 [🔍] Retrieval 詳細過程記錄
 ================================================================================
 📂 rshcontent - BGE Retrieval Details:
 Query GT    TopK IDs                      Rank  Top1  Recall  Prec    MRR     
 ------------------------------------------------------------------------------
-0     rshcontent_202309010147 _003['rshcontent_202309010147 _0  1     ✅     1       1.0     1.0     
-1     rshcontent_202309010147 _004['rshcontent_202309010147 _0  1     ✅     1       1.0     1.0     
-2     rshcontent_202309010146 _000['rshcontent_202309010146 _l  2     ❌     1       0.5     0.5     
-3     rshcontent_202309010146 _llm_item_0_000['rshcontent_202309010146 _l  2     ❌     1       0.5     0.5     
-4     rshcontent_202309010146 _llm_item_1_000['rshcontent_202309010147 _0  2     ❌     1       0.5     0.5     
-5     rshcontent_202309010203 _llm_item_5_000['rshcontent_202309010203 _0  -     ❌     0       0       0       
-6     rshcontent_202309010200 _llm_item_0_000['rshcontent_202309010200 _l  1     ✅     1       1.0     1.0     
-7     rshcontent_202309010136 _llm_item_0_000['rshcontent_202309010136 _l  1     ✅     1       1.0     1.0     
-8     rshcontent_202309010136 _llm_item_1_000['rshcontent_202309010136 _l  1     ✅     1       1.0     1.0     
-9     rshcontent_202309010136 _llm_item_2_000['rshcontent_202309010136 _l  2     ❌     1       0.5     0.5     
-10    rshcontent_202309180191 _000['rshcontent_202309180191 _0  1     ✅     1       1.0     1.0     
-11    rshcontent_202309180191 _001['rshcontent_202309010204 _l  2     ❌     1       0.5     0.5     
-12    rshcontent_202309180191 _002['rshcontent_202309180191 _0  1     ✅     1       1.0     1.0     
-13    rshcontent_202309010136 _000['rshcontent_202309010136 _0  1     ✅     1       1.0     1.0     
-14    rshcontent_202309010136 _001['rshcontent_202309010136 _0  1     ✅     1       1.0     1.0     
-15    rshcontent_202309010136 _002['rshcontent_202309010136 _0  1     ✅     1       1.0     1.0     
-16    rshcontent_202309010151 _llm_item_0_000['rshcontent_202309010151 _l  1     ✅     1       1.0     1.0     
-17    rshcontent_202310310141 _000['rshcontent_202310310141 _0  1     ✅     1       1.0     1.0     
-18    rshcontent_202309010136 _llm_item_0_001['rshcontent_202309010136 _l  1     ✅     1       1.0     1.0     
-19    rshcontent_202309190003 _000['rshcontent_202309190003 _l  2     ❌     1       0.5     0.5     
-20    rshcontent_202309010138 _llm_item_0_000['rshcontent_202309010138 _l  1     ✅     1       1.0     1.0     
-21    rshcontent_202309010138 _llm_item_1_000['rshcontent_202309010138 _l  1     ✅     1       1.0     1.0     
-22    rshcontent_202309010138 _llm_item_2_000['rshcontent_202309010138 _l  1     ✅     1       1.0     1.0     
-23    rshcontent_202309010148 _000['rshcontent_202309010148 _0  1     ✅     1       1.0     1.0     
-24    rshcontent_202309010202 _llm_item_0_000['rshcontent_202309010202 _l  1     ✅     1       1.0     1.0     
-25    rshcontent_202309010202 _llm_item_0_001['rshcontent_202309010202 _l  2     ❌     1       0.5     0.5     
-26    rshcontent_202309010202 _llm_item_1_000['rshcontent_202309010202 _l  1     ✅     1       1.0     1.0     
-27    rshcontent_202309010202 _llm_item_1_001['rshcontent_202309010202 _l  1     ✅     1       1.0     1.0     
-28    rshcontent_202309010137 _000['rshcontent_202309010137 _0  1     ✅     1       1.0     1.0     
-29    rshcontent_202309190069 _000['rshcontent_202309190069 _0  1     ✅     1       1.0     1.0     
-30    rshcontent_202309010137 _001['rshcontent_202309010137 _0  1     ✅     1       1.0     1.0     
-31    rshcontent_202309010137 _002['rshcontent_202309010137 _0  1     ✅     1       1.0     1.0     
-32    rshcontent_202309010203 _llm_item_0_000['rshcontent_202309010203 _l  1     ✅     1       1.0     1.0     
-33    rshcontent_202309010203 _llm_item_1_000['rshcontent_202309010203 _l  1     ✅     1       1.0     1.0     
-34    rshcontent_202309010203 _llm_item_2_000['rshcontent_202309010203 _0  2     ❌     1       0.5     0.5     
-35    rshcontent_202309010203 _llm_item_3_000['rshcontent_202309010203 _0  3     ❌     1       0.3333  0.3333  
-36    rshcontent_202309010203 _llm_item_4_000['rshcontent_202309010203 _l  1     ✅     1       1.0     1.0     
-37    rshcontent_202309010143 _llm_item_0_000['rshcontent_202309010143 _l  1     ✅     1       1.0     1.0     
-38    rshcontent_202309010143 _llm_item_1_000['rshcontent_202309010143 _l  1     ✅     1       1.0     1.0     
-39    rshcontent_202309010143 _llm_item_2_000['rshcontent_202309010143 _l  1     ✅     1       1.0     1.0     
-40    rshcontent_202309010143 _llm_item_3_000['rshcontent_202309010143 _l  1     ✅     1       1.0     1.0     
-41    rshcontent_202309010143 _llm_item_4_000['rshcontent_202309010143 _l  1     ✅     1       1.0     1.0     
-42    rshcontent_202310310163 _llm_item_0_000['rshcontent_202310310163 _l  1     ✅     1       1.0     1.0     
-43    rshcontent_202310310163 _llm_item_0_001['rshcontent_202310310163 _l  1     ✅     1       1.0     1.0     
-44    rshcontent_202405140144 _001['rshcontent_202405140144 _0  1     ✅     1       1.0     1.0     
-45    rshcontent_202309010203 _llm_item_6_000['rshcontent_202309010203 _0  -     ❌     0       0       0       
-46    rshcontent_202310310163 _llm_item_0_002['rshcontent_202310310163 _l  1     ✅     1       1.0     1.0     
-47    rshcontent_202309010143 _000['rshcontent_202309010143 _0  1     ✅     1       1.0     1.0     
-48    rshcontent_202309010143 _001['rshcontent_202309010143 _0  1     ✅     1       1.0     1.0     
-49    rshcontent_202309010143 _002['rshcontent_202309010143 _0  1     ✅     1       1.0     1.0     
-50    rshcontent_202309190003 _llm_item_1_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-51    rshcontent_202309010143 _003['rshcontent_202309010143 _0  2     ❌     1       0.5     0.5     
-52    rshcontent_202309010143 _004['rshcontent_202309010143 _0  1     ✅     1       1.0     1.0     
-53    rshcontent_202309010143 _005['rshcontent_202309010143 _0  1     ✅     1       1.0     1.0     
-54    rshcontent_202309190005 _llm_item_0_000['rshcontent_202309190005 _l  1     ✅     1       1.0     1.0     
-55    rshcontent_202405140144 _000['rshcontent_202405140144 _0  1     ✅     1       1.0     1.0     
-56    rshcontent_202309190003 _llm_item_2_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-57    rshcontent_202309010145 _000['rshcontent_202309010145 _0  1     ✅     1       1.0     1.0     
-58    rshcontent_202309190005 _llm_item_1_000['rshcontent_202309190005 _l  1     ✅     1       1.0     1.0     
-59    rshcontent_202309190005 _llm_item_2_000['rshcontent_202309190005 _l  3     ❌     1       0.3333  0.3333  
-60    rshcontent_202309010145 _001['rshcontent_202309010145 _0  1     ✅     1       1.0     1.0     
-61    rshcontent_202309010145 _002['rshcontent_202309010145 _0  1     ✅     1       1.0     1.0     
-62    rshcontent_202309190003 _llm_item_0_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-63    rshcontent_202309190003 _llm_item_3_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-64    rshcontent_202309190003 _llm_item_4_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-65    rshcontent_202309190003 _llm_item_5_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-66    rshcontent_202309190003 _llm_item_6_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-67    rshcontent_202309190003 _llm_item_7_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-68    rshcontent_202309190003 _llm_item_8_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-69    rshcontent_202309190003 _llm_item_9_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-70    rshcontent_202309190003 _llm_item_10_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-71    rshcontent_202309190003 _llm_item_11_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-72    rshcontent_202309190003 _llm_item_12_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-73    rshcontent_202309190003 _llm_item_13_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-74    rshcontent_202309010203 _llm_item_7_000['rshcontent_202309010203 _0  -     ❌     0       0       0       
-75    rshcontent_202309010203 _llm_item_8_000['rshcontent_202309010203 _0  -     ❌     0       0       0       
-76    rshcontent_202309010203 _llm_item_9_000['rshcontent_202309010203 _0  -     ❌     0       0       0       
-77    rshcontent_202309010203 _llm_item_12_000['rshcontent_202309010203 _l  -     ❌     0       0       0       
-78    rshcontent_202309010203 _llm_item_13_000['rshcontent_202309010203 _l  1     ✅     1       1.0     1.0     
-79    rshcontent_202309010203 _llm_item_14_000['rshcontent_202309010203 _0  -     ❌     0       0       0       
-80    rshcontent_202309010203 _llm_item_16_000['rshcontent_202309010203 _l  -     ❌     0       0       0       
-81    rshcontent_202309010203 _llm_item_19_000['rshcontent_202309010203 _0  3     ❌     1       0.3333  0.3333  
-82    rshcontent_202309010203 _llm_item_22_000['rshcontent_202309010203 _l  -     ❌     0       0       0       
-83    rshcontent_202309010203 _000['rshcontent_202309010203 _0  1     ✅     1       1.0     1.0     
-84    rshcontent_202309010204 _llm_item_2_000['rshcontent_202309010204 _l  1     ✅     1       1.0     1.0     
-85    rshcontent_202309010203 _001['rshcontent_202309010203 _0  4     ❌     1       0.25    0.25    
-86    rshcontent_202309010203 _002['rshcontent_202309010203 _0  -     ❌     0       0       0       
-87    rshcontent_202309010203 _003['rshcontent_202309010203 _l  -     ❌     0       0       0       
-88    rshcontent_202309010203 _004['rshcontent_202309010203 _0  1     ✅     1       1.0     1.0     
+0     rshcontent_202309010147 _003['rshcontent_202309010147 _0  1     ✅     0.2     1.0     
+1     rshcontent_202309010147 _004['rshcontent_202309010147 _0  1     ✅     0.2     1.0     
+2     rshcontent_202309010146 _000['rshcontent_202309010146 _l  2     ❌     0.2     0.5     
+3     rshcontent_202309010146 _llm_item_0_000['rshcontent_202309010146 _l  2     ❌     0.2     0.5     
+4     rshcontent_202309010146 _llm_item_1_000['rshcontent_202309010147 _0  2     ❌     0.2     0.5     
+5     rshcontent_202309010203 _llm_item_5_000['rshcontent_202309010203 _0  -     ❌     0       0       
+6     rshcontent_202309010200 _llm_item_0_000['rshcontent_202309010200 _l  1     ✅     0.2     1.0     
+7     rshcontent_202309010136 _llm_item_0_000['rshcontent_202309010136 _l  1     ✅     0.2     1.0     
+8     rshcontent_202309010136 _llm_item_1_000['rshcontent_202309010136 _l  1     ✅     0.2     1.0     
+9     rshcontent_202309010136 _llm_item_2_000['rshcontent_202309010136 _l  2     ❌     0.2     0.5     
+10    rshcontent_202309180191 _000['rshcontent_202309180191 _0  1     ✅     0.2     1.0     
+11    rshcontent_202309180191 _001['rshcontent_202309010204 _l  2     ❌     0.2     0.5     
+12    rshcontent_202309180191 _002['rshcontent_202309180191 _0  1     ✅     0.2     1.0     
+13    rshcontent_202309010136 _000['rshcontent_202309010136 _0  1     ✅     0.2     1.0     
+14    rshcontent_202309010136 _001['rshcontent_202309010136 _0  1     ✅     0.2     1.0     
+15    rshcontent_202309010136 _002['rshcontent_202309010136 _0  1     ✅     0.2     1.0     
+16    rshcontent_202309010151 _llm_item_0_000['rshcontent_202309010151 _l  1     ✅     0.2     1.0     
+17    rshcontent_202310310141 _000['rshcontent_202310310141 _0  1     ✅     0.2     1.0     
+18    rshcontent_202309010136 _llm_item_0_001['rshcontent_202309010136 _l  1     ✅     0.2     1.0     
+19    rshcontent_202309190003 _000['rshcontent_202309190003 _l  2     ❌     0.2     0.5     
+20    rshcontent_202309010138 _llm_item_0_000['rshcontent_202309010138 _l  1     ✅     0.2     1.0     
+21    rshcontent_202309010138 _llm_item_1_000['rshcontent_202309010138 _l  1     ✅     0.2     1.0     
+22    rshcontent_202309010138 _llm_item_2_000['rshcontent_202309010138 _l  1     ✅     0.2     1.0     
+23    rshcontent_202309010148 _000['rshcontent_202309010148 _0  1     ✅     0.2     1.0     
+24    rshcontent_202309010202 _llm_item_0_000['rshcontent_202309010202 _l  1     ✅     0.2     1.0     
+25    rshcontent_202309010202 _llm_item_0_001['rshcontent_202309010202 _l  2     ❌     0.2     0.5     
+26    rshcontent_202309010202 _llm_item_1_000['rshcontent_202309010202 _l  1     ✅     0.2     1.0     
+27    rshcontent_202309010202 _llm_item_1_001['rshcontent_202309010202 _l  1     ✅     0.2     1.0     
+28    rshcontent_202309010137 _000['rshcontent_202309010137 _0  1     ✅     0.2     1.0     
+29    rshcontent_202309190069 _000['rshcontent_202309190069 _0  1     ✅     0.2     1.0     
+30    rshcontent_202309010137 _001['rshcontent_202309010137 _0  1     ✅     0.2     1.0     
+31    rshcontent_202309010137 _002['rshcontent_202309010137 _0  1     ✅     0.2     1.0     
+32    rshcontent_202309010203 _llm_item_0_000['rshcontent_202309010203 _l  1     ✅     0.2     1.0     
+33    rshcontent_202309010203 _llm_item_1_000['rshcontent_202309010203 _l  1     ✅     0.2     1.0     
+34    rshcontent_202309010203 _llm_item_2_000['rshcontent_202309010203 _0  2     ❌     0.2     0.5     
+35    rshcontent_202309010203 _llm_item_3_000['rshcontent_202309010203 _0  3     ❌     0.2     0.3333  
+36    rshcontent_202309010203 _llm_item_4_000['rshcontent_202309010203 _l  1     ✅     0.2     1.0     
+37    rshcontent_202309010143 _llm_item_0_000['rshcontent_202309010143 _l  1     ✅     0.2     1.0     
+38    rshcontent_202309010143 _llm_item_1_000['rshcontent_202309010143 _l  1     ✅     0.2     1.0     
+39    rshcontent_202309010143 _llm_item_2_000['rshcontent_202309010143 _l  1     ✅     0.2     1.0     
+40    rshcontent_202309010143 _llm_item_3_000['rshcontent_202309010143 _l  1     ✅     0.2     1.0     
+41    rshcontent_202309010143 _llm_item_4_000['rshcontent_202309010143 _l  1     ✅     0.2     1.0     
+42    rshcontent_202310310163 _llm_item_0_000['rshcontent_202310310163 _l  1     ✅     0.2     1.0     
+43    rshcontent_202310310163 _llm_item_0_001['rshcontent_202310310163 _l  1     ✅     0.2     1.0     
+44    rshcontent_202405140144 _001['rshcontent_202405140144 _0  1     ✅     0.2     1.0     
+45    rshcontent_202309010203 _llm_item_6_000['rshcontent_202309010203 _0  -     ❌     0       0       
+46    rshcontent_202310310163 _llm_item_0_002['rshcontent_202310310163 _l  1     ✅     0.2     1.0     
+47    rshcontent_202309010143 _000['rshcontent_202309010143 _0  1     ✅     0.2     1.0     
+48    rshcontent_202309010143 _001['rshcontent_202309010143 _0  1     ✅     0.2     1.0     
+49    rshcontent_202309010143 _002['rshcontent_202309010143 _0  1     ✅     0.2     1.0     
+50    rshcontent_202309190003 _llm_item_1_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+51    rshcontent_202309010143 _003['rshcontent_202309010143 _0  2     ❌     0.2     0.5     
+52    rshcontent_202309010143 _004['rshcontent_202309010143 _0  1     ✅     0.2     1.0     
+53    rshcontent_202309010143 _005['rshcontent_202309010143 _0  1     ✅     0.2     1.0     
+54    rshcontent_202309190005 _llm_item_0_000['rshcontent_202309190005 _l  1     ✅     0.2     1.0     
+55    rshcontent_202405140144 _000['rshcontent_202405140144 _0  1     ✅     0.2     1.0     
+56    rshcontent_202309190003 _llm_item_2_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+57    rshcontent_202309010145 _000['rshcontent_202309010145 _0  1     ✅     0.2     1.0     
+58    rshcontent_202309190005 _llm_item_1_000['rshcontent_202309190005 _l  1     ✅     0.2     1.0     
+59    rshcontent_202309190005 _llm_item_2_000['rshcontent_202309190005 _l  3     ❌     0.2     0.3333  
+60    rshcontent_202309010145 _001['rshcontent_202309010145 _0  1     ✅     0.2     1.0     
+61    rshcontent_202309010145 _002['rshcontent_202309010145 _0  1     ✅     0.2     1.0     
+62    rshcontent_202309190003 _llm_item_0_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+63    rshcontent_202309190003 _llm_item_3_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+64    rshcontent_202309190003 _llm_item_4_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+65    rshcontent_202309190003 _llm_item_5_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+66    rshcontent_202309190003 _llm_item_6_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+67    rshcontent_202309190003 _llm_item_7_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+68    rshcontent_202309190003 _llm_item_8_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+69    rshcontent_202309190003 _llm_item_9_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+70    rshcontent_202309190003 _llm_item_10_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+71    rshcontent_202309190003 _llm_item_11_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+72    rshcontent_202309190003 _llm_item_12_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+73    rshcontent_202309190003 _llm_item_13_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+74    rshcontent_202309010203 _llm_item_7_000['rshcontent_202309010203 _0  -     ❌     0       0       
+75    rshcontent_202309010203 _llm_item_8_000['rshcontent_202309010203 _0  -     ❌     0       0       
+76    rshcontent_202309010203 _llm_item_9_000['rshcontent_202309010203 _0  -     ❌     0       0       
+77    rshcontent_202309010203 _llm_item_12_000['rshcontent_202309010203 _l  -     ❌     0       0       
+78    rshcontent_202309010203 _llm_item_13_000['rshcontent_202309010203 _l  1     ✅     0.2     1.0     
+79    rshcontent_202309010203 _llm_item_14_000['rshcontent_202309010203 _0  -     ❌     0       0       
+80    rshcontent_202309010203 _llm_item_16_000['rshcontent_202309010203 _l  -     ❌     0       0       
+81    rshcontent_202309010203 _llm_item_19_000['rshcontent_202309010203 _0  3     ❌     0.2     0.3333  
+82    rshcontent_202309010203 _llm_item_22_000['rshcontent_202309010203 _l  -     ❌     0       0       
+83    rshcontent_202309010203 _000['rshcontent_202309010203 _0  1     ✅     0.2     1.0     
+84    rshcontent_202309010204 _llm_item_2_000['rshcontent_202309010204 _l  1     ✅     0.2     1.0     
+85    rshcontent_202309010203 _001['rshcontent_202309010203 _0  4     ❌     0.2     0.25    
+86    rshcontent_202309010203 _002['rshcontent_202309010203 _0  -     ❌     0       0       
+87    rshcontent_202309010203 _003['rshcontent_202309010203 _l  -     ❌     0       0       
+88    rshcontent_202309010203 _004['rshcontent_202309010203 _0  1     ✅     0.2     1.0     
 
 📂 rshcontent - OpenAI Retrieval Details:
 Query GT    TopK IDs                      Rank  Top1  Recall  Prec    MRR     
 ------------------------------------------------------------------------------
-0     rshcontent_202309010147 _003['rshcontent_202309010147 _0  1     ✅     1       1.0     1.0     
-1     rshcontent_202309010147 _004['rshcontent_202309010137 _0  5     ❌     1       0.2     0.2     
-2     rshcontent_202309010146 _000['rshcontent_202309010145 _0  5     ❌     1       0.2     0.2     
-3     rshcontent_202309010146 _llm_item_0_000['rshcontent_202309010148 _0  2     ❌     1       0.5     0.5     
-4     rshcontent_202309010146 _llm_item_1_000['rshcontent_202309010145 _0  3     ❌     1       0.3333  0.3333  
-5     rshcontent_202309010203 _llm_item_5_000['rshcontent_202310310141 _0  -     ❌     0       0       0       
-6     rshcontent_202309010200 _llm_item_0_000['rshcontent_202310310141 _0  2     ❌     1       0.5     0.5     
-7     rshcontent_202309010136 _llm_item_0_000['rshcontent_202310310141 _0  2     ❌     1       0.5     0.5     
-8     rshcontent_202309010136 _llm_item_1_000['rshcontent_202309010136 _l  1     ✅     1       1.0     1.0     
-9     rshcontent_202309010136 _llm_item_2_000['rshcontent_202309010136 _l  2     ❌     1       0.5     0.5     
-10    rshcontent_202309180191 _000['rshcontent_202309180191 _0  1     ✅     1       1.0     1.0     
-11    rshcontent_202309180191 _001['rshcontent_202309010148 _0  -     ❌     0       0       0       
-12    rshcontent_202309180191 _002['rshcontent_202309180191 _0  1     ✅     1       1.0     1.0     
-13    rshcontent_202309010136 _000['rshcontent_202309010136 _0  1     ✅     1       1.0     1.0     
-14    rshcontent_202309010136 _001['rshcontent_202309010136 _0  1     ✅     1       1.0     1.0     
-15    rshcontent_202309010136 _002['rshcontent_202310310141 _0  2     ❌     1       0.5     0.5     
-16    rshcontent_202309010151 _llm_item_0_000['rshcontent_202309010151 _l  1     ✅     1       1.0     1.0     
-17    rshcontent_202310310141 _000['rshcontent_202310310141 _0  1     ✅     1       1.0     1.0     
-18    rshcontent_202309010136 _llm_item_0_001['rshcontent_202309010145 _0  2     ❌     1       0.5     0.5     
-19    rshcontent_202309190003 _000['rshcontent_202309190003 _l  -     ❌     0       0       0       
-20    rshcontent_202309010138 _llm_item_0_000['rshcontent_202310310141 _0  4     ❌     1       0.25    0.25    
-21    rshcontent_202309010138 _llm_item_1_000['rshcontent_202309010138 _l  1     ✅     1       1.0     1.0     
-22    rshcontent_202309010138 _llm_item_2_000['rshcontent_202309010138 _l  1     ✅     1       1.0     1.0     
-23    rshcontent_202309010148 _000['rshcontent_202309010148 _0  1     ✅     1       1.0     1.0     
-24    rshcontent_202309010202 _llm_item_0_000['rshcontent_202309010202 _l  1     ✅     1       1.0     1.0     
-25    rshcontent_202309010202 _llm_item_0_001['rshcontent_202309010145 _0  -     ❌     0       0       0       
-26    rshcontent_202309010202 _llm_item_1_000['rshcontent_202309010202 _l  1     ✅     1       1.0     1.0     
-27    rshcontent_202309010202 _llm_item_1_001['rshcontent_202309010145 _0  -     ❌     0       0       0       
-28    rshcontent_202309010137 _000['rshcontent_202309010145 _0  2     ❌     1       0.5     0.5     
-29    rshcontent_202309190069 _000['rshcontent_202309010136 _l  -     ❌     0       0       0       
-30    rshcontent_202309010137 _001['rshcontent_202309010137 _0  1     ✅     1       1.0     1.0     
-31    rshcontent_202309010137 _002['rshcontent_202309010145 _0  3     ❌     1       0.3333  0.3333  
-32    rshcontent_202309010203 _llm_item_0_000['rshcontent_202309010203 _l  1     ✅     1       1.0     1.0     
-33    rshcontent_202309010203 _llm_item_1_000['rshcontent_202309010203 _l  1     ✅     1       1.0     1.0     
-34    rshcontent_202309010203 _llm_item_2_000['rshcontent_202309010203 _l  1     ✅     1       1.0     1.0     
-35    rshcontent_202309010203 _llm_item_3_000['rshcontent_202309010203 _l  1     ✅     1       1.0     1.0     
-36    rshcontent_202309010203 _llm_item_4_000['rshcontent_202309010203 _l  1     ✅     1       1.0     1.0     
-37    rshcontent_202309010143 _llm_item_0_000['rshcontent_202309010143 _l  1     ✅     1       1.0     1.0     
-38    rshcontent_202309010143 _llm_item_1_000['rshcontent_202309010148 _0  2     ❌     1       0.5     0.5     
-39    rshcontent_202309010143 _llm_item_2_000['rshcontent_202309010143 _l  1     ✅     1       1.0     1.0     
-40    rshcontent_202309010143 _llm_item_3_000['rshcontent_202309010143 _l  1     ✅     1       1.0     1.0     
-41    rshcontent_202309010143 _llm_item_4_000['rshcontent_202309010143 _l  1     ✅     1       1.0     1.0     
-42    rshcontent_202310310163 _llm_item_0_000['rshcontent_202310310163 _l  1     ✅     1       1.0     1.0     
-43    rshcontent_202310310163 _llm_item_0_001['rshcontent_202310310163 _l  1     ✅     1       1.0     1.0     
-44    rshcontent_202405140144 _001['rshcontent_202309010145 _0  -     ❌     0       0       0       
-45    rshcontent_202309010203 _llm_item_6_000['rshcontent_202310310141 _0  -     ❌     0       0       0       
-46    rshcontent_202310310163 _llm_item_0_002['rshcontent_202310310163 _l  1     ✅     1       1.0     1.0     
-47    rshcontent_202309010143 _000['rshcontent_202309010143 _0  5     ❌     1       0.2     0.2     
-48    rshcontent_202309010143 _001['rshcontent_202309010143 _0  1     ✅     1       1.0     1.0     
-49    rshcontent_202309010143 _002['rshcontent_202309010145 _0  -     ❌     0       0       0       
-50    rshcontent_202309190003 _llm_item_1_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-51    rshcontent_202309010143 _003['rshcontent_202309010145 _0  -     ❌     0       0       0       
-52    rshcontent_202309010143 _004['rshcontent_202309010145 _0  2     ❌     1       0.5     0.5     
-53    rshcontent_202309010143 _005['rshcontent_202309010145 _0  -     ❌     0       0       0       
-54    rshcontent_202309190005 _llm_item_0_000['rshcontent_202309190005 _l  -     ❌     0       0       0       
-55    rshcontent_202405140144 _000['rshcontent_202310310141 _0  -     ❌     0       0       0       
-56    rshcontent_202309190003 _llm_item_2_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-57    rshcontent_202309010145 _000['rshcontent_202309010145 _0  1     ✅     1       1.0     1.0     
-58    rshcontent_202309190005 _llm_item_1_000['rshcontent_202309190005 _l  1     ✅     1       1.0     1.0     
-59    rshcontent_202309190005 _llm_item_2_000['rshcontent_202309190005 _l  2     ❌     1       0.5     0.5     
-60    rshcontent_202309010145 _001['rshcontent_202310310141 _0  -     ❌     0       0       0       
-61    rshcontent_202309010145 _002['rshcontent_202309010145 _0  1     ✅     1       1.0     1.0     
-62    rshcontent_202309190003 _llm_item_0_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-63    rshcontent_202309190003 _llm_item_3_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-64    rshcontent_202309190003 _llm_item_4_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-65    rshcontent_202309190003 _llm_item_5_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-66    rshcontent_202309190003 _llm_item_6_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-67    rshcontent_202309190003 _llm_item_7_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-68    rshcontent_202309190003 _llm_item_8_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-69    rshcontent_202309190003 _llm_item_9_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-70    rshcontent_202309190003 _llm_item_10_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-71    rshcontent_202309190003 _llm_item_11_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-72    rshcontent_202309190003 _llm_item_12_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-73    rshcontent_202309190003 _llm_item_13_000['rshcontent_202309190003 _l  1     ✅     1       1.0     1.0     
-74    rshcontent_202309010203 _llm_item_7_000['rshcontent_202309010145 _0  -     ❌     0       0       0       
-75    rshcontent_202309010203 _llm_item_8_000['rshcontent_202309010145 _0  -     ❌     0       0       0       
-76    rshcontent_202309010203 _llm_item_9_000['rshcontent_202310310141 _0  -     ❌     0       0       0       
-77    rshcontent_202309010203 _llm_item_12_000['rshcontent_202309010203 _l  -     ❌     0       0       0       
-78    rshcontent_202309010203 _llm_item_13_000['rshcontent_202309010145 _0  -     ❌     0       0       0       
-79    rshcontent_202309010203 _llm_item_14_000['rshcontent_202309010137 _0  -     ❌     0       0       0       
-80    rshcontent_202309010203 _llm_item_16_000['rshcontent_202309010145 _0  -     ❌     0       0       0       
-81    rshcontent_202309010203 _llm_item_19_000['rshcontent_202309010145 _0  2     ❌     1       0.5     0.5     
-82    rshcontent_202309010203 _llm_item_22_000['rshcontent_202309010203 _l  -     ❌     0       0       0       
-83    rshcontent_202309010203 _000['rshcontent_202309010145 _0  3     ❌     1       0.3333  0.3333  
-84    rshcontent_202309010204 _llm_item_2_000['rshcontent_202309010204 _l  1     ✅     1       1.0     1.0     
-85    rshcontent_202309010203 _001['rshcontent_202309010203 _0  1     ✅     1       1.0     1.0     
-86    rshcontent_202309010203 _002['rshcontent_202309010145 _0  -     ❌     0       0       0       
-87    rshcontent_202309010203 _003['rshcontent_202309010203 _l  -     ❌     0       0       0       
-88    rshcontent_202309010203 _004['rshcontent_202309010203 _l  -     ❌     0       0       0       
+0     rshcontent_202309010147 _003['rshcontent_202309010147 _0  1     ✅     0.2     1.0     
+1     rshcontent_202309010147 _004['rshcontent_202309010137 _0  5     ❌     0.2     0.2     
+2     rshcontent_202309010146 _000['rshcontent_202309010145 _0  5     ❌     0.2     0.2     
+3     rshcontent_202309010146 _llm_item_0_000['rshcontent_202309010148 _0  2     ❌     0.2     0.5     
+4     rshcontent_202309010146 _llm_item_1_000['rshcontent_202309010145 _0  3     ❌     0.2     0.3333  
+5     rshcontent_202309010203 _llm_item_5_000['rshcontent_202310310141 _0  -     ❌     0       0       
+6     rshcontent_202309010200 _llm_item_0_000['rshcontent_202310310141 _0  2     ❌     0.2     0.5     
+7     rshcontent_202309010136 _llm_item_0_000['rshcontent_202310310141 _0  2     ❌     0.2     0.5     
+8     rshcontent_202309010136 _llm_item_1_000['rshcontent_202309010136 _l  1     ✅     0.2     1.0     
+9     rshcontent_202309010136 _llm_item_2_000['rshcontent_202309010136 _l  2     ❌     0.2     0.5     
+10    rshcontent_202309180191 _000['rshcontent_202309180191 _0  1     ✅     0.2     1.0     
+11    rshcontent_202309180191 _001['rshcontent_202309010148 _0  -     ❌     0       0       
+12    rshcontent_202309180191 _002['rshcontent_202309180191 _0  1     ✅     0.2     1.0     
+13    rshcontent_202309010136 _000['rshcontent_202309010136 _0  1     ✅     0.2     1.0     
+14    rshcontent_202309010136 _001['rshcontent_202309010136 _0  1     ✅     0.2     1.0     
+15    rshcontent_202309010136 _002['rshcontent_202310310141 _0  2     ❌     0.2     0.5     
+16    rshcontent_202309010151 _llm_item_0_000['rshcontent_202309010151 _l  1     ✅     0.2     1.0     
+17    rshcontent_202310310141 _000['rshcontent_202310310141 _0  1     ✅     0.2     1.0     
+18    rshcontent_202309010136 _llm_item_0_001['rshcontent_202309010145 _0  2     ❌     0.2     0.5     
+19    rshcontent_202309190003 _000['rshcontent_202309190003 _l  -     ❌     0       0       
+20    rshcontent_202309010138 _llm_item_0_000['rshcontent_202310310141 _0  4     ❌     0.2     0.25    
+21    rshcontent_202309010138 _llm_item_1_000['rshcontent_202309010138 _l  1     ✅     0.2     1.0     
+22    rshcontent_202309010138 _llm_item_2_000['rshcontent_202309010138 _l  1     ✅     0.2     1.0     
+23    rshcontent_202309010148 _000['rshcontent_202309010148 _0  1     ✅     0.2     1.0     
+24    rshcontent_202309010202 _llm_item_0_000['rshcontent_202309010202 _l  1     ✅     0.2     1.0     
+25    rshcontent_202309010202 _llm_item_0_001['rshcontent_202309010145 _0  -     ❌     0       0       
+26    rshcontent_202309010202 _llm_item_1_000['rshcontent_202309010202 _l  1     ✅     0.2     1.0     
+27    rshcontent_202309010202 _llm_item_1_001['rshcontent_202309010145 _0  -     ❌     0       0       
+28    rshcontent_202309010137 _000['rshcontent_202309010145 _0  2     ❌     0.2     0.5     
+29    rshcontent_202309190069 _000['rshcontent_202309010136 _l  -     ❌     0       0       
+30    rshcontent_202309010137 _001['rshcontent_202309010137 _0  1     ✅     0.2     1.0     
+31    rshcontent_202309010137 _002['rshcontent_202309010145 _0  3     ❌     0.2     0.3333  
+32    rshcontent_202309010203 _llm_item_0_000['rshcontent_202309010203 _l  1     ✅     0.2     1.0     
+33    rshcontent_202309010203 _llm_item_1_000['rshcontent_202309010203 _l  1     ✅     0.2     1.0     
+34    rshcontent_202309010203 _llm_item_2_000['rshcontent_202309010203 _l  1     ✅     0.2     1.0     
+35    rshcontent_202309010203 _llm_item_3_000['rshcontent_202309010203 _l  1     ✅     0.2     1.0     
+36    rshcontent_202309010203 _llm_item_4_000['rshcontent_202309010203 _l  1     ✅     0.2     1.0     
+37    rshcontent_202309010143 _llm_item_0_000['rshcontent_202309010143 _l  1     ✅     0.2     1.0     
+38    rshcontent_202309010143 _llm_item_1_000['rshcontent_202309010148 _0  2     ❌     0.2     0.5     
+39    rshcontent_202309010143 _llm_item_2_000['rshcontent_202309010143 _l  1     ✅     0.2     1.0     
+40    rshcontent_202309010143 _llm_item_3_000['rshcontent_202309010143 _l  1     ✅     0.2     1.0     
+41    rshcontent_202309010143 _llm_item_4_000['rshcontent_202309010143 _l  1     ✅     0.2     1.0     
+42    rshcontent_202310310163 _llm_item_0_000['rshcontent_202310310163 _l  1     ✅     0.2     1.0     
+43    rshcontent_202310310163 _llm_item_0_001['rshcontent_202310310163 _l  1     ✅     0.2     1.0     
+44    rshcontent_202405140144 _001['rshcontent_202309010145 _0  -     ❌     0       0       
+45    rshcontent_202309010203 _llm_item_6_000['rshcontent_202310310141 _0  -     ❌     0       0       
+46    rshcontent_202310310163 _llm_item_0_002['rshcontent_202310310163 _l  1     ✅     0.2     1.0     
+47    rshcontent_202309010143 _000['rshcontent_202309010143 _0  5     ❌     0.2     0.2     
+48    rshcontent_202309010143 _001['rshcontent_202309010143 _0  1     ✅     0.2     1.0     
+49    rshcontent_202309010143 _002['rshcontent_202309010145 _0  -     ❌     0       0       
+50    rshcontent_202309190003 _llm_item_1_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+51    rshcontent_202309010143 _003['rshcontent_202309010145 _0  -     ❌     0       0       
+52    rshcontent_202309010143 _004['rshcontent_202309010145 _0  2     ❌     0.2     0.5     
+53    rshcontent_202309010143 _005['rshcontent_202309010145 _0  -     ❌     0       0       
+54    rshcontent_202309190005 _llm_item_0_000['rshcontent_202309190005 _l  -     ❌     0       0       
+55    rshcontent_202405140144 _000['rshcontent_202310310141 _0  -     ❌     0       0       
+56    rshcontent_202309190003 _llm_item_2_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+57    rshcontent_202309010145 _000['rshcontent_202309010145 _0  1     ✅     0.2     1.0     
+58    rshcontent_202309190005 _llm_item_1_000['rshcontent_202309190005 _l  1     ✅     0.2     1.0     
+59    rshcontent_202309190005 _llm_item_2_000['rshcontent_202309190005 _l  2     ❌     0.2     0.5     
+60    rshcontent_202309010145 _001['rshcontent_202310310141 _0  -     ❌     0       0       
+61    rshcontent_202309010145 _002['rshcontent_202309010145 _0  1     ✅     0.2     1.0     
+62    rshcontent_202309190003 _llm_item_0_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+63    rshcontent_202309190003 _llm_item_3_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+64    rshcontent_202309190003 _llm_item_4_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+65    rshcontent_202309190003 _llm_item_5_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+66    rshcontent_202309190003 _llm_item_6_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+67    rshcontent_202309190003 _llm_item_7_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+68    rshcontent_202309190003 _llm_item_8_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+69    rshcontent_202309190003 _llm_item_9_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+70    rshcontent_202309190003 _llm_item_10_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+71    rshcontent_202309190003 _llm_item_11_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+72    rshcontent_202309190003 _llm_item_12_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+73    rshcontent_202309190003 _llm_item_13_000['rshcontent_202309190003 _l  1     ✅     0.2     1.0     
+74    rshcontent_202309010203 _llm_item_7_000['rshcontent_202309010145 _0  -     ❌     0       0       
+75    rshcontent_202309010203 _llm_item_8_000['rshcontent_202309010145 _0  -     ❌     0       0       
+76    rshcontent_202309010203 _llm_item_9_000['rshcontent_202310310141 _0  -     ❌     0       0       
+77    rshcontent_202309010203 _llm_item_12_000['rshcontent_202309010203 _l  -     ❌     0       0       
+78    rshcontent_202309010203 _llm_item_13_000['rshcontent_202309010145 _0  -     ❌     0       0       
+79    rshcontent_202309010203 _llm_item_14_000['rshcontent_202309010137 _0  -     ❌     0       0       
+80    rshcontent_202309010203 _llm_item_16_000['rshcontent_202309010145 _0  -     ❌     0       0       
+81    rshcontent_202309010203 _llm_item_19_000['rshcontent_202309010145 _0  2     ❌     0.2     0.5     
+82    rshcontent_202309010203 _llm_item_22_000['rshcontent_202309010203 _l  -     ❌     0       0       
+83    rshcontent_202309010203 _000['rshcontent_202309010145 _0  3     ❌     0.2     0.3333  
+84    rshcontent_202309010204 _llm_item_2_000['rshcontent_202309010204 _l  1     ✅     0.2     1.0     
+85    rshcontent_202309010203 _001['rshcontent_202309010203 _0  1     ✅     0.2     1.0     
+86    rshcontent_202309010203 _002['rshcontent_202309010145 _0  -     ❌     0       0       
+87    rshcontent_202309010203 _003['rshcontent_202309010203 _l  -     ❌     0       0       
+88    rshcontent_202309010203 _004['rshcontent_202309010203 _l  -     ❌     0       0       
 
 📂 ntnx1netrtnews - BGE Retrieval Details:
 Query GT    TopK IDs                      Rank  Top1  Recall  Prec    MRR     
 ------------------------------------------------------------------------------
-0     ntnx1netrtnews_160_llm_item_0_000['ntnx1netrtnews_167_llm_ite  3     ❌     1       0.3333  0.3333  
-1     ntnx1netrtnews_160_llm_item_1_000['ntnx1netrtnews_167_llm_ite  2     ❌     1       0.5     0.5     
-2     ntnx1netrtnews_160_llm_item_2_000['ntnx1netrtnews_167_llm_ite  3     ❌     1       0.3333  0.3333  
-3     ntnx1netrtnews_159_llm_item_0_000['ntnx1netrtnews_159_llm_ite  1     ✅     1       1.0     1.0     
-4     ntnx1netrtnews_159_llm_item_1_000['ntnx1netrtnews_159_llm_ite  1     ✅     1       1.0     1.0     
-5     ntnx1netrtnews_159_llm_item_2_000['ntnx1netrtnews_159_llm_ite  1     ✅     1       1.0     1.0     
-6     ntnx1netrtnews_159_llm_item_3_000['ntnx1netrtnews_159_llm_ite  1     ✅     1       1.0     1.0     
-7     ntnx1netrtnews_159_llm_item_4_000['ntnx1netrtnews_159_llm_ite  1     ✅     1       1.0     1.0     
-8     ntnx1netrtnews_159_llm_item_5_000['ntnx1netrtnews_159_llm_ite  1     ✅     1       1.0     1.0     
-9     ntnx1netrtnews_159_llm_item_6_000['ntnx1netrtnews_159_llm_ite  1     ✅     1       1.0     1.0     
-10    ntnx1netrtnews_159_llm_item_7_000['ntnx1netrtnews_159_llm_ite  1     ✅     1       1.0     1.0     
-11    ntnx1netrtnews_158_llm_item_0_000['ntnx1netrtnews_158_llm_ite  1     ✅     1       1.0     1.0     
-12    ntnx1netrtnews_158_llm_item_1_000['ntnx1netrtnews_158_llm_ite  1     ✅     1       1.0     1.0     
-13    ntnx1netrtnews_161_llm_item_0_000['ntnx1netrtnews_161_llm_ite  1     ✅     1       1.0     1.0     
-14    ntnx1netrtnews_161_llm_item_1_000['ntnx1netrtnews_161_llm_ite  1     ✅     1       1.0     1.0     
-15    ntnx1netrtnews_161_llm_item_2_000['ntnx1netrtnews_161_llm_ite  1     ✅     1       1.0     1.0     
-16    ntnx1netrtnews_161_llm_item_3_000['ntnx1netrtnews_159_llm_ite  2     ❌     1       0.5     0.5     
-17    ntnx1netrtnews_231_llm_item_6_000['ntnx1netrtnews_159_llm_ite  2     ❌     1       0.5     0.5     
-18    ntnx1netrtnews_231_llm_item_7_000['ntnx1netrtnews_231_llm_ite  1     ✅     1       1.0     1.0     
-19    ntnx1netrtnews_231_llm_item_8_000['ntnx1netrtnews_231_llm_ite  1     ✅     1       1.0     1.0     
-20    ntnx1netrtnews_163_llm_item_0_000['ntnx1netrtnews_163_llm_ite  1     ✅     1       1.0     1.0     
-21    ntnx1netrtnews_163_llm_item_0_001['ntnx1netrtnews_163_llm_ite  2     ❌     1       0.5     0.5     
-22    ntnx1netrtnews_163_llm_item_1_000['ntnx1netrtnews_163_llm_ite  1     ✅     1       1.0     1.0     
-23    ntnx1netrtnews_163_llm_item_1_001['ntnx1netrtnews_163_llm_ite  1     ✅     1       1.0     1.0     
-24    ntnx1netrtnews_163_llm_item_2_000['ntnx1netrtnews_163_llm_ite  1     ✅     1       1.0     1.0     
-25    ntnx1netrtnews_162_llm_item_3_000['ntnx1netrtnews_162_llm_ite  1     ✅     1       1.0     1.0     
-26    ntnx1netrtnews_162_llm_item_0_000['ntnx1netrtnews_162_llm_ite  1     ✅     1       1.0     1.0     
-27    ntnx1netrtnews_162_llm_item_1_000['ntnx1netrtnews_162_llm_ite  1     ✅     1       1.0     1.0     
-28    ntnx1netrtnews_162_llm_item_2_000['ntnx1netrtnews_162_llm_ite  1     ✅     1       1.0     1.0     
-29    ntnx1netrtnews_162_llm_item_4_000['ntnx1netrtnews_162_llm_ite  1     ✅     1       1.0     1.0     
-30    ntnx1netrtnews_162_llm_item_5_000['ntnx1netrtnews_162_llm_ite  1     ✅     1       1.0     1.0     
-31    ntnx1netrtnews_164_000['ntnx1netrtnews_164_000', '  1     ✅     1       1.0     1.0     
-32    ntnx1netrtnews_165_llm_item_0_000['ntnx1netrtnews_165_llm_ite  1     ✅     1       1.0     1.0     
-33    ntnx1netrtnews_165_llm_item_1_000['ntnx1netrtnews_165_llm_ite  1     ✅     1       1.0     1.0     
-34    ntnx1netrtnews_165_llm_item_2_000['ntnx1netrtnews_165_llm_ite  1     ✅     1       1.0     1.0     
-35    ntnx1netrtnews_165_llm_item_3_000['ntnx1netrtnews_165_llm_ite  1     ✅     1       1.0     1.0     
-36    ntnx1netrtnews_165_llm_item_4_000['ntnx1netrtnews_165_llm_ite  1     ✅     1       1.0     1.0     
-37    ntnx1netrtnews_165_llm_item_5_000['ntnx1netrtnews_165_llm_ite  1     ✅     1       1.0     1.0     
-38    ntnx1netrtnews_165_llm_item_6_000['ntnx1netrtnews_159_llm_ite  3     ❌     1       0.3333  0.3333  
-39    ntnx1netrtnews_231_llm_item_9_000['ntnx1netrtnews_231_llm_ite  1     ✅     1       1.0     1.0     
-40    ntnx1netrtnews_182_llm_item_0_000['ntnx1netrtnews_194_llm_ite  3     ❌     1       0.3333  0.3333  
-41    ntnx1netrtnews_166_000['ntnx1netrtnews_166_000', '  1     ✅     1       1.0     1.0     
-42    ntnx1netrtnews_167_llm_item_0_000['ntnx1netrtnews_167_llm_ite  1     ✅     1       1.0     1.0     
-43    ntnx1netrtnews_167_llm_item_1_000['ntnx1netrtnews_167_llm_ite  1     ✅     1       1.0     1.0     
-44    ntnx1netrtnews_167_llm_item_2_000['ntnx1netrtnews_167_llm_ite  1     ✅     1       1.0     1.0     
-45    ntnx1netrtnews_167_llm_item_3_000['ntnx1netrtnews_167_llm_ite  1     ✅     1       1.0     1.0     
-46    ntnx1netrtnews_167_llm_item_4_000['ntnx1netrtnews_167_llm_ite  1     ✅     1       1.0     1.0     
-47    ntnx1netrtnews_167_llm_item_5_000['ntnx1netrtnews_167_llm_ite  1     ✅     1       1.0     1.0     
-48    ntnx1netrtnews_167_llm_item_6_000['ntnx1netrtnews_167_llm_ite  1     ✅     1       1.0     1.0     
-49    ntnx1netrtnews_168_llm_item_3_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-50    ntnx1netrtnews_194_llm_item_1_000['ntnx1netrtnews_194_llm_ite  1     ✅     1       1.0     1.0     
-51    ntnx1netrtnews_169_000['ntnx1netrtnews_169_000', '  1     ✅     1       1.0     1.0     
-52    ntnx1netrtnews_169_001['ntnx1netrtnews_169_001', '  1     ✅     1       1.0     1.0     
-53    ntnx1netrtnews_174_llm_item_0_000['ntnx1netrtnews_174_llm_ite  1     ✅     1       1.0     1.0     
-54    ntnx1netrtnews_168_llm_item_0_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-55    ntnx1netrtnews_168_llm_item_1_000['ntnx1netrtnews_168_llm_ite  2     ❌     1       0.5     0.5     
-56    ntnx1netrtnews_168_llm_item_2_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-57    ntnx1netrtnews_176_llm_item_3_000['ntnx1netrtnews_176_llm_ite  1     ✅     1       1.0     1.0     
-58    ntnx1netrtnews_168_llm_item_4_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-59    ntnx1netrtnews_168_llm_item_5_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-60    ntnx1netrtnews_168_llm_item_6_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-61    ntnx1netrtnews_168_llm_item_7_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-62    ntnx1netrtnews_168_llm_item_8_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-63    ntnx1netrtnews_168_llm_item_9_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-64    ntnx1netrtnews_170_llm_item_0_000['ntnx1netrtnews_170_llm_ite  1     ✅     1       1.0     1.0     
-65    ntnx1netrtnews_170_llm_item_1_000['ntnx1netrtnews_170_llm_ite  1     ✅     1       1.0     1.0     
-66    ntnx1netrtnews_170_llm_item_2_000['ntnx1netrtnews_170_llm_ite  1     ✅     1       1.0     1.0     
-67    ntnx1netrtnews_170_llm_item_3_000['ntnx1netrtnews_170_llm_ite  1     ✅     1       1.0     1.0     
-68    ntnx1netrtnews_170_llm_item_4_000['ntnx1netrtnews_159_llm_ite  3     ❌     1       0.3333  0.3333  
-69    ntnx1netrtnews_170_llm_item_5_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       0       
-70    ntnx1netrtnews_170_llm_item_6_000['ntnx1netrtnews_170_llm_ite  1     ✅     1       1.0     1.0     
-71    ntnx1netrtnews_173_llm_item_0_000['ntnx1netrtnews_159_llm_ite  2     ❌     1       0.5     0.5     
-72    ntnx1netrtnews_173_llm_item_1_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-73    ntnx1netrtnews_173_llm_item_2_000['ntnx1netrtnews_174_llm_ite  2     ❌     1       0.5     0.5     
-74    ntnx1netrtnews_173_llm_item_3_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-75    ntnx1netrtnews_173_llm_item_4_000['ntnx1netrtnews_168_llm_ite  2     ❌     1       0.5     0.5     
-76    ntnx1netrtnews_173_llm_item_5_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-77    ntnx1netrtnews_173_llm_item_6_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-78    ntnx1netrtnews_173_llm_item_7_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-79    ntnx1netrtnews_173_llm_item_8_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-80    ntnx1netrtnews_173_llm_item_9_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-81    ntnx1netrtnews_173_llm_item_10_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-82    ntnx1netrtnews_173_llm_item_11_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-83    ntnx1netrtnews_176_llm_item_4_000['ntnx1netrtnews_176_llm_ite  1     ✅     1       1.0     1.0     
-84    ntnx1netrtnews_175_000['ntnx1netrtnews_175_000', '  1     ✅     1       1.0     1.0     
-85    ntnx1netrtnews_171_llm_item_0_000['ntnx1netrtnews_171_llm_ite  1     ✅     1       1.0     1.0     
-86    ntnx1netrtnews_171_llm_item_1_000['ntnx1netrtnews_171_llm_ite  1     ✅     1       1.0     1.0     
-87    ntnx1netrtnews_171_llm_item_2_000['ntnx1netrtnews_171_llm_ite  1     ✅     1       1.0     1.0     
-88    ntnx1netrtnews_171_llm_item_3_000['ntnx1netrtnews_171_llm_ite  1     ✅     1       1.0     1.0     
-89    ntnx1netrtnews_171_llm_item_4_000['ntnx1netrtnews_171_llm_ite  1     ✅     1       1.0     1.0     
-90    ntnx1netrtnews_171_llm_item_5_000['ntnx1netrtnews_159_llm_ite  2     ❌     1       0.5     0.5     
-91    ntnx1netrtnews_176_llm_item_5_000['ntnx1netrtnews_176_llm_ite  1     ✅     1       1.0     1.0     
-92    ntnx1netrtnews_172_llm_item_0_000['ntnx1netrtnews_172_llm_ite  1     ✅     1       1.0     1.0     
-93    ntnx1netrtnews_172_llm_item_1_000['ntnx1netrtnews_172_llm_ite  1     ✅     1       1.0     1.0     
-94    ntnx1netrtnews_172_llm_item_2_000['ntnx1netrtnews_172_llm_ite  1     ✅     1       1.0     1.0     
-95    ntnx1netrtnews_172_llm_item_2_001['ntnx1netrtnews_172_llm_ite  1     ✅     1       1.0     1.0     
-96    ntnx1netrtnews_176_llm_item_0_000['ntnx1netrtnews_176_llm_ite  1     ✅     1       1.0     1.0     
-97    ntnx1netrtnews_176_llm_item_1_000['ntnx1netrtnews_176_llm_ite  1     ✅     1       1.0     1.0     
-98    ntnx1netrtnews_176_llm_item_2_000['ntnx1netrtnews_176_llm_ite  1     ✅     1       1.0     1.0     
-99    ntnx1netrtnews_194_llm_item_2_000['ntnx1netrtnews_194_llm_ite  1     ✅     1       1.0     1.0     
+0     ntnx1netrtnews_160_llm_item_0_000['ntnx1netrtnews_167_llm_ite  3     ❌     0.2     0.3333  
+1     ntnx1netrtnews_160_llm_item_1_000['ntnx1netrtnews_167_llm_ite  2     ❌     0.2     0.5     
+2     ntnx1netrtnews_160_llm_item_2_000['ntnx1netrtnews_167_llm_ite  3     ❌     0.2     0.3333  
+3     ntnx1netrtnews_159_llm_item_0_000['ntnx1netrtnews_159_llm_ite  1     ✅     0.2     1.0     
+4     ntnx1netrtnews_159_llm_item_1_000['ntnx1netrtnews_159_llm_ite  1     ✅     0.2     1.0     
+5     ntnx1netrtnews_159_llm_item_2_000['ntnx1netrtnews_159_llm_ite  1     ✅     0.2     1.0     
+6     ntnx1netrtnews_159_llm_item_3_000['ntnx1netrtnews_159_llm_ite  1     ✅     0.2     1.0     
+7     ntnx1netrtnews_159_llm_item_4_000['ntnx1netrtnews_159_llm_ite  1     ✅     0.2     1.0     
+8     ntnx1netrtnews_159_llm_item_5_000['ntnx1netrtnews_159_llm_ite  1     ✅     0.2     1.0     
+9     ntnx1netrtnews_159_llm_item_6_000['ntnx1netrtnews_159_llm_ite  1     ✅     0.2     1.0     
+10    ntnx1netrtnews_159_llm_item_7_000['ntnx1netrtnews_159_llm_ite  1     ✅     0.2     1.0     
+11    ntnx1netrtnews_158_llm_item_0_000['ntnx1netrtnews_158_llm_ite  1     ✅     0.2     1.0     
+12    ntnx1netrtnews_158_llm_item_1_000['ntnx1netrtnews_158_llm_ite  1     ✅     0.2     1.0     
+13    ntnx1netrtnews_161_llm_item_0_000['ntnx1netrtnews_161_llm_ite  1     ✅     0.2     1.0     
+14    ntnx1netrtnews_161_llm_item_1_000['ntnx1netrtnews_161_llm_ite  1     ✅     0.2     1.0     
+15    ntnx1netrtnews_161_llm_item_2_000['ntnx1netrtnews_161_llm_ite  1     ✅     0.2     1.0     
+16    ntnx1netrtnews_161_llm_item_3_000['ntnx1netrtnews_159_llm_ite  2     ❌     0.2     0.5     
+17    ntnx1netrtnews_231_llm_item_6_000['ntnx1netrtnews_159_llm_ite  2     ❌     0.2     0.5     
+18    ntnx1netrtnews_231_llm_item_7_000['ntnx1netrtnews_231_llm_ite  1     ✅     0.2     1.0     
+19    ntnx1netrtnews_231_llm_item_8_000['ntnx1netrtnews_231_llm_ite  1     ✅     0.2     1.0     
+20    ntnx1netrtnews_163_llm_item_0_000['ntnx1netrtnews_163_llm_ite  1     ✅     0.2     1.0     
+21    ntnx1netrtnews_163_llm_item_0_001['ntnx1netrtnews_163_llm_ite  2     ❌     0.2     0.5     
+22    ntnx1netrtnews_163_llm_item_1_000['ntnx1netrtnews_163_llm_ite  1     ✅     0.2     1.0     
+23    ntnx1netrtnews_163_llm_item_1_001['ntnx1netrtnews_163_llm_ite  1     ✅     0.2     1.0     
+24    ntnx1netrtnews_163_llm_item_2_000['ntnx1netrtnews_163_llm_ite  1     ✅     0.2     1.0     
+25    ntnx1netrtnews_162_llm_item_3_000['ntnx1netrtnews_162_llm_ite  1     ✅     0.2     1.0     
+26    ntnx1netrtnews_162_llm_item_0_000['ntnx1netrtnews_162_llm_ite  1     ✅     0.2     1.0     
+27    ntnx1netrtnews_162_llm_item_1_000['ntnx1netrtnews_162_llm_ite  1     ✅     0.2     1.0     
+28    ntnx1netrtnews_162_llm_item_2_000['ntnx1netrtnews_162_llm_ite  1     ✅     0.2     1.0     
+29    ntnx1netrtnews_162_llm_item_4_000['ntnx1netrtnews_162_llm_ite  1     ✅     0.2     1.0     
+30    ntnx1netrtnews_162_llm_item_5_000['ntnx1netrtnews_162_llm_ite  1     ✅     0.2     1.0     
+31    ntnx1netrtnews_164_000['ntnx1netrtnews_164_000', '  1     ✅     0.2     1.0     
+32    ntnx1netrtnews_165_llm_item_0_000['ntnx1netrtnews_165_llm_ite  1     ✅     0.2     1.0     
+33    ntnx1netrtnews_165_llm_item_1_000['ntnx1netrtnews_165_llm_ite  1     ✅     0.2     1.0     
+34    ntnx1netrtnews_165_llm_item_2_000['ntnx1netrtnews_165_llm_ite  1     ✅     0.2     1.0     
+35    ntnx1netrtnews_165_llm_item_3_000['ntnx1netrtnews_165_llm_ite  1     ✅     0.2     1.0     
+36    ntnx1netrtnews_165_llm_item_4_000['ntnx1netrtnews_165_llm_ite  1     ✅     0.2     1.0     
+37    ntnx1netrtnews_165_llm_item_5_000['ntnx1netrtnews_165_llm_ite  1     ✅     0.2     1.0     
+38    ntnx1netrtnews_165_llm_item_6_000['ntnx1netrtnews_159_llm_ite  3     ❌     0.2     0.3333  
+39    ntnx1netrtnews_231_llm_item_9_000['ntnx1netrtnews_231_llm_ite  1     ✅     0.2     1.0     
+40    ntnx1netrtnews_182_llm_item_0_000['ntnx1netrtnews_194_llm_ite  3     ❌     0.2     0.3333  
+41    ntnx1netrtnews_166_000['ntnx1netrtnews_166_000', '  1     ✅     0.2     1.0     
+42    ntnx1netrtnews_167_llm_item_0_000['ntnx1netrtnews_167_llm_ite  1     ✅     0.2     1.0     
+43    ntnx1netrtnews_167_llm_item_1_000['ntnx1netrtnews_167_llm_ite  1     ✅     0.2     1.0     
+44    ntnx1netrtnews_167_llm_item_2_000['ntnx1netrtnews_167_llm_ite  1     ✅     0.2     1.0     
+45    ntnx1netrtnews_167_llm_item_3_000['ntnx1netrtnews_167_llm_ite  1     ✅     0.2     1.0     
+46    ntnx1netrtnews_167_llm_item_4_000['ntnx1netrtnews_167_llm_ite  1     ✅     0.2     1.0     
+47    ntnx1netrtnews_167_llm_item_5_000['ntnx1netrtnews_167_llm_ite  1     ✅     0.2     1.0     
+48    ntnx1netrtnews_167_llm_item_6_000['ntnx1netrtnews_167_llm_ite  1     ✅     0.2     1.0     
+49    ntnx1netrtnews_168_llm_item_3_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+50    ntnx1netrtnews_194_llm_item_1_000['ntnx1netrtnews_194_llm_ite  1     ✅     0.2     1.0     
+51    ntnx1netrtnews_169_000['ntnx1netrtnews_169_000', '  1     ✅     0.2     1.0     
+52    ntnx1netrtnews_169_001['ntnx1netrtnews_169_001', '  1     ✅     0.2     1.0     
+53    ntnx1netrtnews_174_llm_item_0_000['ntnx1netrtnews_174_llm_ite  1     ✅     0.2     1.0     
+54    ntnx1netrtnews_168_llm_item_0_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+55    ntnx1netrtnews_168_llm_item_1_000['ntnx1netrtnews_168_llm_ite  2     ❌     0.2     0.5     
+56    ntnx1netrtnews_168_llm_item_2_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+57    ntnx1netrtnews_176_llm_item_3_000['ntnx1netrtnews_176_llm_ite  1     ✅     0.2     1.0     
+58    ntnx1netrtnews_168_llm_item_4_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+59    ntnx1netrtnews_168_llm_item_5_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+60    ntnx1netrtnews_168_llm_item_6_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+61    ntnx1netrtnews_168_llm_item_7_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+62    ntnx1netrtnews_168_llm_item_8_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+63    ntnx1netrtnews_168_llm_item_9_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+64    ntnx1netrtnews_170_llm_item_0_000['ntnx1netrtnews_170_llm_ite  1     ✅     0.2     1.0     
+65    ntnx1netrtnews_170_llm_item_1_000['ntnx1netrtnews_170_llm_ite  1     ✅     0.2     1.0     
+66    ntnx1netrtnews_170_llm_item_2_000['ntnx1netrtnews_170_llm_ite  1     ✅     0.2     1.0     
+67    ntnx1netrtnews_170_llm_item_3_000['ntnx1netrtnews_170_llm_ite  1     ✅     0.2     1.0     
+68    ntnx1netrtnews_170_llm_item_4_000['ntnx1netrtnews_159_llm_ite  3     ❌     0.2     0.3333  
+69    ntnx1netrtnews_170_llm_item_5_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       
+70    ntnx1netrtnews_170_llm_item_6_000['ntnx1netrtnews_170_llm_ite  1     ✅     0.2     1.0     
+71    ntnx1netrtnews_173_llm_item_0_000['ntnx1netrtnews_159_llm_ite  2     ❌     0.2     0.5     
+72    ntnx1netrtnews_173_llm_item_1_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+73    ntnx1netrtnews_173_llm_item_2_000['ntnx1netrtnews_174_llm_ite  2     ❌     0.2     0.5     
+74    ntnx1netrtnews_173_llm_item_3_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+75    ntnx1netrtnews_173_llm_item_4_000['ntnx1netrtnews_168_llm_ite  2     ❌     0.2     0.5     
+76    ntnx1netrtnews_173_llm_item_5_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+77    ntnx1netrtnews_173_llm_item_6_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+78    ntnx1netrtnews_173_llm_item_7_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+79    ntnx1netrtnews_173_llm_item_8_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+80    ntnx1netrtnews_173_llm_item_9_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+81    ntnx1netrtnews_173_llm_item_10_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+82    ntnx1netrtnews_173_llm_item_11_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+83    ntnx1netrtnews_176_llm_item_4_000['ntnx1netrtnews_176_llm_ite  1     ✅     0.2     1.0     
+84    ntnx1netrtnews_175_000['ntnx1netrtnews_175_000', '  1     ✅     0.2     1.0     
+85    ntnx1netrtnews_171_llm_item_0_000['ntnx1netrtnews_171_llm_ite  1     ✅     0.2     1.0     
+86    ntnx1netrtnews_171_llm_item_1_000['ntnx1netrtnews_171_llm_ite  1     ✅     0.2     1.0     
+87    ntnx1netrtnews_171_llm_item_2_000['ntnx1netrtnews_171_llm_ite  1     ✅     0.2     1.0     
+88    ntnx1netrtnews_171_llm_item_3_000['ntnx1netrtnews_171_llm_ite  1     ✅     0.2     1.0     
+89    ntnx1netrtnews_171_llm_item_4_000['ntnx1netrtnews_171_llm_ite  1     ✅     0.2     1.0     
+90    ntnx1netrtnews_171_llm_item_5_000['ntnx1netrtnews_159_llm_ite  2     ❌     0.2     0.5     
+91    ntnx1netrtnews_176_llm_item_5_000['ntnx1netrtnews_176_llm_ite  1     ✅     0.2     1.0     
+92    ntnx1netrtnews_172_llm_item_0_000['ntnx1netrtnews_172_llm_ite  1     ✅     0.2     1.0     
+93    ntnx1netrtnews_172_llm_item_1_000['ntnx1netrtnews_172_llm_ite  1     ✅     0.2     1.0     
+94    ntnx1netrtnews_172_llm_item_2_000['ntnx1netrtnews_172_llm_ite  1     ✅     0.2     1.0     
+95    ntnx1netrtnews_172_llm_item_2_001['ntnx1netrtnews_172_llm_ite  1     ✅     0.2     1.0     
+96    ntnx1netrtnews_176_llm_item_0_000['ntnx1netrtnews_176_llm_ite  1     ✅     0.2     1.0     
+97    ntnx1netrtnews_176_llm_item_1_000['ntnx1netrtnews_176_llm_ite  1     ✅     0.2     1.0     
+98    ntnx1netrtnews_176_llm_item_2_000['ntnx1netrtnews_176_llm_ite  1     ✅     0.2     1.0     
+99    ntnx1netrtnews_194_llm_item_2_000['ntnx1netrtnews_194_llm_ite  1     ✅     0.2     1.0     
 
 📂 ntnx1netrtnews - OpenAI Retrieval Details:
 Query GT    TopK IDs                      Rank  Top1  Recall  Prec    MRR     
 ------------------------------------------------------------------------------
-0     ntnx1netrtnews_160_llm_item_0_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       0       
-1     ntnx1netrtnews_160_llm_item_1_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       0       
-2     ntnx1netrtnews_160_llm_item_2_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       0       
-3     ntnx1netrtnews_159_llm_item_0_000['ntnx1netrtnews_159_llm_ite  1     ✅     1       1.0     1.0     
-4     ntnx1netrtnews_159_llm_item_1_000['ntnx1netrtnews_159_llm_ite  1     ✅     1       1.0     1.0     
-5     ntnx1netrtnews_159_llm_item_2_000['ntnx1netrtnews_194_llm_ite  2     ❌     1       0.5     0.5     
-6     ntnx1netrtnews_159_llm_item_3_000['ntnx1netrtnews_159_llm_ite  1     ✅     1       1.0     1.0     
-7     ntnx1netrtnews_159_llm_item_4_000['ntnx1netrtnews_159_llm_ite  1     ✅     1       1.0     1.0     
-8     ntnx1netrtnews_159_llm_item_5_000['ntnx1netrtnews_159_llm_ite  1     ✅     1       1.0     1.0     
-9     ntnx1netrtnews_159_llm_item_6_000['ntnx1netrtnews_159_llm_ite  1     ✅     1       1.0     1.0     
-10    ntnx1netrtnews_159_llm_item_7_000['ntnx1netrtnews_159_llm_ite  1     ✅     1       1.0     1.0     
-11    ntnx1netrtnews_158_llm_item_0_000['ntnx1netrtnews_158_llm_ite  1     ✅     1       1.0     1.0     
-12    ntnx1netrtnews_158_llm_item_1_000['ntnx1netrtnews_158_llm_ite  1     ✅     1       1.0     1.0     
-13    ntnx1netrtnews_161_llm_item_0_000['ntnx1netrtnews_161_llm_ite  1     ✅     1       1.0     1.0     
-14    ntnx1netrtnews_161_llm_item_1_000['ntnx1netrtnews_172_llm_ite  3     ❌     1       0.3333  0.3333  
-15    ntnx1netrtnews_161_llm_item_2_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       0       
-16    ntnx1netrtnews_161_llm_item_3_000['ntnx1netrtnews_159_llm_ite  2     ❌     1       0.5     0.5     
-17    ntnx1netrtnews_231_llm_item_6_000['ntnx1netrtnews_231_llm_ite  1     ✅     1       1.0     1.0     
-18    ntnx1netrtnews_231_llm_item_7_000['ntnx1netrtnews_231_llm_ite  1     ✅     1       1.0     1.0     
-19    ntnx1netrtnews_231_llm_item_8_000['ntnx1netrtnews_231_llm_ite  1     ✅     1       1.0     1.0     
-20    ntnx1netrtnews_163_llm_item_0_000['ntnx1netrtnews_167_llm_ite  -     ❌     0       0       0       
-21    ntnx1netrtnews_163_llm_item_0_001['ntnx1netrtnews_163_llm_ite  2     ❌     1       0.5     0.5     
-22    ntnx1netrtnews_163_llm_item_1_000['ntnx1netrtnews_163_llm_ite  1     ✅     1       1.0     1.0     
-23    ntnx1netrtnews_163_llm_item_1_001['ntnx1netrtnews_160_llm_ite  5     ❌     1       0.2     0.2     
-24    ntnx1netrtnews_163_llm_item_2_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       0       
-25    ntnx1netrtnews_162_llm_item_3_000['ntnx1netrtnews_162_llm_ite  1     ✅     1       1.0     1.0     
-26    ntnx1netrtnews_162_llm_item_0_000['ntnx1netrtnews_162_llm_ite  1     ✅     1       1.0     1.0     
-27    ntnx1netrtnews_162_llm_item_1_000['ntnx1netrtnews_162_llm_ite  1     ✅     1       1.0     1.0     
-28    ntnx1netrtnews_162_llm_item_2_000['ntnx1netrtnews_162_llm_ite  1     ✅     1       1.0     1.0     
-29    ntnx1netrtnews_162_llm_item_4_000['ntnx1netrtnews_162_llm_ite  1     ✅     1       1.0     1.0     
-30    ntnx1netrtnews_162_llm_item_5_000['ntnx1netrtnews_162_llm_ite  1     ✅     1       1.0     1.0     
-31    ntnx1netrtnews_164_000['ntnx1netrtnews_164_000', '  1     ✅     1       1.0     1.0     
-32    ntnx1netrtnews_165_llm_item_0_000['ntnx1netrtnews_165_llm_ite  1     ✅     1       1.0     1.0     
-33    ntnx1netrtnews_165_llm_item_1_000['ntnx1netrtnews_173_llm_ite  3     ❌     1       0.3333  0.3333  
-34    ntnx1netrtnews_165_llm_item_2_000['ntnx1netrtnews_165_llm_ite  1     ✅     1       1.0     1.0     
-35    ntnx1netrtnews_165_llm_item_3_000['ntnx1netrtnews_165_llm_ite  1     ✅     1       1.0     1.0     
-36    ntnx1netrtnews_165_llm_item_4_000['ntnx1netrtnews_165_llm_ite  1     ✅     1       1.0     1.0     
-37    ntnx1netrtnews_165_llm_item_5_000['ntnx1netrtnews_165_llm_ite  1     ✅     1       1.0     1.0     
-38    ntnx1netrtnews_165_llm_item_6_000['ntnx1netrtnews_168_llm_ite  -     ❌     0       0       0       
-39    ntnx1netrtnews_231_llm_item_9_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       0       
-40    ntnx1netrtnews_182_llm_item_0_000['ntnx1netrtnews_194_llm_ite  4     ❌     1       0.25    0.25    
-41    ntnx1netrtnews_166_000['ntnx1netrtnews_166_000', '  1     ✅     1       1.0     1.0     
-42    ntnx1netrtnews_167_llm_item_0_000['ntnx1netrtnews_160_llm_ite  3     ❌     1       0.3333  0.3333  
-43    ntnx1netrtnews_167_llm_item_1_000['ntnx1netrtnews_167_llm_ite  1     ✅     1       1.0     1.0     
-44    ntnx1netrtnews_167_llm_item_2_000['ntnx1netrtnews_168_llm_ite  2     ❌     1       0.5     0.5     
-45    ntnx1netrtnews_167_llm_item_3_000['ntnx1netrtnews_167_llm_ite  1     ✅     1       1.0     1.0     
-46    ntnx1netrtnews_167_llm_item_4_000['ntnx1netrtnews_167_llm_ite  1     ✅     1       1.0     1.0     
-47    ntnx1netrtnews_167_llm_item_5_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       0       
-48    ntnx1netrtnews_167_llm_item_6_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       0       
-49    ntnx1netrtnews_168_llm_item_3_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-50    ntnx1netrtnews_194_llm_item_1_000['ntnx1netrtnews_194_llm_ite  1     ✅     1       1.0     1.0     
-51    ntnx1netrtnews_169_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       0       
-52    ntnx1netrtnews_169_001['ntnx1netrtnews_168_llm_ite  -     ❌     0       0       0       
-53    ntnx1netrtnews_174_llm_item_0_000['ntnx1netrtnews_174_llm_ite  1     ✅     1       1.0     1.0     
-54    ntnx1netrtnews_168_llm_item_0_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-55    ntnx1netrtnews_168_llm_item_1_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-56    ntnx1netrtnews_168_llm_item_2_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-57    ntnx1netrtnews_176_llm_item_3_000['ntnx1netrtnews_176_llm_ite  1     ✅     1       1.0     1.0     
-58    ntnx1netrtnews_168_llm_item_4_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-59    ntnx1netrtnews_168_llm_item_5_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-60    ntnx1netrtnews_168_llm_item_6_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-61    ntnx1netrtnews_168_llm_item_7_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-62    ntnx1netrtnews_168_llm_item_8_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-63    ntnx1netrtnews_168_llm_item_9_000['ntnx1netrtnews_168_llm_ite  1     ✅     1       1.0     1.0     
-64    ntnx1netrtnews_170_llm_item_0_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       0       
-65    ntnx1netrtnews_170_llm_item_1_000['ntnx1netrtnews_159_llm_ite  3     ❌     1       0.3333  0.3333  
-66    ntnx1netrtnews_170_llm_item_2_000['ntnx1netrtnews_231_llm_ite  -     ❌     0       0       0       
-67    ntnx1netrtnews_170_llm_item_3_000['ntnx1netrtnews_170_llm_ite  1     ✅     1       1.0     1.0     
-68    ntnx1netrtnews_170_llm_item_4_000['ntnx1netrtnews_170_llm_ite  1     ✅     1       1.0     1.0     
-69    ntnx1netrtnews_170_llm_item_5_000['ntnx1netrtnews_170_llm_ite  1     ✅     1       1.0     1.0     
-70    ntnx1netrtnews_170_llm_item_6_000['ntnx1netrtnews_168_llm_ite  -     ❌     0       0       0       
-71    ntnx1netrtnews_173_llm_item_0_000['ntnx1netrtnews_159_llm_ite  2     ❌     1       0.5     0.5     
-72    ntnx1netrtnews_173_llm_item_1_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-73    ntnx1netrtnews_173_llm_item_2_000['ntnx1netrtnews_174_llm_ite  2     ❌     1       0.5     0.5     
-74    ntnx1netrtnews_173_llm_item_3_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-75    ntnx1netrtnews_173_llm_item_4_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-76    ntnx1netrtnews_173_llm_item_5_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-77    ntnx1netrtnews_173_llm_item_6_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-78    ntnx1netrtnews_173_llm_item_7_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-79    ntnx1netrtnews_173_llm_item_8_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-80    ntnx1netrtnews_173_llm_item_9_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-81    ntnx1netrtnews_173_llm_item_10_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-82    ntnx1netrtnews_173_llm_item_11_000['ntnx1netrtnews_173_llm_ite  1     ✅     1       1.0     1.0     
-83    ntnx1netrtnews_176_llm_item_4_000['ntnx1netrtnews_176_llm_ite  1     ✅     1       1.0     1.0     
-84    ntnx1netrtnews_175_000['ntnx1netrtnews_175_000', '  1     ✅     1       1.0     1.0     
-85    ntnx1netrtnews_171_llm_item_0_000['ntnx1netrtnews_171_llm_ite  1     ✅     1       1.0     1.0     
-86    ntnx1netrtnews_171_llm_item_1_000['ntnx1netrtnews_171_llm_ite  1     ✅     1       1.0     1.0     
-87    ntnx1netrtnews_171_llm_item_2_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       0       
-88    ntnx1netrtnews_171_llm_item_3_000['ntnx1netrtnews_171_llm_ite  1     ✅     1       1.0     1.0     
-89    ntnx1netrtnews_171_llm_item_4_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       0       
-90    ntnx1netrtnews_171_llm_item_5_000['ntnx1netrtnews_159_llm_ite  2     ❌     1       0.5     0.5     
-91    ntnx1netrtnews_176_llm_item_5_000['ntnx1netrtnews_176_llm_ite  1     ✅     1       1.0     1.0     
-92    ntnx1netrtnews_172_llm_item_0_000['ntnx1netrtnews_172_llm_ite  2     ❌     1       0.5     0.5     
-93    ntnx1netrtnews_172_llm_item_1_000['ntnx1netrtnews_172_llm_ite  3     ❌     1       0.3333  0.3333  
-94    ntnx1netrtnews_172_llm_item_2_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       0       
-95    ntnx1netrtnews_172_llm_item_2_001['ntnx1netrtnews_172_llm_ite  1     ✅     1       1.0     1.0     
-96    ntnx1netrtnews_176_llm_item_0_000['ntnx1netrtnews_176_llm_ite  1     ✅     1       1.0     1.0     
-97    ntnx1netrtnews_176_llm_item_1_000['ntnx1netrtnews_176_llm_ite  1     ✅     1       1.0     1.0     
-98    ntnx1netrtnews_176_llm_item_2_000['ntnx1netrtnews_176_llm_ite  1     ✅     1       1.0     1.0     
-99    ntnx1netrtnews_194_llm_item_2_000['ntnx1netrtnews_194_llm_ite  1     ✅     1       1.0     1.0     
+0     ntnx1netrtnews_160_llm_item_0_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       
+1     ntnx1netrtnews_160_llm_item_1_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       
+2     ntnx1netrtnews_160_llm_item_2_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       
+3     ntnx1netrtnews_159_llm_item_0_000['ntnx1netrtnews_159_llm_ite  1     ✅     0.2     1.0     
+4     ntnx1netrtnews_159_llm_item_1_000['ntnx1netrtnews_159_llm_ite  1     ✅     0.2     1.0     
+5     ntnx1netrtnews_159_llm_item_2_000['ntnx1netrtnews_194_llm_ite  2     ❌     0.2     0.5     
+6     ntnx1netrtnews_159_llm_item_3_000['ntnx1netrtnews_159_llm_ite  1     ✅     0.2     1.0     
+7     ntnx1netrtnews_159_llm_item_4_000['ntnx1netrtnews_159_llm_ite  1     ✅     0.2     1.0     
+8     ntnx1netrtnews_159_llm_item_5_000['ntnx1netrtnews_159_llm_ite  1     ✅     0.2     1.0     
+9     ntnx1netrtnews_159_llm_item_6_000['ntnx1netrtnews_159_llm_ite  1     ✅     0.2     1.0     
+10    ntnx1netrtnews_159_llm_item_7_000['ntnx1netrtnews_159_llm_ite  1     ✅     0.2     1.0     
+11    ntnx1netrtnews_158_llm_item_0_000['ntnx1netrtnews_158_llm_ite  1     ✅     0.2     1.0     
+12    ntnx1netrtnews_158_llm_item_1_000['ntnx1netrtnews_158_llm_ite  1     ✅     0.2     1.0     
+13    ntnx1netrtnews_161_llm_item_0_000['ntnx1netrtnews_161_llm_ite  1     ✅     0.2     1.0     
+14    ntnx1netrtnews_161_llm_item_1_000['ntnx1netrtnews_172_llm_ite  3     ❌     0.2     0.3333  
+15    ntnx1netrtnews_161_llm_item_2_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       
+16    ntnx1netrtnews_161_llm_item_3_000['ntnx1netrtnews_159_llm_ite  2     ❌     0.2     0.5     
+17    ntnx1netrtnews_231_llm_item_6_000['ntnx1netrtnews_231_llm_ite  1     ✅     0.2     1.0     
+18    ntnx1netrtnews_231_llm_item_7_000['ntnx1netrtnews_231_llm_ite  1     ✅     0.2     1.0     
+19    ntnx1netrtnews_231_llm_item_8_000['ntnx1netrtnews_231_llm_ite  1     ✅     0.2     1.0     
+20    ntnx1netrtnews_163_llm_item_0_000['ntnx1netrtnews_167_llm_ite  -     ❌     0       0       
+21    ntnx1netrtnews_163_llm_item_0_001['ntnx1netrtnews_163_llm_ite  2     ❌     0.2     0.5     
+22    ntnx1netrtnews_163_llm_item_1_000['ntnx1netrtnews_163_llm_ite  1     ✅     0.2     1.0     
+23    ntnx1netrtnews_163_llm_item_1_001['ntnx1netrtnews_160_llm_ite  5     ❌     0.2     0.2     
+24    ntnx1netrtnews_163_llm_item_2_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       
+25    ntnx1netrtnews_162_llm_item_3_000['ntnx1netrtnews_162_llm_ite  1     ✅     0.2     1.0     
+26    ntnx1netrtnews_162_llm_item_0_000['ntnx1netrtnews_162_llm_ite  1     ✅     0.2     1.0     
+27    ntnx1netrtnews_162_llm_item_1_000['ntnx1netrtnews_162_llm_ite  1     ✅     0.2     1.0     
+28    ntnx1netrtnews_162_llm_item_2_000['ntnx1netrtnews_162_llm_ite  1     ✅     0.2     1.0     
+29    ntnx1netrtnews_162_llm_item_4_000['ntnx1netrtnews_162_llm_ite  1     ✅     0.2     1.0     
+30    ntnx1netrtnews_162_llm_item_5_000['ntnx1netrtnews_162_llm_ite  1     ✅     0.2     1.0     
+31    ntnx1netrtnews_164_000['ntnx1netrtnews_164_000', '  1     ✅     0.2     1.0     
+32    ntnx1netrtnews_165_llm_item_0_000['ntnx1netrtnews_165_llm_ite  1     ✅     0.2     1.0     
+33    ntnx1netrtnews_165_llm_item_1_000['ntnx1netrtnews_173_llm_ite  3     ❌     0.2     0.3333  
+34    ntnx1netrtnews_165_llm_item_2_000['ntnx1netrtnews_165_llm_ite  1     ✅     0.2     1.0     
+35    ntnx1netrtnews_165_llm_item_3_000['ntnx1netrtnews_165_llm_ite  1     ✅     0.2     1.0     
+36    ntnx1netrtnews_165_llm_item_4_000['ntnx1netrtnews_165_llm_ite  1     ✅     0.2     1.0     
+37    ntnx1netrtnews_165_llm_item_5_000['ntnx1netrtnews_165_llm_ite  1     ✅     0.2     1.0     
+38    ntnx1netrtnews_165_llm_item_6_000['ntnx1netrtnews_168_llm_ite  -     ❌     0       0       
+39    ntnx1netrtnews_231_llm_item_9_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       
+40    ntnx1netrtnews_182_llm_item_0_000['ntnx1netrtnews_194_llm_ite  4     ❌     0.2     0.25    
+41    ntnx1netrtnews_166_000['ntnx1netrtnews_166_000', '  1     ✅     0.2     1.0     
+42    ntnx1netrtnews_167_llm_item_0_000['ntnx1netrtnews_160_llm_ite  3     ❌     0.2     0.3333  
+43    ntnx1netrtnews_167_llm_item_1_000['ntnx1netrtnews_167_llm_ite  1     ✅     0.2     1.0     
+44    ntnx1netrtnews_167_llm_item_2_000['ntnx1netrtnews_168_llm_ite  2     ❌     0.2     0.5     
+45    ntnx1netrtnews_167_llm_item_3_000['ntnx1netrtnews_167_llm_ite  1     ✅     0.2     1.0     
+46    ntnx1netrtnews_167_llm_item_4_000['ntnx1netrtnews_167_llm_ite  1     ✅     0.2     1.0     
+47    ntnx1netrtnews_167_llm_item_5_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       
+48    ntnx1netrtnews_167_llm_item_6_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       
+49    ntnx1netrtnews_168_llm_item_3_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+50    ntnx1netrtnews_194_llm_item_1_000['ntnx1netrtnews_194_llm_ite  1     ✅     0.2     1.0     
+51    ntnx1netrtnews_169_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       
+52    ntnx1netrtnews_169_001['ntnx1netrtnews_168_llm_ite  -     ❌     0       0       
+53    ntnx1netrtnews_174_llm_item_0_000['ntnx1netrtnews_174_llm_ite  1     ✅     0.2     1.0     
+54    ntnx1netrtnews_168_llm_item_0_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+55    ntnx1netrtnews_168_llm_item_1_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+56    ntnx1netrtnews_168_llm_item_2_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+57    ntnx1netrtnews_176_llm_item_3_000['ntnx1netrtnews_176_llm_ite  1     ✅     0.2     1.0     
+58    ntnx1netrtnews_168_llm_item_4_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+59    ntnx1netrtnews_168_llm_item_5_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+60    ntnx1netrtnews_168_llm_item_6_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+61    ntnx1netrtnews_168_llm_item_7_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+62    ntnx1netrtnews_168_llm_item_8_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+63    ntnx1netrtnews_168_llm_item_9_000['ntnx1netrtnews_168_llm_ite  1     ✅     0.2     1.0     
+64    ntnx1netrtnews_170_llm_item_0_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       
+65    ntnx1netrtnews_170_llm_item_1_000['ntnx1netrtnews_159_llm_ite  3     ❌     0.2     0.3333  
+66    ntnx1netrtnews_170_llm_item_2_000['ntnx1netrtnews_231_llm_ite  -     ❌     0       0       
+67    ntnx1netrtnews_170_llm_item_3_000['ntnx1netrtnews_170_llm_ite  1     ✅     0.2     1.0     
+68    ntnx1netrtnews_170_llm_item_4_000['ntnx1netrtnews_170_llm_ite  1     ✅     0.2     1.0     
+69    ntnx1netrtnews_170_llm_item_5_000['ntnx1netrtnews_170_llm_ite  1     ✅     0.2     1.0     
+70    ntnx1netrtnews_170_llm_item_6_000['ntnx1netrtnews_168_llm_ite  -     ❌     0       0       
+71    ntnx1netrtnews_173_llm_item_0_000['ntnx1netrtnews_159_llm_ite  2     ❌     0.2     0.5     
+72    ntnx1netrtnews_173_llm_item_1_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+73    ntnx1netrtnews_173_llm_item_2_000['ntnx1netrtnews_174_llm_ite  2     ❌     0.2     0.5     
+74    ntnx1netrtnews_173_llm_item_3_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+75    ntnx1netrtnews_173_llm_item_4_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+76    ntnx1netrtnews_173_llm_item_5_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+77    ntnx1netrtnews_173_llm_item_6_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+78    ntnx1netrtnews_173_llm_item_7_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+79    ntnx1netrtnews_173_llm_item_8_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+80    ntnx1netrtnews_173_llm_item_9_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+81    ntnx1netrtnews_173_llm_item_10_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+82    ntnx1netrtnews_173_llm_item_11_000['ntnx1netrtnews_173_llm_ite  1     ✅     0.2     1.0     
+83    ntnx1netrtnews_176_llm_item_4_000['ntnx1netrtnews_176_llm_ite  1     ✅     0.2     1.0     
+84    ntnx1netrtnews_175_000['ntnx1netrtnews_175_000', '  1     ✅     0.2     1.0     
+85    ntnx1netrtnews_171_llm_item_0_000['ntnx1netrtnews_171_llm_ite  1     ✅     0.2     1.0     
+86    ntnx1netrtnews_171_llm_item_1_000['ntnx1netrtnews_171_llm_ite  1     ✅     0.2     1.0     
+87    ntnx1netrtnews_171_llm_item_2_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       
+88    ntnx1netrtnews_171_llm_item_3_000['ntnx1netrtnews_171_llm_ite  1     ✅     0.2     1.0     
+89    ntnx1netrtnews_171_llm_item_4_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       
+90    ntnx1netrtnews_171_llm_item_5_000['ntnx1netrtnews_159_llm_ite  2     ❌     0.2     0.5     
+91    ntnx1netrtnews_176_llm_item_5_000['ntnx1netrtnews_176_llm_ite  1     ✅     0.2     1.0     
+92    ntnx1netrtnews_172_llm_item_0_000['ntnx1netrtnews_172_llm_ite  2     ❌     0.2     0.5     
+93    ntnx1netrtnews_172_llm_item_1_000['ntnx1netrtnews_172_llm_ite  3     ❌     0.2     0.3333  
+94    ntnx1netrtnews_172_llm_item_2_000['ntnx1netrtnews_159_llm_ite  -     ❌     0       0       
+95    ntnx1netrtnews_172_llm_item_2_001['ntnx1netrtnews_172_llm_ite  1     ✅     0.2     1.0     
+96    ntnx1netrtnews_176_llm_item_0_000['ntnx1netrtnews_176_llm_ite  1     ✅     0.2     1.0     
+97    ntnx1netrtnews_176_llm_item_1_000['ntnx1netrtnews_176_llm_ite  1     ✅     0.2     1.0     
+98    ntnx1netrtnews_176_llm_item_2_000['ntnx1netrtnews_176_llm_ite  1     ✅     0.2     1.0     
+99    ntnx1netrtnews_194_llm_item_2_000['ntnx1netrtnews_194_llm_ite  1     ✅     0.2     1.0     
 
 📂 ntn001rtnews - BGE Retrieval Details:
 Query GT    TopK IDs                      Rank  Top1  Recall  Prec    MRR     
 ------------------------------------------------------------------------------
-0     ntn001rtnews_5417354_llm_item_0_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-1     ntn001rtnews_5417354_llm_item_1_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-2     ntn001rtnews_5417354_llm_item_2_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-3     ntn001rtnews_5417354_llm_item_3_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-4     ntn001rtnews_5417354_llm_item_4_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-5     ntn001rtnews_5417354_llm_item_5_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-6     ntn001rtnews_5417354_llm_item_6_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-7     ntn001rtnews_5417354_llm_item_7_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-8     ntn001rtnews_5417354_llm_item_8_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-9     ntn001rtnews_5417354_llm_item_9_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-10    ntn001rtnews_5417354_llm_item_10_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-11    ntn001rtnews_5384734_llm_item_0_000['ntn001rtnews_5384734_llm_i  1     ✅     1       1.0     1.0     
-12    ntn001rtnews_5384734_llm_item_1_000['ntn001rtnews_5384737_llm_i  4     ❌     1       0.25    0.25    
-13    ntn001rtnews_5384734_llm_item_2_000['ntn001rtnews_5384734_llm_i  1     ✅     1       1.0     1.0     
-14    ntn001rtnews_5384734_llm_item_3_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-15    ntn001rtnews_5384734_llm_item_4_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-16    ntn001rtnews_5384734_llm_item_5_000['ntn001rtnews_5384734_llm_i  1     ✅     1       1.0     1.0     
-17    ntn001rtnews_5384734_llm_item_6_000['ntn001rtnews_5384734_llm_i  1     ✅     1       1.0     1.0     
-18    ntn001rtnews_5384734_llm_item_7_000['ntn001rtnews_5384746_llm_i  -     ❌     0       0       0       
-19    ntn001rtnews_5384738_llm_item_0_000['ntn001rtnews_5384738_llm_i  1     ✅     1       1.0     1.0     
-20    ntn001rtnews_5384738_llm_item_1_000['ntn001rtnews_5384738_llm_i  1     ✅     1       1.0     1.0     
-21    ntn001rtnews_5384738_llm_item_2_000['ntn001rtnews_5384738_llm_i  1     ✅     1       1.0     1.0     
-22    ntn001rtnews_5384738_llm_item_3_000['ntn001rtnews_5384738_llm_i  1     ✅     1       1.0     1.0     
-23    ntn001rtnews_5417355_llm_item_0_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-24    ntn001rtnews_5384738_llm_item_4_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-25    ntn001rtnews_5384738_llm_item_5_000['ntn001rtnews_5384738_llm_i  1     ✅     1       1.0     1.0     
-26    ntn001rtnews_5384738_llm_item_6_000['ntn001rtnews_5384737_llm_i  3     ❌     1       0.3333  0.3333  
-27    ntn001rtnews_5384738_llm_item_7_000['ntn001rtnews_5384738_llm_i  1     ✅     1       1.0     1.0     
-28    ntn001rtnews_5384737_llm_item_0_000['ntn001rtnews_5384737_llm_i  1     ✅     1       1.0     1.0     
-29    ntn001rtnews_5384737_llm_item_1_000['ntn001rtnews_5384737_llm_i  1     ✅     1       1.0     1.0     
-30    ntn001rtnews_5384737_llm_item_2_000['ntn001rtnews_5384737_llm_i  1     ✅     1       1.0     1.0     
-31    ntn001rtnews_5384737_llm_item_3_000['ntn001rtnews_5384737_llm_i  1     ✅     1       1.0     1.0     
-32    ntn001rtnews_5384737_llm_item_4_000['ntn001rtnews_5384737_llm_i  1     ✅     1       1.0     1.0     
-33    ntn001rtnews_5384737_llm_item_5_000['ntn001rtnews_5384742_llm_i  -     ❌     0       0       0       
-34    ntn001rtnews_5384737_llm_item_6_000['ntn001rtnews_5384737_llm_i  1     ✅     1       1.0     1.0     
-35    ntn001rtnews_5384737_llm_item_7_000['ntn001rtnews_5384737_llm_i  1     ✅     1       1.0     1.0     
-36    ntn001rtnews_5384740_llm_item_0_000['ntn001rtnews_5384740_llm_i  1     ✅     1       1.0     1.0     
-37    ntn001rtnews_5384740_llm_item_1_000['ntn001rtnews_5384740_llm_i  1     ✅     1       1.0     1.0     
-38    ntn001rtnews_5384740_llm_item_2_000['ntn001rtnews_5384740_llm_i  1     ✅     1       1.0     1.0     
-39    ntn001rtnews_5384740_llm_item_3_000['ntn001rtnews_5384740_llm_i  1     ✅     1       1.0     1.0     
-40    ntn001rtnews_5384740_llm_item_4_000['ntn001rtnews_5384740_llm_i  1     ✅     1       1.0     1.0     
-41    ntn001rtnews_5384740_llm_item_5_000['ntn001rtnews_5384740_llm_i  1     ✅     1       1.0     1.0     
-42    ntn001rtnews_5384740_llm_item_6_000['ntn001rtnews_5384740_llm_i  1     ✅     1       1.0     1.0     
-43    ntn001rtnews_5384740_llm_item_7_000['ntn001rtnews_5384740_llm_i  1     ✅     1       1.0     1.0     
-44    ntn001rtnews_5384736_llm_item_0_000['ntn001rtnews_5384736_llm_i  1     ✅     1       1.0     1.0     
-45    ntn001rtnews_5384736_llm_item_1_000['ntn001rtnews_5384736_llm_i  1     ✅     1       1.0     1.0     
-46    ntn001rtnews_5384736_llm_item_2_000['ntn001rtnews_5384736_llm_i  1     ✅     1       1.0     1.0     
-47    ntn001rtnews_5384736_llm_item_3_000['ntn001rtnews_5384736_llm_i  1     ✅     1       1.0     1.0     
-48    ntn001rtnews_5384736_llm_item_4_000['ntn001rtnews_5384736_llm_i  1     ✅     1       1.0     1.0     
-49    ntn001rtnews_5384736_llm_item_5_000['ntn001rtnews_5384736_llm_i  1     ✅     1       1.0     1.0     
-50    ntn001rtnews_5384736_llm_item_6_000['ntn001rtnews_5384746_llm_i  2     ❌     1       0.5     0.5     
-51    ntn001rtnews_5384736_llm_item_7_000['ntn001rtnews_5384736_llm_i  1     ✅     1       1.0     1.0     
-52    ntn001rtnews_5384739_llm_item_0_000['ntn001rtnews_5384739_llm_i  1     ✅     1       1.0     1.0     
-53    ntn001rtnews_5384739_llm_item_1_000['ntn001rtnews_5384739_llm_i  1     ✅     1       1.0     1.0     
-54    ntn001rtnews_5384739_llm_item_2_000['ntn001rtnews_5384739_llm_i  1     ✅     1       1.0     1.0     
-55    ntn001rtnews_5384739_llm_item_3_000['ntn001rtnews_5384739_llm_i  1     ✅     1       1.0     1.0     
-56    ntn001rtnews_5384739_llm_item_4_000['ntn001rtnews_5384742_llm_i  -     ❌     0       0       0       
-57    ntn001rtnews_5384739_llm_item_5_000['ntn001rtnews_5384739_llm_i  1     ✅     1       1.0     1.0     
-58    ntn001rtnews_5384739_llm_item_6_000['ntn001rtnews_5384739_llm_i  1     ✅     1       1.0     1.0     
-59    ntn001rtnews_5384739_llm_item_7_000['ntn001rtnews_5384739_llm_i  1     ✅     1       1.0     1.0     
-60    ntn001rtnews_5384743_llm_item_0_000['ntn001rtnews_5384743_llm_i  1     ✅     1       1.0     1.0     
-61    ntn001rtnews_5384743_llm_item_1_000['ntn001rtnews_5384743_llm_i  1     ✅     1       1.0     1.0     
-62    ntn001rtnews_5384743_llm_item_2_000['ntn001rtnews_5384743_llm_i  1     ✅     1       1.0     1.0     
-63    ntn001rtnews_5384743_llm_item_3_000['ntn001rtnews_5384743_llm_i  1     ✅     1       1.0     1.0     
-64    ntn001rtnews_5384743_llm_item_4_000['ntn001rtnews_5384743_llm_i  1     ✅     1       1.0     1.0     
-65    ntn001rtnews_5384743_llm_item_5_000['ntn001rtnews_5384743_llm_i  1     ✅     1       1.0     1.0     
-66    ntn001rtnews_5384743_llm_item_6_000['ntn001rtnews_5384743_llm_i  1     ✅     1       1.0     1.0     
-67    ntn001rtnews_5384743_llm_item_7_000['ntn001rtnews_5384743_llm_i  1     ✅     1       1.0     1.0     
-68    ntn001rtnews_5384742_llm_item_0_000['ntn001rtnews_5384742_llm_i  1     ✅     1       1.0     1.0     
-69    ntn001rtnews_5384742_llm_item_1_000['ntn001rtnews_5384742_llm_i  1     ✅     1       1.0     1.0     
-70    ntn001rtnews_5384742_llm_item_2_000['ntn001rtnews_5384742_llm_i  1     ✅     1       1.0     1.0     
-71    ntn001rtnews_5384742_llm_item_3_000['ntn001rtnews_5384742_llm_i  1     ✅     1       1.0     1.0     
-72    ntn001rtnews_5384742_llm_item_4_000['ntn001rtnews_5384742_llm_i  1     ✅     1       1.0     1.0     
-73    ntn001rtnews_5384742_llm_item_5_000['ntn001rtnews_5384742_llm_i  1     ✅     1       1.0     1.0     
-74    ntn001rtnews_5384742_llm_item_6_000['ntn001rtnews_5384742_llm_i  1     ✅     1       1.0     1.0     
-75    ntn001rtnews_5384742_llm_item_7_000['ntn001rtnews_5384742_llm_i  1     ✅     1       1.0     1.0     
-76    ntn001rtnews_5384735_llm_item_0_000['ntn001rtnews_5384735_llm_i  1     ✅     1       1.0     1.0     
-77    ntn001rtnews_5384735_llm_item_1_000['ntn001rtnews_5384735_llm_i  1     ✅     1       1.0     1.0     
-78    ntn001rtnews_5384735_llm_item_2_000['ntn001rtnews_5384735_llm_i  1     ✅     1       1.0     1.0     
-79    ntn001rtnews_5384735_llm_item_3_000['ntn001rtnews_5384735_llm_i  1     ✅     1       1.0     1.0     
-80    ntn001rtnews_5384735_llm_item_4_000['ntn001rtnews_5384736_llm_i  2     ❌     1       0.5     0.5     
-81    ntn001rtnews_5384735_llm_item_5_000['ntn001rtnews_5384735_llm_i  1     ✅     1       1.0     1.0     
-82    ntn001rtnews_5384735_llm_item_6_000['ntn001rtnews_5384735_llm_i  1     ✅     1       1.0     1.0     
-83    ntn001rtnews_5384735_llm_item_7_000['ntn001rtnews_5384735_llm_i  1     ✅     1       1.0     1.0     
-84    ntn001rtnews_5417355_llm_item_1_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-85    ntn001rtnews_5417355_llm_item_2_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-86    ntn001rtnews_5417355_llm_item_3_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-87    ntn001rtnews_5417355_llm_item_4_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-88    ntn001rtnews_5417355_llm_item_5_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-89    ntn001rtnews_5417355_llm_item_6_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-90    ntn001rtnews_5417355_llm_item_7_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-91    ntn001rtnews_5417355_llm_item_8_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-92    ntn001rtnews_5417355_llm_item_9_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-93    ntn001rtnews_5417355_llm_item_10_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-94    ntn001rtnews_5384746_llm_item_0_000['ntn001rtnews_5384746_llm_i  1     ✅     1       1.0     1.0     
-95    ntn001rtnews_5417356_llm_item_0_000['ntn001rtnews_5417356_llm_i  1     ✅     1       1.0     1.0     
-96    ntn001rtnews_5384746_llm_item_1_000['ntn001rtnews_5384746_llm_i  1     ✅     1       1.0     1.0     
-97    ntn001rtnews_5384746_llm_item_2_000['ntn001rtnews_5384746_llm_i  1     ✅     1       1.0     1.0     
-98    ntn001rtnews_5384746_llm_item_3_000['ntn001rtnews_5384746_llm_i  1     ✅     1       1.0     1.0     
-99    ntn001rtnews_5384746_llm_item_4_000['ntn001rtnews_5384746_llm_i  1     ✅     1       1.0     1.0     
+0     ntn001rtnews_5417354_llm_item_0_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+1     ntn001rtnews_5417354_llm_item_1_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+2     ntn001rtnews_5417354_llm_item_2_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+3     ntn001rtnews_5417354_llm_item_3_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+4     ntn001rtnews_5417354_llm_item_4_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+5     ntn001rtnews_5417354_llm_item_5_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+6     ntn001rtnews_5417354_llm_item_6_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+7     ntn001rtnews_5417354_llm_item_7_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+8     ntn001rtnews_5417354_llm_item_8_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+9     ntn001rtnews_5417354_llm_item_9_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+10    ntn001rtnews_5417354_llm_item_10_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+11    ntn001rtnews_5384734_llm_item_0_000['ntn001rtnews_5384734_llm_i  1     ✅     0.2     1.0     
+12    ntn001rtnews_5384734_llm_item_1_000['ntn001rtnews_5384737_llm_i  4     ❌     0.2     0.25    
+13    ntn001rtnews_5384734_llm_item_2_000['ntn001rtnews_5384734_llm_i  1     ✅     0.2     1.0     
+14    ntn001rtnews_5384734_llm_item_3_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
+15    ntn001rtnews_5384734_llm_item_4_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
+16    ntn001rtnews_5384734_llm_item_5_000['ntn001rtnews_5384734_llm_i  1     ✅     0.2     1.0     
+17    ntn001rtnews_5384734_llm_item_6_000['ntn001rtnews_5384734_llm_i  1     ✅     0.2     1.0     
+18    ntn001rtnews_5384734_llm_item_7_000['ntn001rtnews_5384746_llm_i  -     ❌     0       0       
+19    ntn001rtnews_5384738_llm_item_0_000['ntn001rtnews_5384738_llm_i  1     ✅     0.2     1.0     
+20    ntn001rtnews_5384738_llm_item_1_000['ntn001rtnews_5384738_llm_i  1     ✅     0.2     1.0     
+21    ntn001rtnews_5384738_llm_item_2_000['ntn001rtnews_5384738_llm_i  1     ✅     0.2     1.0     
+22    ntn001rtnews_5384738_llm_item_3_000['ntn001rtnews_5384738_llm_i  1     ✅     0.2     1.0     
+23    ntn001rtnews_5417355_llm_item_0_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+24    ntn001rtnews_5384738_llm_item_4_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
+25    ntn001rtnews_5384738_llm_item_5_000['ntn001rtnews_5384738_llm_i  1     ✅     0.2     1.0     
+26    ntn001rtnews_5384738_llm_item_6_000['ntn001rtnews_5384737_llm_i  3     ❌     0.2     0.3333  
+27    ntn001rtnews_5384738_llm_item_7_000['ntn001rtnews_5384738_llm_i  1     ✅     0.2     1.0     
+28    ntn001rtnews_5384737_llm_item_0_000['ntn001rtnews_5384737_llm_i  1     ✅     0.2     1.0     
+29    ntn001rtnews_5384737_llm_item_1_000['ntn001rtnews_5384737_llm_i  1     ✅     0.2     1.0     
+30    ntn001rtnews_5384737_llm_item_2_000['ntn001rtnews_5384737_llm_i  1     ✅     0.2     1.0     
+31    ntn001rtnews_5384737_llm_item_3_000['ntn001rtnews_5384737_llm_i  1     ✅     0.2     1.0     
+32    ntn001rtnews_5384737_llm_item_4_000['ntn001rtnews_5384737_llm_i  1     ✅     0.2     1.0     
+33    ntn001rtnews_5384737_llm_item_5_000['ntn001rtnews_5384742_llm_i  -     ❌     0       0       
+34    ntn001rtnews_5384737_llm_item_6_000['ntn001rtnews_5384737_llm_i  1     ✅     0.2     1.0     
+35    ntn001rtnews_5384737_llm_item_7_000['ntn001rtnews_5384737_llm_i  1     ✅     0.2     1.0     
+36    ntn001rtnews_5384740_llm_item_0_000['ntn001rtnews_5384740_llm_i  1     ✅     0.2     1.0     
+37    ntn001rtnews_5384740_llm_item_1_000['ntn001rtnews_5384740_llm_i  1     ✅     0.2     1.0     
+38    ntn001rtnews_5384740_llm_item_2_000['ntn001rtnews_5384740_llm_i  1     ✅     0.2     1.0     
+39    ntn001rtnews_5384740_llm_item_3_000['ntn001rtnews_5384740_llm_i  1     ✅     0.2     1.0     
+40    ntn001rtnews_5384740_llm_item_4_000['ntn001rtnews_5384740_llm_i  1     ✅     0.2     1.0     
+41    ntn001rtnews_5384740_llm_item_5_000['ntn001rtnews_5384740_llm_i  1     ✅     0.2     1.0     
+42    ntn001rtnews_5384740_llm_item_6_000['ntn001rtnews_5384740_llm_i  1     ✅     0.2     1.0     
+43    ntn001rtnews_5384740_llm_item_7_000['ntn001rtnews_5384740_llm_i  1     ✅     0.2     1.0     
+44    ntn001rtnews_5384736_llm_item_0_000['ntn001rtnews_5384736_llm_i  1     ✅     0.2     1.0     
+45    ntn001rtnews_5384736_llm_item_1_000['ntn001rtnews_5384736_llm_i  1     ✅     0.2     1.0     
+46    ntn001rtnews_5384736_llm_item_2_000['ntn001rtnews_5384736_llm_i  1     ✅     0.2     1.0     
+47    ntn001rtnews_5384736_llm_item_3_000['ntn001rtnews_5384736_llm_i  1     ✅     0.2     1.0     
+48    ntn001rtnews_5384736_llm_item_4_000['ntn001rtnews_5384736_llm_i  1     ✅     0.2     1.0     
+49    ntn001rtnews_5384736_llm_item_5_000['ntn001rtnews_5384736_llm_i  1     ✅     0.2     1.0     
+50    ntn001rtnews_5384736_llm_item_6_000['ntn001rtnews_5384746_llm_i  2     ❌     0.2     0.5     
+51    ntn001rtnews_5384736_llm_item_7_000['ntn001rtnews_5384736_llm_i  1     ✅     0.2     1.0     
+52    ntn001rtnews_5384739_llm_item_0_000['ntn001rtnews_5384739_llm_i  1     ✅     0.2     1.0     
+53    ntn001rtnews_5384739_llm_item_1_000['ntn001rtnews_5384739_llm_i  1     ✅     0.2     1.0     
+54    ntn001rtnews_5384739_llm_item_2_000['ntn001rtnews_5384739_llm_i  1     ✅     0.2     1.0     
+55    ntn001rtnews_5384739_llm_item_3_000['ntn001rtnews_5384739_llm_i  1     ✅     0.2     1.0     
+56    ntn001rtnews_5384739_llm_item_4_000['ntn001rtnews_5384742_llm_i  -     ❌     0       0       
+57    ntn001rtnews_5384739_llm_item_5_000['ntn001rtnews_5384739_llm_i  1     ✅     0.2     1.0     
+58    ntn001rtnews_5384739_llm_item_6_000['ntn001rtnews_5384739_llm_i  1     ✅     0.2     1.0     
+59    ntn001rtnews_5384739_llm_item_7_000['ntn001rtnews_5384739_llm_i  1     ✅     0.2     1.0     
+60    ntn001rtnews_5384743_llm_item_0_000['ntn001rtnews_5384743_llm_i  1     ✅     0.2     1.0     
+61    ntn001rtnews_5384743_llm_item_1_000['ntn001rtnews_5384743_llm_i  1     ✅     0.2     1.0     
+62    ntn001rtnews_5384743_llm_item_2_000['ntn001rtnews_5384743_llm_i  1     ✅     0.2     1.0     
+63    ntn001rtnews_5384743_llm_item_3_000['ntn001rtnews_5384743_llm_i  1     ✅     0.2     1.0     
+64    ntn001rtnews_5384743_llm_item_4_000['ntn001rtnews_5384743_llm_i  1     ✅     0.2     1.0     
+65    ntn001rtnews_5384743_llm_item_5_000['ntn001rtnews_5384743_llm_i  1     ✅     0.2     1.0     
+66    ntn001rtnews_5384743_llm_item_6_000['ntn001rtnews_5384743_llm_i  1     ✅     0.2     1.0     
+67    ntn001rtnews_5384743_llm_item_7_000['ntn001rtnews_5384743_llm_i  1     ✅     0.2     1.0     
+68    ntn001rtnews_5384742_llm_item_0_000['ntn001rtnews_5384742_llm_i  1     ✅     0.2     1.0     
+69    ntn001rtnews_5384742_llm_item_1_000['ntn001rtnews_5384742_llm_i  1     ✅     0.2     1.0     
+70    ntn001rtnews_5384742_llm_item_2_000['ntn001rtnews_5384742_llm_i  1     ✅     0.2     1.0     
+71    ntn001rtnews_5384742_llm_item_3_000['ntn001rtnews_5384742_llm_i  1     ✅     0.2     1.0     
+72    ntn001rtnews_5384742_llm_item_4_000['ntn001rtnews_5384742_llm_i  1     ✅     0.2     1.0     
+73    ntn001rtnews_5384742_llm_item_5_000['ntn001rtnews_5384742_llm_i  1     ✅     0.2     1.0     
+74    ntn001rtnews_5384742_llm_item_6_000['ntn001rtnews_5384742_llm_i  1     ✅     0.2     1.0     
+75    ntn001rtnews_5384742_llm_item_7_000['ntn001rtnews_5384742_llm_i  1     ✅     0.2     1.0     
+76    ntn001rtnews_5384735_llm_item_0_000['ntn001rtnews_5384735_llm_i  1     ✅     0.2     1.0     
+77    ntn001rtnews_5384735_llm_item_1_000['ntn001rtnews_5384735_llm_i  1     ✅     0.2     1.0     
+78    ntn001rtnews_5384735_llm_item_2_000['ntn001rtnews_5384735_llm_i  1     ✅     0.2     1.0     
+79    ntn001rtnews_5384735_llm_item_3_000['ntn001rtnews_5384735_llm_i  1     ✅     0.2     1.0     
+80    ntn001rtnews_5384735_llm_item_4_000['ntn001rtnews_5384736_llm_i  2     ❌     0.2     0.5     
+81    ntn001rtnews_5384735_llm_item_5_000['ntn001rtnews_5384735_llm_i  1     ✅     0.2     1.0     
+82    ntn001rtnews_5384735_llm_item_6_000['ntn001rtnews_5384735_llm_i  1     ✅     0.2     1.0     
+83    ntn001rtnews_5384735_llm_item_7_000['ntn001rtnews_5384735_llm_i  1     ✅     0.2     1.0     
+84    ntn001rtnews_5417355_llm_item_1_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+85    ntn001rtnews_5417355_llm_item_2_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+86    ntn001rtnews_5417355_llm_item_3_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+87    ntn001rtnews_5417355_llm_item_4_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+88    ntn001rtnews_5417355_llm_item_5_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+89    ntn001rtnews_5417355_llm_item_6_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+90    ntn001rtnews_5417355_llm_item_7_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+91    ntn001rtnews_5417355_llm_item_8_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+92    ntn001rtnews_5417355_llm_item_9_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+93    ntn001rtnews_5417355_llm_item_10_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+94    ntn001rtnews_5384746_llm_item_0_000['ntn001rtnews_5384746_llm_i  1     ✅     0.2     1.0     
+95    ntn001rtnews_5417356_llm_item_0_000['ntn001rtnews_5417356_llm_i  1     ✅     0.2     1.0     
+96    ntn001rtnews_5384746_llm_item_1_000['ntn001rtnews_5384746_llm_i  1     ✅     0.2     1.0     
+97    ntn001rtnews_5384746_llm_item_2_000['ntn001rtnews_5384746_llm_i  1     ✅     0.2     1.0     
+98    ntn001rtnews_5384746_llm_item_3_000['ntn001rtnews_5384746_llm_i  1     ✅     0.2     1.0     
+99    ntn001rtnews_5384746_llm_item_4_000['ntn001rtnews_5384746_llm_i  1     ✅     0.2     1.0     
 
 📂 ntn001rtnews - OpenAI Retrieval Details:
 Query GT    TopK IDs                      Rank  Top1  Recall  Prec    MRR     
 ------------------------------------------------------------------------------
-0     ntn001rtnews_5417354_llm_item_0_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-1     ntn001rtnews_5417354_llm_item_1_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-2     ntn001rtnews_5417354_llm_item_2_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-3     ntn001rtnews_5417354_llm_item_3_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-4     ntn001rtnews_5417354_llm_item_4_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-5     ntn001rtnews_5417354_llm_item_5_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-6     ntn001rtnews_5417354_llm_item_6_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-7     ntn001rtnews_5417354_llm_item_7_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-8     ntn001rtnews_5417354_llm_item_8_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-9     ntn001rtnews_5417354_llm_item_9_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-10    ntn001rtnews_5417354_llm_item_10_000['ntn001rtnews_5417354_llm_i  1     ✅     1       1.0     1.0     
-11    ntn001rtnews_5384734_llm_item_0_000['ntn001rtnews_5384734_llm_i  1     ✅     1       1.0     1.0     
-12    ntn001rtnews_5384734_llm_item_1_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       0       
-13    ntn001rtnews_5384734_llm_item_2_000['ntn001rtnews_5384734_llm_i  1     ✅     1       1.0     1.0     
-14    ntn001rtnews_5384734_llm_item_3_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-15    ntn001rtnews_5384734_llm_item_4_000['ntn001rtnews_5384742_llm_i  -     ❌     0       0       0       
-16    ntn001rtnews_5384734_llm_item_5_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       0       
-17    ntn001rtnews_5384734_llm_item_6_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       0       
-18    ntn001rtnews_5384734_llm_item_7_000['ntn001rtnews_5384742_llm_i  -     ❌     0       0       0       
-19    ntn001rtnews_5384738_llm_item_0_000['ntn001rtnews_5384738_llm_i  1     ✅     1       1.0     1.0     
-20    ntn001rtnews_5384738_llm_item_1_000['ntn001rtnews_5384738_llm_i  1     ✅     1       1.0     1.0     
-21    ntn001rtnews_5384738_llm_item_2_000['ntn001rtnews_5384738_llm_i  1     ✅     1       1.0     1.0     
-22    ntn001rtnews_5384738_llm_item_3_000['ntn001rtnews_5384739_llm_i  -     ❌     0       0       0       
-23    ntn001rtnews_5417355_llm_item_0_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-24    ntn001rtnews_5384738_llm_item_4_000['ntn001rtnews_5384742_llm_i  -     ❌     0       0       0       
-25    ntn001rtnews_5384738_llm_item_5_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-26    ntn001rtnews_5384738_llm_item_6_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-27    ntn001rtnews_5384738_llm_item_7_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       0       
-28    ntn001rtnews_5384737_llm_item_0_000['ntn001rtnews_5384737_llm_i  1     ✅     1       1.0     1.0     
-29    ntn001rtnews_5384737_llm_item_1_000['ntn001rtnews_5384737_llm_i  1     ✅     1       1.0     1.0     
-30    ntn001rtnews_5384737_llm_item_2_000['ntn001rtnews_5384737_llm_i  1     ✅     1       1.0     1.0     
-31    ntn001rtnews_5384737_llm_item_3_000['ntn001rtnews_5384737_llm_i  1     ✅     1       1.0     1.0     
-32    ntn001rtnews_5384737_llm_item_4_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       0       
-33    ntn001rtnews_5384737_llm_item_5_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-34    ntn001rtnews_5384737_llm_item_6_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-35    ntn001rtnews_5384737_llm_item_7_000['ntn001rtnews_5384735_llm_i  3     ❌     1       0.3333  0.3333  
-36    ntn001rtnews_5384740_llm_item_0_000['ntn001rtnews_5384740_llm_i  1     ✅     1       1.0     1.0     
-37    ntn001rtnews_5384740_llm_item_1_000['ntn001rtnews_5417354_llm_i  5     ❌     1       0.2     0.2     
-38    ntn001rtnews_5384740_llm_item_2_000['ntn001rtnews_5384740_llm_i  1     ✅     1       1.0     1.0     
-39    ntn001rtnews_5384740_llm_item_3_000['ntn001rtnews_5417354_llm_i  3     ❌     1       0.3333  0.3333  
-40    ntn001rtnews_5384740_llm_item_4_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-41    ntn001rtnews_5384740_llm_item_5_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-42    ntn001rtnews_5384740_llm_item_6_000['ntn001rtnews_5384740_llm_i  1     ✅     1       1.0     1.0     
-43    ntn001rtnews_5384740_llm_item_7_000['ntn001rtnews_5384739_llm_i  -     ❌     0       0       0       
-44    ntn001rtnews_5384736_llm_item_0_000['ntn001rtnews_5384736_llm_i  1     ✅     1       1.0     1.0     
-45    ntn001rtnews_5384736_llm_item_1_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-46    ntn001rtnews_5384736_llm_item_2_000['ntn001rtnews_5384736_llm_i  1     ✅     1       1.0     1.0     
-47    ntn001rtnews_5384736_llm_item_3_000['ntn001rtnews_5384736_llm_i  1     ✅     1       1.0     1.0     
-48    ntn001rtnews_5384736_llm_item_4_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       0       
-49    ntn001rtnews_5384736_llm_item_5_000['ntn001rtnews_5384736_llm_i  1     ✅     1       1.0     1.0     
-50    ntn001rtnews_5384736_llm_item_6_000['ntn001rtnews_5384746_llm_i  5     ❌     1       0.2     0.2     
-51    ntn001rtnews_5384736_llm_item_7_000['ntn001rtnews_5417354_llm_i  2     ❌     1       0.5     0.5     
-52    ntn001rtnews_5384739_llm_item_0_000['ntn001rtnews_5384739_llm_i  1     ✅     1       1.0     1.0     
-53    ntn001rtnews_5384739_llm_item_1_000['ntn001rtnews_5384739_llm_i  1     ✅     1       1.0     1.0     
-54    ntn001rtnews_5384739_llm_item_2_000['ntn001rtnews_5384739_llm_i  1     ✅     1       1.0     1.0     
-55    ntn001rtnews_5384739_llm_item_3_000['ntn001rtnews_5384739_llm_i  1     ✅     1       1.0     1.0     
-56    ntn001rtnews_5384739_llm_item_4_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-57    ntn001rtnews_5384739_llm_item_5_000['ntn001rtnews_5417354_llm_i  2     ❌     1       0.5     0.5     
-58    ntn001rtnews_5384739_llm_item_6_000['ntn001rtnews_5384735_llm_i  3     ❌     1       0.3333  0.3333  
-59    ntn001rtnews_5384739_llm_item_7_000['ntn001rtnews_5384739_llm_i  1     ✅     1       1.0     1.0     
-60    ntn001rtnews_5384743_llm_item_0_000['ntn001rtnews_5384743_llm_i  1     ✅     1       1.0     1.0     
-61    ntn001rtnews_5384743_llm_item_1_000['ntn001rtnews_5384743_llm_i  3     ❌     1       0.3333  0.3333  
-62    ntn001rtnews_5384743_llm_item_2_000['ntn001rtnews_5384743_llm_i  1     ✅     1       1.0     1.0     
-63    ntn001rtnews_5384743_llm_item_3_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       0       
-64    ntn001rtnews_5384743_llm_item_4_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-65    ntn001rtnews_5384743_llm_item_5_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       0       
-66    ntn001rtnews_5384743_llm_item_6_000['ntn001rtnews_5417354_llm_i  3     ❌     1       0.3333  0.3333  
-67    ntn001rtnews_5384743_llm_item_7_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       0       
-68    ntn001rtnews_5384742_llm_item_0_000['ntn001rtnews_5384742_llm_i  1     ✅     1       1.0     1.0     
-69    ntn001rtnews_5384742_llm_item_1_000['ntn001rtnews_5384742_llm_i  1     ✅     1       1.0     1.0     
-70    ntn001rtnews_5384742_llm_item_2_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-71    ntn001rtnews_5384742_llm_item_3_000['ntn001rtnews_5384735_llm_i  5     ❌     1       0.2     0.2     
-72    ntn001rtnews_5384742_llm_item_4_000['ntn001rtnews_5384735_llm_i  2     ❌     1       0.5     0.5     
-73    ntn001rtnews_5384742_llm_item_5_000['ntn001rtnews_5384742_llm_i  1     ✅     1       1.0     1.0     
-74    ntn001rtnews_5384742_llm_item_6_000['ntn001rtnews_5384742_llm_i  1     ✅     1       1.0     1.0     
-75    ntn001rtnews_5384742_llm_item_7_000['ntn001rtnews_5384742_llm_i  1     ✅     1       1.0     1.0     
-76    ntn001rtnews_5384735_llm_item_0_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-77    ntn001rtnews_5384735_llm_item_1_000['ntn001rtnews_5384735_llm_i  1     ✅     1       1.0     1.0     
-78    ntn001rtnews_5384735_llm_item_2_000['ntn001rtnews_5384735_llm_i  1     ✅     1       1.0     1.0     
-79    ntn001rtnews_5384735_llm_item_3_000['ntn001rtnews_5384735_llm_i  1     ✅     1       1.0     1.0     
-80    ntn001rtnews_5384735_llm_item_4_000['ntn001rtnews_5384735_llm_i  1     ✅     1       1.0     1.0     
-81    ntn001rtnews_5384735_llm_item_5_000['ntn001rtnews_5384735_llm_i  1     ✅     1       1.0     1.0     
-82    ntn001rtnews_5384735_llm_item_6_000['ntn001rtnews_5384735_llm_i  1     ✅     1       1.0     1.0     
-83    ntn001rtnews_5384735_llm_item_7_000['ntn001rtnews_5384735_llm_i  1     ✅     1       1.0     1.0     
-84    ntn001rtnews_5417355_llm_item_1_000['ntn001rtnews_5417354_llm_i  3     ❌     1       0.3333  0.3333  
-85    ntn001rtnews_5417355_llm_item_2_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-86    ntn001rtnews_5417355_llm_item_3_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       0       
-87    ntn001rtnews_5417355_llm_item_4_000['ntn001rtnews_5417354_llm_i  2     ❌     1       0.5     0.5     
-88    ntn001rtnews_5417355_llm_item_5_000['ntn001rtnews_5417354_llm_i  3     ❌     1       0.3333  0.3333  
-89    ntn001rtnews_5417355_llm_item_6_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-90    ntn001rtnews_5417355_llm_item_7_000['ntn001rtnews_5417354_llm_i  2     ❌     1       0.5     0.5     
-91    ntn001rtnews_5417355_llm_item_8_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-92    ntn001rtnews_5417355_llm_item_9_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       0       
-93    ntn001rtnews_5417355_llm_item_10_000['ntn001rtnews_5417355_llm_i  1     ✅     1       1.0     1.0     
-94    ntn001rtnews_5384746_llm_item_0_000['ntn001rtnews_5384746_llm_i  1     ✅     1       1.0     1.0     
-95    ntn001rtnews_5417356_llm_item_0_000['ntn001rtnews_5384735_llm_i  3     ❌     1       0.3333  0.3333  
-96    ntn001rtnews_5384746_llm_item_1_000['ntn001rtnews_5384746_llm_i  1     ✅     1       1.0     1.0     
-97    ntn001rtnews_5384746_llm_item_2_000['ntn001rtnews_5384737_llm_i  3     ❌     1       0.3333  0.3333  
-98    ntn001rtnews_5384746_llm_item_3_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
-99    ntn001rtnews_5384746_llm_item_4_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       0       
+0     ntn001rtnews_5417354_llm_item_0_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+1     ntn001rtnews_5417354_llm_item_1_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+2     ntn001rtnews_5417354_llm_item_2_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+3     ntn001rtnews_5417354_llm_item_3_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+4     ntn001rtnews_5417354_llm_item_4_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+5     ntn001rtnews_5417354_llm_item_5_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+6     ntn001rtnews_5417354_llm_item_6_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+7     ntn001rtnews_5417354_llm_item_7_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+8     ntn001rtnews_5417354_llm_item_8_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+9     ntn001rtnews_5417354_llm_item_9_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+10    ntn001rtnews_5417354_llm_item_10_000['ntn001rtnews_5417354_llm_i  1     ✅     0.2     1.0     
+11    ntn001rtnews_5384734_llm_item_0_000['ntn001rtnews_5384734_llm_i  1     ✅     0.2     1.0     
+12    ntn001rtnews_5384734_llm_item_1_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       
+13    ntn001rtnews_5384734_llm_item_2_000['ntn001rtnews_5384734_llm_i  1     ✅     0.2     1.0     
+14    ntn001rtnews_5384734_llm_item_3_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
+15    ntn001rtnews_5384734_llm_item_4_000['ntn001rtnews_5384742_llm_i  -     ❌     0       0       
+16    ntn001rtnews_5384734_llm_item_5_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       
+17    ntn001rtnews_5384734_llm_item_6_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       
+18    ntn001rtnews_5384734_llm_item_7_000['ntn001rtnews_5384742_llm_i  -     ❌     0       0       
+19    ntn001rtnews_5384738_llm_item_0_000['ntn001rtnews_5384738_llm_i  1     ✅     0.2     1.0     
+20    ntn001rtnews_5384738_llm_item_1_000['ntn001rtnews_5384738_llm_i  1     ✅     0.2     1.0     
+21    ntn001rtnews_5384738_llm_item_2_000['ntn001rtnews_5384738_llm_i  1     ✅     0.2     1.0     
+22    ntn001rtnews_5384738_llm_item_3_000['ntn001rtnews_5384739_llm_i  -     ❌     0       0       
+23    ntn001rtnews_5417355_llm_item_0_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+24    ntn001rtnews_5384738_llm_item_4_000['ntn001rtnews_5384742_llm_i  -     ❌     0       0       
+25    ntn001rtnews_5384738_llm_item_5_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
+26    ntn001rtnews_5384738_llm_item_6_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
+27    ntn001rtnews_5384738_llm_item_7_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       
+28    ntn001rtnews_5384737_llm_item_0_000['ntn001rtnews_5384737_llm_i  1     ✅     0.2     1.0     
+29    ntn001rtnews_5384737_llm_item_1_000['ntn001rtnews_5384737_llm_i  1     ✅     0.2     1.0     
+30    ntn001rtnews_5384737_llm_item_2_000['ntn001rtnews_5384737_llm_i  1     ✅     0.2     1.0     
+31    ntn001rtnews_5384737_llm_item_3_000['ntn001rtnews_5384737_llm_i  1     ✅     0.2     1.0     
+32    ntn001rtnews_5384737_llm_item_4_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       
+33    ntn001rtnews_5384737_llm_item_5_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
+34    ntn001rtnews_5384737_llm_item_6_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
+35    ntn001rtnews_5384737_llm_item_7_000['ntn001rtnews_5384735_llm_i  3     ❌     0.2     0.3333  
+36    ntn001rtnews_5384740_llm_item_0_000['ntn001rtnews_5384740_llm_i  1     ✅     0.2     1.0     
+37    ntn001rtnews_5384740_llm_item_1_000['ntn001rtnews_5417354_llm_i  5     ❌     0.2     0.2     
+38    ntn001rtnews_5384740_llm_item_2_000['ntn001rtnews_5384740_llm_i  1     ✅     0.2     1.0     
+39    ntn001rtnews_5384740_llm_item_3_000['ntn001rtnews_5417354_llm_i  3     ❌     0.2     0.3333  
+40    ntn001rtnews_5384740_llm_item_4_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
+41    ntn001rtnews_5384740_llm_item_5_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
+42    ntn001rtnews_5384740_llm_item_6_000['ntn001rtnews_5384740_llm_i  1     ✅     0.2     1.0     
+43    ntn001rtnews_5384740_llm_item_7_000['ntn001rtnews_5384739_llm_i  -     ❌     0       0       
+44    ntn001rtnews_5384736_llm_item_0_000['ntn001rtnews_5384736_llm_i  1     ✅     0.2     1.0     
+45    ntn001rtnews_5384736_llm_item_1_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
+46    ntn001rtnews_5384736_llm_item_2_000['ntn001rtnews_5384736_llm_i  1     ✅     0.2     1.0     
+47    ntn001rtnews_5384736_llm_item_3_000['ntn001rtnews_5384736_llm_i  1     ✅     0.2     1.0     
+48    ntn001rtnews_5384736_llm_item_4_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       
+49    ntn001rtnews_5384736_llm_item_5_000['ntn001rtnews_5384736_llm_i  1     ✅     0.2     1.0     
+50    ntn001rtnews_5384736_llm_item_6_000['ntn001rtnews_5384746_llm_i  5     ❌     0.2     0.2     
+51    ntn001rtnews_5384736_llm_item_7_000['ntn001rtnews_5417354_llm_i  2     ❌     0.2     0.5     
+52    ntn001rtnews_5384739_llm_item_0_000['ntn001rtnews_5384739_llm_i  1     ✅     0.2     1.0     
+53    ntn001rtnews_5384739_llm_item_1_000['ntn001rtnews_5384739_llm_i  1     ✅     0.2     1.0     
+54    ntn001rtnews_5384739_llm_item_2_000['ntn001rtnews_5384739_llm_i  1     ✅     0.2     1.0     
+55    ntn001rtnews_5384739_llm_item_3_000['ntn001rtnews_5384739_llm_i  1     ✅     0.2     1.0     
+56    ntn001rtnews_5384739_llm_item_4_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
+57    ntn001rtnews_5384739_llm_item_5_000['ntn001rtnews_5417354_llm_i  2     ❌     0.2     0.5     
+58    ntn001rtnews_5384739_llm_item_6_000['ntn001rtnews_5384735_llm_i  3     ❌     0.2     0.3333  
+59    ntn001rtnews_5384739_llm_item_7_000['ntn001rtnews_5384739_llm_i  1     ✅     0.2     1.0     
+60    ntn001rtnews_5384743_llm_item_0_000['ntn001rtnews_5384743_llm_i  1     ✅     0.2     1.0     
+61    ntn001rtnews_5384743_llm_item_1_000['ntn001rtnews_5384743_llm_i  3     ❌     0.2     0.3333  
+62    ntn001rtnews_5384743_llm_item_2_000['ntn001rtnews_5384743_llm_i  1     ✅     0.2     1.0     
+63    ntn001rtnews_5384743_llm_item_3_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       
+64    ntn001rtnews_5384743_llm_item_4_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
+65    ntn001rtnews_5384743_llm_item_5_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       
+66    ntn001rtnews_5384743_llm_item_6_000['ntn001rtnews_5417354_llm_i  3     ❌     0.2     0.3333  
+67    ntn001rtnews_5384743_llm_item_7_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       
+68    ntn001rtnews_5384742_llm_item_0_000['ntn001rtnews_5384742_llm_i  1     ✅     0.2     1.0     
+69    ntn001rtnews_5384742_llm_item_1_000['ntn001rtnews_5384742_llm_i  1     ✅     0.2     1.0     
+70    ntn001rtnews_5384742_llm_item_2_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
+71    ntn001rtnews_5384742_llm_item_3_000['ntn001rtnews_5384735_llm_i  5     ❌     0.2     0.2     
+72    ntn001rtnews_5384742_llm_item_4_000['ntn001rtnews_5384735_llm_i  2     ❌     0.2     0.5     
+73    ntn001rtnews_5384742_llm_item_5_000['ntn001rtnews_5384742_llm_i  1     ✅     0.2     1.0     
+74    ntn001rtnews_5384742_llm_item_6_000['ntn001rtnews_5384742_llm_i  1     ✅     0.2     1.0     
+75    ntn001rtnews_5384742_llm_item_7_000['ntn001rtnews_5384742_llm_i  1     ✅     0.2     1.0     
+76    ntn001rtnews_5384735_llm_item_0_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
+77    ntn001rtnews_5384735_llm_item_1_000['ntn001rtnews_5384735_llm_i  1     ✅     0.2     1.0     
+78    ntn001rtnews_5384735_llm_item_2_000['ntn001rtnews_5384735_llm_i  1     ✅     0.2     1.0     
+79    ntn001rtnews_5384735_llm_item_3_000['ntn001rtnews_5384735_llm_i  1     ✅     0.2     1.0     
+80    ntn001rtnews_5384735_llm_item_4_000['ntn001rtnews_5384735_llm_i  1     ✅     0.2     1.0     
+81    ntn001rtnews_5384735_llm_item_5_000['ntn001rtnews_5384735_llm_i  1     ✅     0.2     1.0     
+82    ntn001rtnews_5384735_llm_item_6_000['ntn001rtnews_5384735_llm_i  1     ✅     0.2     1.0     
+83    ntn001rtnews_5384735_llm_item_7_000['ntn001rtnews_5384735_llm_i  1     ✅     0.2     1.0     
+84    ntn001rtnews_5417355_llm_item_1_000['ntn001rtnews_5417354_llm_i  3     ❌     0.2     0.3333  
+85    ntn001rtnews_5417355_llm_item_2_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+86    ntn001rtnews_5417355_llm_item_3_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       
+87    ntn001rtnews_5417355_llm_item_4_000['ntn001rtnews_5417354_llm_i  2     ❌     0.2     0.5     
+88    ntn001rtnews_5417355_llm_item_5_000['ntn001rtnews_5417354_llm_i  3     ❌     0.2     0.3333  
+89    ntn001rtnews_5417355_llm_item_6_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+90    ntn001rtnews_5417355_llm_item_7_000['ntn001rtnews_5417354_llm_i  2     ❌     0.2     0.5     
+91    ntn001rtnews_5417355_llm_item_8_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+92    ntn001rtnews_5417355_llm_item_9_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       
+93    ntn001rtnews_5417355_llm_item_10_000['ntn001rtnews_5417355_llm_i  1     ✅     0.2     1.0     
+94    ntn001rtnews_5384746_llm_item_0_000['ntn001rtnews_5384746_llm_i  1     ✅     0.2     1.0     
+95    ntn001rtnews_5417356_llm_item_0_000['ntn001rtnews_5384735_llm_i  3     ❌     0.2     0.3333  
+96    ntn001rtnews_5384746_llm_item_1_000['ntn001rtnews_5384746_llm_i  1     ✅     0.2     1.0     
+97    ntn001rtnews_5384746_llm_item_2_000['ntn001rtnews_5384737_llm_i  3     ❌     0.2     0.3333  
+98    ntn001rtnews_5384746_llm_item_3_000['ntn001rtnews_5417354_llm_i  -     ❌     0       0       
+99    ntn001rtnews_5384746_llm_item_4_000['ntn001rtnews_5384735_llm_i  -     ❌     0       0       
 
 📂 ntn002rtnews - BGE Retrieval Details:
 Query GT    TopK IDs                      Rank  Top1  Recall  Prec    MRR     
 ------------------------------------------------------------------------------
-0     ntn002rtnews_2015915_llm_item_3_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-1     ntn002rtnews_2015915_llm_item_4_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-2     ntn002rtnews_2015915_llm_item_5_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-3     ntn002rtnews_2015915_llm_item_6_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-4     ntn002rtnews_2015915_llm_item_7_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-5     ntn002rtnews_2015915_llm_item_8_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-6     ntn002rtnews_2015915_llm_item_9_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-7     ntn002rtnews_2015880_000['ntn002rtnews_2015880_000',  1     ✅     1       1.0     1.0     
-8     ntn002rtnews_2015915_llm_item_10_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-9     ntn002rtnews_2015915_llm_item_11_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-10    ntn002rtnews_2015915_llm_item_15_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-11    ntn002rtnews_2015911_llm_item_5_000['ntn002rtnews_2015911_llm_i  1     ✅     1       1.0     1.0     
-12    ntn002rtnews_2015875_llm_item_0_000['ntn002rtnews_2015875_llm_i  1     ✅     1       1.0     1.0     
-13    ntn002rtnews_2015875_llm_item_1_000['ntn002rtnews_2015875_llm_i  1     ✅     1       1.0     1.0     
-14    ntn002rtnews_2015875_llm_item_2_000['ntn002rtnews_2015875_llm_i  1     ✅     1       1.0     1.0     
-15    ntn002rtnews_2015876_llm_item_0_000['ntn002rtnews_2015876_llm_i  1     ✅     1       1.0     1.0     
-16    ntn002rtnews_2015876_llm_item_1_000['ntn002rtnews_2015876_llm_i  2     ❌     1       0.5     0.5     
-17    ntn002rtnews_2015876_llm_item_2_000['ntn002rtnews_2015876_llm_i  3     ❌     1       0.3333  0.3333  
-18    ntn002rtnews_2015915_llm_item_12_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-19    ntn002rtnews_2015878_000['ntn002rtnews_2015878_000',  1     ✅     1       1.0     1.0     
-20    ntn002rtnews_2015878_001['ntn002rtnews_2015878_001',  1     ✅     1       1.0     1.0     
-21    ntn002rtnews_2015881_llm_item_0_000['ntn002rtnews_2015881_llm_i  1     ✅     1       1.0     1.0     
-22    ntn002rtnews_2015881_llm_item_1_000['ntn002rtnews_2015881_llm_i  1     ✅     1       1.0     1.0     
-23    ntn002rtnews_2015884_000['ntn002rtnews_2015884_000',  1     ✅     1       1.0     1.0     
-24    ntn002rtnews_2015879_llm_item_0_000['ntn002rtnews_2015879_llm_i  1     ✅     1       1.0     1.0     
-25    ntn002rtnews_2015879_llm_item_1_000['ntn002rtnews_2015879_llm_i  3     ❌     1       0.3333  0.3333  
-26    ntn002rtnews_2015879_llm_item_2_000['ntn002rtnews_2015879_llm_i  2     ❌     1       0.5     0.5     
-27    ntn002rtnews_2015885_llm_item_0_000['ntn002rtnews_2015885_llm_i  1     ✅     1       1.0     1.0     
-28    ntn002rtnews_2015885_llm_item_1_000['ntn002rtnews_2015885_llm_i  5     ❌     1       0.2     0.2     
-29    ntn002rtnews_2015885_llm_item_2_000['ntn002rtnews_2015899_llm_i  -     ❌     0       0       0       
-30    ntn002rtnews_2015885_llm_item_3_000['ntn002rtnews_2015885_llm_i  1     ✅     1       1.0     1.0     
-31    ntn002rtnews_2015915_llm_item_13_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-32    ntn002rtnews_2015885_llm_item_4_000['ntn002rtnews_2015885_llm_i  5     ❌     1       0.2     0.2     
-33    ntn002rtnews_2015885_llm_item_5_000['ntn002rtnews_2015885_llm_i  1     ✅     1       1.0     1.0     
-34    ntn002rtnews_2015885_llm_item_6_000['ntn002rtnews_2015875_llm_i  3     ❌     1       0.3333  0.3333  
-35    ntn002rtnews_2015888_llm_item_0_000['ntn002rtnews_2015888_llm_i  1     ✅     1       1.0     1.0     
-36    ntn002rtnews_2015887_000['ntn002rtnews_2015887_000',  1     ✅     1       1.0     1.0     
-37    ntn002rtnews_2015877_000['ntn002rtnews_2015877_000',  1     ✅     1       1.0     1.0     
-38    ntn002rtnews_2015882_000['ntn002rtnews_2015882_000',  1     ✅     1       1.0     1.0     
-39    ntn002rtnews_2015883_llm_item_3_000['ntn002rtnews_2015883_llm_i  1     ✅     1       1.0     1.0     
-40    ntn002rtnews_2015883_llm_item_4_000['ntn002rtnews_2015883_llm_i  1     ✅     1       1.0     1.0     
-41    ntn002rtnews_2015882_001['ntn002rtnews_2015882_001',  1     ✅     1       1.0     1.0     
-42    ntn002rtnews_2015882_002['ntn002rtnews_2015882_002',  1     ✅     1       1.0     1.0     
-43    ntn002rtnews_2015886_llm_item_0_000['ntn002rtnews_2015886_llm_i  1     ✅     1       1.0     1.0     
-44    ntn002rtnews_2015886_llm_item_1_000['ntn002rtnews_2015886_llm_i  1     ✅     1       1.0     1.0     
-45    ntn002rtnews_2015883_llm_item_0_000['ntn002rtnews_2015883_llm_i  2     ❌     1       0.5     0.5     
-46    ntn002rtnews_2015883_llm_item_1_000['ntn002rtnews_2015883_llm_i  1     ✅     1       1.0     1.0     
-47    ntn002rtnews_2015883_llm_item_2_000['ntn002rtnews_2015883_llm_i  1     ✅     1       1.0     1.0     
-48    ntn002rtnews_2015915_llm_item_14_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-49    ntn002rtnews_2015883_llm_item_5_000['ntn002rtnews_2015883_llm_i  1     ✅     1       1.0     1.0     
-50    ntn002rtnews_2015883_llm_item_6_000['ntn002rtnews_2015883_llm_i  1     ✅     1       1.0     1.0     
-51    ntn002rtnews_2015891_llm_item_0_000['ntn002rtnews_2015891_llm_i  1     ✅     1       1.0     1.0     
-52    ntn002rtnews_1974218_llm_item_0_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-53    ntn002rtnews_1974218_llm_item_1_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-54    ntn002rtnews_1974218_llm_item_2_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-55    ntn002rtnews_1974218_llm_item_3_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-56    ntn002rtnews_1974218_llm_item_4_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-57    ntn002rtnews_2015909_llm_item_8_000['ntn002rtnews_2015909_llm_i  1     ✅     1       1.0     1.0     
-58    ntn002rtnews_1974218_llm_item_5_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-59    ntn002rtnews_1974218_llm_item_6_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-60    ntn002rtnews_1974218_llm_item_7_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-61    ntn002rtnews_1974218_llm_item_8_000['ntn002rtnews_2015881_llm_i  4     ❌     1       0.25    0.25    
-62    ntn002rtnews_1974218_llm_item_9_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-63    ntn002rtnews_1974218_llm_item_10_000['ntn002rtnews_2015909_llm_i  2     ❌     1       0.5     0.5     
-64    ntn002rtnews_1974218_llm_item_11_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-65    ntn002rtnews_2015901_llm_item_0_000['ntn002rtnews_2015901_llm_i  1     ✅     1       1.0     1.0     
-66    ntn002rtnews_1974218_llm_item_12_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-67    ntn002rtnews_1974218_llm_item_13_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-68    ntn002rtnews_1974218_llm_item_14_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-69    ntn002rtnews_1974218_llm_item_15_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-70    ntn002rtnews_1974218_llm_item_16_000['ntn002rtnews_2015882_000',  2     ❌     1       0.5     0.5     
-71    ntn002rtnews_1974218_llm_item_17_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-72    ntn002rtnews_1974218_llm_item_18_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-73    ntn002rtnews_1974218_llm_item_19_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-74    ntn002rtnews_1974218_llm_item_20_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-75    ntn002rtnews_1974218_llm_item_21_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-76    ntn002rtnews_1974218_llm_item_22_000['ntn002rtnews_2015909_llm_i  2     ❌     1       0.5     0.5     
-77    ntn002rtnews_1974218_llm_item_23_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-78    ntn002rtnews_1974218_llm_item_24_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-79    ntn002rtnews_1974218_llm_item_25_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-80    ntn002rtnews_1974218_llm_item_26_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-81    ntn002rtnews_1974218_llm_item_27_000['ntn002rtnews_2015881_llm_i  2     ❌     1       0.5     0.5     
-82    ntn002rtnews_1974218_llm_item_28_000['ntn002rtnews_2015886_llm_i  -     ❌     0       0       0       
-83    ntn002rtnews_2015890_llm_item_0_000['ntn002rtnews_2015890_llm_i  1     ✅     1       1.0     1.0     
-84    ntn002rtnews_2015889_llm_item_0_000['ntn002rtnews_2015889_llm_i  1     ✅     1       1.0     1.0     
-85    ntn002rtnews_2015893_llm_item_0_000['ntn002rtnews_2015893_llm_i  1     ✅     1       1.0     1.0     
-86    ntn002rtnews_2015894_llm_item_0_000['ntn002rtnews_2015894_llm_i  1     ✅     1       1.0     1.0     
-87    ntn002rtnews_2015892_llm_item_0_000['ntn002rtnews_2015892_llm_i  1     ✅     1       1.0     1.0     
-88    ntn002rtnews_2015895_llm_item_0_000['ntn002rtnews_2015895_llm_i  1     ✅     1       1.0     1.0     
-89    ntn002rtnews_2015896_llm_item_0_000['ntn002rtnews_2015896_llm_i  1     ✅     1       1.0     1.0     
-90    ntn002rtnews_2060516_llm_item_0_000['ntn002rtnews_2060516_llm_i  1     ✅     1       1.0     1.0     
-91    ntn002rtnews_2015901_llm_item_1_000['ntn002rtnews_2015901_llm_i  2     ❌     1       0.5     0.5     
-92    ntn002rtnews_2015899_llm_item_0_000['ntn002rtnews_2015899_llm_i  1     ✅     1       1.0     1.0     
-93    ntn002rtnews_2015899_llm_item_1_000['ntn002rtnews_2015899_llm_i  1     ✅     1       1.0     1.0     
-94    ntn002rtnews_2015899_llm_item_2_000['ntn002rtnews_2015899_llm_i  1     ✅     1       1.0     1.0     
-95    ntn002rtnews_2015899_llm_item_3_000['ntn002rtnews_2015899_llm_i  1     ✅     1       1.0     1.0     
-96    ntn002rtnews_2015899_llm_item_4_000['ntn002rtnews_2015899_llm_i  2     ❌     1       0.5     0.5     
-97    ntn002rtnews_2015899_llm_item_5_000['ntn002rtnews_2015899_llm_i  1     ✅     1       1.0     1.0     
-98    ntn002rtnews_2015899_llm_item_6_000['ntn002rtnews_2015899_llm_i  1     ✅     1       1.0     1.0     
-99    ntn002rtnews_2015899_llm_item_7_000['ntn002rtnews_2015899_llm_i  1     ✅     1       1.0     1.0     
+0     ntn002rtnews_2015915_llm_item_3_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+1     ntn002rtnews_2015915_llm_item_4_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+2     ntn002rtnews_2015915_llm_item_5_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+3     ntn002rtnews_2015915_llm_item_6_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+4     ntn002rtnews_2015915_llm_item_7_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+5     ntn002rtnews_2015915_llm_item_8_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+6     ntn002rtnews_2015915_llm_item_9_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+7     ntn002rtnews_2015880_000['ntn002rtnews_2015880_000',  1     ✅     0.2     1.0     
+8     ntn002rtnews_2015915_llm_item_10_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+9     ntn002rtnews_2015915_llm_item_11_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+10    ntn002rtnews_2015915_llm_item_15_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+11    ntn002rtnews_2015911_llm_item_5_000['ntn002rtnews_2015911_llm_i  1     ✅     0.2     1.0     
+12    ntn002rtnews_2015875_llm_item_0_000['ntn002rtnews_2015875_llm_i  1     ✅     0.2     1.0     
+13    ntn002rtnews_2015875_llm_item_1_000['ntn002rtnews_2015875_llm_i  1     ✅     0.2     1.0     
+14    ntn002rtnews_2015875_llm_item_2_000['ntn002rtnews_2015875_llm_i  1     ✅     0.2     1.0     
+15    ntn002rtnews_2015876_llm_item_0_000['ntn002rtnews_2015876_llm_i  1     ✅     0.2     1.0     
+16    ntn002rtnews_2015876_llm_item_1_000['ntn002rtnews_2015876_llm_i  2     ❌     0.2     0.5     
+17    ntn002rtnews_2015876_llm_item_2_000['ntn002rtnews_2015876_llm_i  3     ❌     0.2     0.3333  
+18    ntn002rtnews_2015915_llm_item_12_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+19    ntn002rtnews_2015878_000['ntn002rtnews_2015878_000',  1     ✅     0.2     1.0     
+20    ntn002rtnews_2015878_001['ntn002rtnews_2015878_001',  1     ✅     0.2     1.0     
+21    ntn002rtnews_2015881_llm_item_0_000['ntn002rtnews_2015881_llm_i  1     ✅     0.2     1.0     
+22    ntn002rtnews_2015881_llm_item_1_000['ntn002rtnews_2015881_llm_i  1     ✅     0.2     1.0     
+23    ntn002rtnews_2015884_000['ntn002rtnews_2015884_000',  1     ✅     0.2     1.0     
+24    ntn002rtnews_2015879_llm_item_0_000['ntn002rtnews_2015879_llm_i  1     ✅     0.2     1.0     
+25    ntn002rtnews_2015879_llm_item_1_000['ntn002rtnews_2015879_llm_i  3     ❌     0.2     0.3333  
+26    ntn002rtnews_2015879_llm_item_2_000['ntn002rtnews_2015879_llm_i  2     ❌     0.2     0.5     
+27    ntn002rtnews_2015885_llm_item_0_000['ntn002rtnews_2015885_llm_i  1     ✅     0.2     1.0     
+28    ntn002rtnews_2015885_llm_item_1_000['ntn002rtnews_2015885_llm_i  5     ❌     0.2     0.2     
+29    ntn002rtnews_2015885_llm_item_2_000['ntn002rtnews_2015899_llm_i  -     ❌     0       0       
+30    ntn002rtnews_2015885_llm_item_3_000['ntn002rtnews_2015885_llm_i  1     ✅     0.2     1.0     
+31    ntn002rtnews_2015915_llm_item_13_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+32    ntn002rtnews_2015885_llm_item_4_000['ntn002rtnews_2015885_llm_i  5     ❌     0.2     0.2     
+33    ntn002rtnews_2015885_llm_item_5_000['ntn002rtnews_2015885_llm_i  1     ✅     0.2     1.0     
+34    ntn002rtnews_2015885_llm_item_6_000['ntn002rtnews_2015875_llm_i  3     ❌     0.2     0.3333  
+35    ntn002rtnews_2015888_llm_item_0_000['ntn002rtnews_2015888_llm_i  1     ✅     0.2     1.0     
+36    ntn002rtnews_2015887_000['ntn002rtnews_2015887_000',  1     ✅     0.2     1.0     
+37    ntn002rtnews_2015877_000['ntn002rtnews_2015877_000',  1     ✅     0.2     1.0     
+38    ntn002rtnews_2015882_000['ntn002rtnews_2015882_000',  1     ✅     0.2     1.0     
+39    ntn002rtnews_2015883_llm_item_3_000['ntn002rtnews_2015883_llm_i  1     ✅     0.2     1.0     
+40    ntn002rtnews_2015883_llm_item_4_000['ntn002rtnews_2015883_llm_i  1     ✅     0.2     1.0     
+41    ntn002rtnews_2015882_001['ntn002rtnews_2015882_001',  1     ✅     0.2     1.0     
+42    ntn002rtnews_2015882_002['ntn002rtnews_2015882_002',  1     ✅     0.2     1.0     
+43    ntn002rtnews_2015886_llm_item_0_000['ntn002rtnews_2015886_llm_i  1     ✅     0.2     1.0     
+44    ntn002rtnews_2015886_llm_item_1_000['ntn002rtnews_2015886_llm_i  1     ✅     0.2     1.0     
+45    ntn002rtnews_2015883_llm_item_0_000['ntn002rtnews_2015883_llm_i  2     ❌     0.2     0.5     
+46    ntn002rtnews_2015883_llm_item_1_000['ntn002rtnews_2015883_llm_i  1     ✅     0.2     1.0     
+47    ntn002rtnews_2015883_llm_item_2_000['ntn002rtnews_2015883_llm_i  1     ✅     0.2     1.0     
+48    ntn002rtnews_2015915_llm_item_14_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+49    ntn002rtnews_2015883_llm_item_5_000['ntn002rtnews_2015883_llm_i  1     ✅     0.2     1.0     
+50    ntn002rtnews_2015883_llm_item_6_000['ntn002rtnews_2015883_llm_i  1     ✅     0.2     1.0     
+51    ntn002rtnews_2015891_llm_item_0_000['ntn002rtnews_2015891_llm_i  1     ✅     0.2     1.0     
+52    ntn002rtnews_1974218_llm_item_0_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+53    ntn002rtnews_1974218_llm_item_1_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+54    ntn002rtnews_1974218_llm_item_2_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+55    ntn002rtnews_1974218_llm_item_3_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+56    ntn002rtnews_1974218_llm_item_4_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+57    ntn002rtnews_2015909_llm_item_8_000['ntn002rtnews_2015909_llm_i  1     ✅     0.2     1.0     
+58    ntn002rtnews_1974218_llm_item_5_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+59    ntn002rtnews_1974218_llm_item_6_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+60    ntn002rtnews_1974218_llm_item_7_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+61    ntn002rtnews_1974218_llm_item_8_000['ntn002rtnews_2015881_llm_i  4     ❌     0.2     0.25    
+62    ntn002rtnews_1974218_llm_item_9_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+63    ntn002rtnews_1974218_llm_item_10_000['ntn002rtnews_2015909_llm_i  2     ❌     0.2     0.5     
+64    ntn002rtnews_1974218_llm_item_11_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+65    ntn002rtnews_2015901_llm_item_0_000['ntn002rtnews_2015901_llm_i  1     ✅     0.2     1.0     
+66    ntn002rtnews_1974218_llm_item_12_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+67    ntn002rtnews_1974218_llm_item_13_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+68    ntn002rtnews_1974218_llm_item_14_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+69    ntn002rtnews_1974218_llm_item_15_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+70    ntn002rtnews_1974218_llm_item_16_000['ntn002rtnews_2015882_000',  2     ❌     0.2     0.5     
+71    ntn002rtnews_1974218_llm_item_17_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+72    ntn002rtnews_1974218_llm_item_18_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+73    ntn002rtnews_1974218_llm_item_19_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+74    ntn002rtnews_1974218_llm_item_20_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+75    ntn002rtnews_1974218_llm_item_21_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+76    ntn002rtnews_1974218_llm_item_22_000['ntn002rtnews_2015909_llm_i  2     ❌     0.2     0.5     
+77    ntn002rtnews_1974218_llm_item_23_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+78    ntn002rtnews_1974218_llm_item_24_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+79    ntn002rtnews_1974218_llm_item_25_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+80    ntn002rtnews_1974218_llm_item_26_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+81    ntn002rtnews_1974218_llm_item_27_000['ntn002rtnews_2015881_llm_i  2     ❌     0.2     0.5     
+82    ntn002rtnews_1974218_llm_item_28_000['ntn002rtnews_2015886_llm_i  -     ❌     0       0       
+83    ntn002rtnews_2015890_llm_item_0_000['ntn002rtnews_2015890_llm_i  1     ✅     0.2     1.0     
+84    ntn002rtnews_2015889_llm_item_0_000['ntn002rtnews_2015889_llm_i  1     ✅     0.2     1.0     
+85    ntn002rtnews_2015893_llm_item_0_000['ntn002rtnews_2015893_llm_i  1     ✅     0.2     1.0     
+86    ntn002rtnews_2015894_llm_item_0_000['ntn002rtnews_2015894_llm_i  1     ✅     0.2     1.0     
+87    ntn002rtnews_2015892_llm_item_0_000['ntn002rtnews_2015892_llm_i  1     ✅     0.2     1.0     
+88    ntn002rtnews_2015895_llm_item_0_000['ntn002rtnews_2015895_llm_i  1     ✅     0.2     1.0     
+89    ntn002rtnews_2015896_llm_item_0_000['ntn002rtnews_2015896_llm_i  1     ✅     0.2     1.0     
+90    ntn002rtnews_2060516_llm_item_0_000['ntn002rtnews_2060516_llm_i  1     ✅     0.2     1.0     
+91    ntn002rtnews_2015901_llm_item_1_000['ntn002rtnews_2015901_llm_i  2     ❌     0.2     0.5     
+92    ntn002rtnews_2015899_llm_item_0_000['ntn002rtnews_2015899_llm_i  1     ✅     0.2     1.0     
+93    ntn002rtnews_2015899_llm_item_1_000['ntn002rtnews_2015899_llm_i  1     ✅     0.2     1.0     
+94    ntn002rtnews_2015899_llm_item_2_000['ntn002rtnews_2015899_llm_i  1     ✅     0.2     1.0     
+95    ntn002rtnews_2015899_llm_item_3_000['ntn002rtnews_2015899_llm_i  1     ✅     0.2     1.0     
+96    ntn002rtnews_2015899_llm_item_4_000['ntn002rtnews_2015899_llm_i  2     ❌     0.2     0.5     
+97    ntn002rtnews_2015899_llm_item_5_000['ntn002rtnews_2015899_llm_i  1     ✅     0.2     1.0     
+98    ntn002rtnews_2015899_llm_item_6_000['ntn002rtnews_2015899_llm_i  1     ✅     0.2     1.0     
+99    ntn002rtnews_2015899_llm_item_7_000['ntn002rtnews_2015899_llm_i  1     ✅     0.2     1.0     
 
 📂 ntn002rtnews - OpenAI Retrieval Details:
 Query GT    TopK IDs                      Rank  Top1  Recall  Prec    MRR     
 ------------------------------------------------------------------------------
-0     ntn002rtnews_2015915_llm_item_3_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-1     ntn002rtnews_2015915_llm_item_4_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-2     ntn002rtnews_2015915_llm_item_5_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-3     ntn002rtnews_2015915_llm_item_6_000['ntn002rtnews_2015901_llm_i  2     ❌     1       0.5     0.5     
-4     ntn002rtnews_2015915_llm_item_7_000['ntn002rtnews_2015892_llm_i  2     ❌     1       0.5     0.5     
-5     ntn002rtnews_2015915_llm_item_8_000['ntn002rtnews_2015901_llm_i  2     ❌     1       0.5     0.5     
-6     ntn002rtnews_2015915_llm_item_9_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-7     ntn002rtnews_2015880_000['ntn002rtnews_2015880_000',  1     ✅     1       1.0     1.0     
-8     ntn002rtnews_2015915_llm_item_10_000['ntn002rtnews_2015901_llm_i  4     ❌     1       0.25    0.25    
-9     ntn002rtnews_2015915_llm_item_11_000['ntn002rtnews_1974218_llm_i  2     ❌     1       0.5     0.5     
-10    ntn002rtnews_2015915_llm_item_15_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-11    ntn002rtnews_2015911_llm_item_5_000['ntn002rtnews_2015886_llm_i  2     ❌     1       0.5     0.5     
-12    ntn002rtnews_2015875_llm_item_0_000['ntn002rtnews_2015875_llm_i  1     ✅     1       1.0     1.0     
-13    ntn002rtnews_2015875_llm_item_1_000['ntn002rtnews_2015889_llm_i  2     ❌     1       0.5     0.5     
-14    ntn002rtnews_2015875_llm_item_2_000['ntn002rtnews_2015890_llm_i  2     ❌     1       0.5     0.5     
-15    ntn002rtnews_2015876_llm_item_0_000['ntn002rtnews_2015876_llm_i  3     ❌     1       0.3333  0.3333  
-16    ntn002rtnews_2015876_llm_item_1_000['ntn002rtnews_2015876_llm_i  1     ✅     1       1.0     1.0     
-17    ntn002rtnews_2015876_llm_item_2_000['ntn002rtnews_2015876_llm_i  2     ❌     1       0.5     0.5     
-18    ntn002rtnews_2015915_llm_item_12_000['ntn002rtnews_1974218_llm_i  2     ❌     1       0.5     0.5     
-19    ntn002rtnews_2015878_000['ntn002rtnews_2015879_llm_i  -     ❌     0       0       0       
-20    ntn002rtnews_2015878_001['ntn002rtnews_2015878_001',  1     ✅     1       1.0     1.0     
-21    ntn002rtnews_2015881_llm_item_0_000['ntn002rtnews_2015881_llm_i  1     ✅     1       1.0     1.0     
-22    ntn002rtnews_2015881_llm_item_1_000['ntn002rtnews_2015881_llm_i  2     ❌     1       0.5     0.5     
-23    ntn002rtnews_2015884_000['ntn002rtnews_2015884_000',  1     ✅     1       1.0     1.0     
-24    ntn002rtnews_2015879_llm_item_0_000['ntn002rtnews_2015879_llm_i  1     ✅     1       1.0     1.0     
-25    ntn002rtnews_2015879_llm_item_1_000['ntn002rtnews_2015879_llm_i  3     ❌     1       0.3333  0.3333  
-26    ntn002rtnews_2015879_llm_item_2_000['ntn002rtnews_2015879_llm_i  2     ❌     1       0.5     0.5     
-27    ntn002rtnews_2015885_llm_item_0_000['ntn002rtnews_2015889_llm_i  -     ❌     0       0       0       
-28    ntn002rtnews_2015885_llm_item_1_000['ntn002rtnews_2015885_llm_i  5     ❌     1       0.2     0.2     
-29    ntn002rtnews_2015885_llm_item_2_000['ntn002rtnews_2015899_llm_i  -     ❌     0       0       0       
-30    ntn002rtnews_2015885_llm_item_3_000['ntn002rtnews_2015901_llm_i  4     ❌     1       0.25    0.25    
-31    ntn002rtnews_2015915_llm_item_13_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-32    ntn002rtnews_2015885_llm_item_4_000['ntn002rtnews_2015885_llm_i  1     ✅     1       1.0     1.0     
-33    ntn002rtnews_2015885_llm_item_5_000['ntn002rtnews_2015885_llm_i  1     ✅     1       1.0     1.0     
-34    ntn002rtnews_2015885_llm_item_6_000['ntn002rtnews_2015880_000',  -     ❌     0       0       0       
-35    ntn002rtnews_2015888_llm_item_0_000['ntn002rtnews_2015888_llm_i  1     ✅     1       1.0     1.0     
-36    ntn002rtnews_2015887_000['ntn002rtnews_2015887_000',  1     ✅     1       1.0     1.0     
-37    ntn002rtnews_2015877_000['ntn002rtnews_2015877_000',  1     ✅     1       1.0     1.0     
-38    ntn002rtnews_2015882_000['ntn002rtnews_2015886_llm_i  -     ❌     0       0       0       
-39    ntn002rtnews_2015883_llm_item_3_000['ntn002rtnews_2015883_llm_i  1     ✅     1       1.0     1.0     
-40    ntn002rtnews_2015883_llm_item_4_000['ntn002rtnews_2015883_llm_i  1     ✅     1       1.0     1.0     
-41    ntn002rtnews_2015882_001['ntn002rtnews_2015882_001',  1     ✅     1       1.0     1.0     
-42    ntn002rtnews_2015882_002['ntn002rtnews_2015880_000',  2     ❌     1       0.5     0.5     
-43    ntn002rtnews_2015886_llm_item_0_000['ntn002rtnews_2015886_llm_i  1     ✅     1       1.0     1.0     
-44    ntn002rtnews_2015886_llm_item_1_000['ntn002rtnews_2015886_llm_i  1     ✅     1       1.0     1.0     
-45    ntn002rtnews_2015883_llm_item_0_000['ntn002rtnews_2015883_llm_i  -     ❌     0       0       0       
-46    ntn002rtnews_2015883_llm_item_1_000['ntn002rtnews_2015883_llm_i  1     ✅     1       1.0     1.0     
-47    ntn002rtnews_2015883_llm_item_2_000['ntn002rtnews_2015883_llm_i  1     ✅     1       1.0     1.0     
-48    ntn002rtnews_2015915_llm_item_14_000['ntn002rtnews_2015915_llm_i  1     ✅     1       1.0     1.0     
-49    ntn002rtnews_2015883_llm_item_5_000['ntn002rtnews_2015883_llm_i  1     ✅     1       1.0     1.0     
-50    ntn002rtnews_2015883_llm_item_6_000['ntn002rtnews_2015883_llm_i  2     ❌     1       0.5     0.5     
-51    ntn002rtnews_2015891_llm_item_0_000['ntn002rtnews_2015891_llm_i  1     ✅     1       1.0     1.0     
-52    ntn002rtnews_1974218_llm_item_0_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-53    ntn002rtnews_1974218_llm_item_1_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-54    ntn002rtnews_1974218_llm_item_2_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-55    ntn002rtnews_1974218_llm_item_3_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-56    ntn002rtnews_1974218_llm_item_4_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-57    ntn002rtnews_2015909_llm_item_8_000['ntn002rtnews_2015909_llm_i  1     ✅     1       1.0     1.0     
-58    ntn002rtnews_1974218_llm_item_5_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-59    ntn002rtnews_1974218_llm_item_6_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-60    ntn002rtnews_1974218_llm_item_7_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-61    ntn002rtnews_1974218_llm_item_8_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-62    ntn002rtnews_1974218_llm_item_9_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-63    ntn002rtnews_1974218_llm_item_10_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-64    ntn002rtnews_1974218_llm_item_11_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-65    ntn002rtnews_2015901_llm_item_0_000['ntn002rtnews_2015901_llm_i  1     ✅     1       1.0     1.0     
-66    ntn002rtnews_1974218_llm_item_12_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-67    ntn002rtnews_1974218_llm_item_13_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-68    ntn002rtnews_1974218_llm_item_14_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-69    ntn002rtnews_1974218_llm_item_15_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-70    ntn002rtnews_1974218_llm_item_16_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-71    ntn002rtnews_1974218_llm_item_17_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-72    ntn002rtnews_1974218_llm_item_18_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-73    ntn002rtnews_1974218_llm_item_19_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-74    ntn002rtnews_1974218_llm_item_20_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-75    ntn002rtnews_1974218_llm_item_21_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-76    ntn002rtnews_1974218_llm_item_22_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-77    ntn002rtnews_1974218_llm_item_23_000['ntn002rtnews_1974218_llm_i  2     ❌     1       0.5     0.5     
-78    ntn002rtnews_1974218_llm_item_24_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-79    ntn002rtnews_1974218_llm_item_25_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-80    ntn002rtnews_1974218_llm_item_26_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-81    ntn002rtnews_1974218_llm_item_27_000['ntn002rtnews_1974218_llm_i  1     ✅     1       1.0     1.0     
-82    ntn002rtnews_1974218_llm_item_28_000['ntn002rtnews_2015886_llm_i  2     ❌     1       0.5     0.5     
-83    ntn002rtnews_2015890_llm_item_0_000['ntn002rtnews_2015890_llm_i  1     ✅     1       1.0     1.0     
-84    ntn002rtnews_2015889_llm_item_0_000['ntn002rtnews_2015889_llm_i  1     ✅     1       1.0     1.0     
-85    ntn002rtnews_2015893_llm_item_0_000['ntn002rtnews_2015893_llm_i  1     ✅     1       1.0     1.0     
-86    ntn002rtnews_2015894_llm_item_0_000['ntn002rtnews_2015894_llm_i  1     ✅     1       1.0     1.0     
-87    ntn002rtnews_2015892_llm_item_0_000['ntn002rtnews_2015892_llm_i  1     ✅     1       1.0     1.0     
-88    ntn002rtnews_2015895_llm_item_0_000['ntn002rtnews_2015895_llm_i  1     ✅     1       1.0     1.0     
-89    ntn002rtnews_2015896_llm_item_0_000['ntn002rtnews_2015896_llm_i  1     ✅     1       1.0     1.0     
-90    ntn002rtnews_2060516_llm_item_0_000['ntn002rtnews_2060516_llm_i  1     ✅     1       1.0     1.0     
-91    ntn002rtnews_2015901_llm_item_1_000['ntn002rtnews_2015901_llm_i  2     ❌     1       0.5     0.5     
-92    ntn002rtnews_2015899_llm_item_0_000['ntn002rtnews_2015899_llm_i  1     ✅     1       1.0     1.0     
-93    ntn002rtnews_2015899_llm_item_1_000['ntn002rtnews_2015899_llm_i  1     ✅     1       1.0     1.0     
-94    ntn002rtnews_2015899_llm_item_2_000['ntn002rtnews_2015899_llm_i  1     ✅     1       1.0     1.0     
-95    ntn002rtnews_2015899_llm_item_3_000['ntn002rtnews_2015889_llm_i  2     ❌     1       0.5     0.5     
-96    ntn002rtnews_2015899_llm_item_4_000['ntn002rtnews_2015899_llm_i  1     ✅     1       1.0     1.0     
-97    ntn002rtnews_2015899_llm_item_5_000['ntn002rtnews_2015889_llm_i  4     ❌     1       0.25    0.25    
-98    ntn002rtnews_2015899_llm_item_6_000['ntn002rtnews_2015899_llm_i  1     ✅     1       1.0     1.0     
-99    ntn002rtnews_2015899_llm_item_7_000['ntn002rtnews_2015899_llm_i  1     ✅     1       1.0     1.0     
+0     ntn002rtnews_2015915_llm_item_3_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+1     ntn002rtnews_2015915_llm_item_4_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+2     ntn002rtnews_2015915_llm_item_5_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+3     ntn002rtnews_2015915_llm_item_6_000['ntn002rtnews_2015901_llm_i  2     ❌     0.2     0.5     
+4     ntn002rtnews_2015915_llm_item_7_000['ntn002rtnews_2015892_llm_i  2     ❌     0.2     0.5     
+5     ntn002rtnews_2015915_llm_item_8_000['ntn002rtnews_2015901_llm_i  2     ❌     0.2     0.5     
+6     ntn002rtnews_2015915_llm_item_9_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+7     ntn002rtnews_2015880_000['ntn002rtnews_2015880_000',  1     ✅     0.2     1.0     
+8     ntn002rtnews_2015915_llm_item_10_000['ntn002rtnews_2015901_llm_i  4     ❌     0.2     0.25    
+9     ntn002rtnews_2015915_llm_item_11_000['ntn002rtnews_1974218_llm_i  2     ❌     0.2     0.5     
+10    ntn002rtnews_2015915_llm_item_15_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+11    ntn002rtnews_2015911_llm_item_5_000['ntn002rtnews_2015886_llm_i  2     ❌     0.2     0.5     
+12    ntn002rtnews_2015875_llm_item_0_000['ntn002rtnews_2015875_llm_i  1     ✅     0.2     1.0     
+13    ntn002rtnews_2015875_llm_item_1_000['ntn002rtnews_2015889_llm_i  2     ❌     0.2     0.5     
+14    ntn002rtnews_2015875_llm_item_2_000['ntn002rtnews_2015890_llm_i  2     ❌     0.2     0.5     
+15    ntn002rtnews_2015876_llm_item_0_000['ntn002rtnews_2015876_llm_i  3     ❌     0.2     0.3333  
+16    ntn002rtnews_2015876_llm_item_1_000['ntn002rtnews_2015876_llm_i  1     ✅     0.2     1.0     
+17    ntn002rtnews_2015876_llm_item_2_000['ntn002rtnews_2015876_llm_i  2     ❌     0.2     0.5     
+18    ntn002rtnews_2015915_llm_item_12_000['ntn002rtnews_1974218_llm_i  2     ❌     0.2     0.5     
+19    ntn002rtnews_2015878_000['ntn002rtnews_2015879_llm_i  -     ❌     0       0       
+20    ntn002rtnews_2015878_001['ntn002rtnews_2015878_001',  1     ✅     0.2     1.0     
+21    ntn002rtnews_2015881_llm_item_0_000['ntn002rtnews_2015881_llm_i  1     ✅     0.2     1.0     
+22    ntn002rtnews_2015881_llm_item_1_000['ntn002rtnews_2015881_llm_i  2     ❌     0.2     0.5     
+23    ntn002rtnews_2015884_000['ntn002rtnews_2015884_000',  1     ✅     0.2     1.0     
+24    ntn002rtnews_2015879_llm_item_0_000['ntn002rtnews_2015879_llm_i  1     ✅     0.2     1.0     
+25    ntn002rtnews_2015879_llm_item_1_000['ntn002rtnews_2015879_llm_i  3     ❌     0.2     0.3333  
+26    ntn002rtnews_2015879_llm_item_2_000['ntn002rtnews_2015879_llm_i  2     ❌     0.2     0.5     
+27    ntn002rtnews_2015885_llm_item_0_000['ntn002rtnews_2015889_llm_i  -     ❌     0       0       
+28    ntn002rtnews_2015885_llm_item_1_000['ntn002rtnews_2015885_llm_i  5     ❌     0.2     0.2     
+29    ntn002rtnews_2015885_llm_item_2_000['ntn002rtnews_2015899_llm_i  -     ❌     0       0       
+30    ntn002rtnews_2015885_llm_item_3_000['ntn002rtnews_2015901_llm_i  4     ❌     0.2     0.25    
+31    ntn002rtnews_2015915_llm_item_13_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+32    ntn002rtnews_2015885_llm_item_4_000['ntn002rtnews_2015885_llm_i  1     ✅     0.2     1.0     
+33    ntn002rtnews_2015885_llm_item_5_000['ntn002rtnews_2015885_llm_i  1     ✅     0.2     1.0     
+34    ntn002rtnews_2015885_llm_item_6_000['ntn002rtnews_2015880_000',  -     ❌     0       0       
+35    ntn002rtnews_2015888_llm_item_0_000['ntn002rtnews_2015888_llm_i  1     ✅     0.2     1.0     
+36    ntn002rtnews_2015887_000['ntn002rtnews_2015887_000',  1     ✅     0.2     1.0     
+37    ntn002rtnews_2015877_000['ntn002rtnews_2015877_000',  1     ✅     0.2     1.0     
+38    ntn002rtnews_2015882_000['ntn002rtnews_2015886_llm_i  -     ❌     0       0       
+39    ntn002rtnews_2015883_llm_item_3_000['ntn002rtnews_2015883_llm_i  1     ✅     0.2     1.0     
+40    ntn002rtnews_2015883_llm_item_4_000['ntn002rtnews_2015883_llm_i  1     ✅     0.2     1.0     
+41    ntn002rtnews_2015882_001['ntn002rtnews_2015882_001',  1     ✅     0.2     1.0     
+42    ntn002rtnews_2015882_002['ntn002rtnews_2015880_000',  2     ❌     0.2     0.5     
+43    ntn002rtnews_2015886_llm_item_0_000['ntn002rtnews_2015886_llm_i  1     ✅     0.2     1.0     
+44    ntn002rtnews_2015886_llm_item_1_000['ntn002rtnews_2015886_llm_i  1     ✅     0.2     1.0     
+45    ntn002rtnews_2015883_llm_item_0_000['ntn002rtnews_2015883_llm_i  -     ❌     0       0       
+46    ntn002rtnews_2015883_llm_item_1_000['ntn002rtnews_2015883_llm_i  1     ✅     0.2     1.0     
+47    ntn002rtnews_2015883_llm_item_2_000['ntn002rtnews_2015883_llm_i  1     ✅     0.2     1.0     
+48    ntn002rtnews_2015915_llm_item_14_000['ntn002rtnews_2015915_llm_i  1     ✅     0.2     1.0     
+49    ntn002rtnews_2015883_llm_item_5_000['ntn002rtnews_2015883_llm_i  1     ✅     0.2     1.0     
+50    ntn002rtnews_2015883_llm_item_6_000['ntn002rtnews_2015883_llm_i  2     ❌     0.2     0.5     
+51    ntn002rtnews_2015891_llm_item_0_000['ntn002rtnews_2015891_llm_i  1     ✅     0.2     1.0     
+52    ntn002rtnews_1974218_llm_item_0_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+53    ntn002rtnews_1974218_llm_item_1_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+54    ntn002rtnews_1974218_llm_item_2_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+55    ntn002rtnews_1974218_llm_item_3_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+56    ntn002rtnews_1974218_llm_item_4_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+57    ntn002rtnews_2015909_llm_item_8_000['ntn002rtnews_2015909_llm_i  1     ✅     0.2     1.0     
+58    ntn002rtnews_1974218_llm_item_5_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+59    ntn002rtnews_1974218_llm_item_6_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+60    ntn002rtnews_1974218_llm_item_7_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+61    ntn002rtnews_1974218_llm_item_8_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+62    ntn002rtnews_1974218_llm_item_9_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+63    ntn002rtnews_1974218_llm_item_10_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+64    ntn002rtnews_1974218_llm_item_11_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+65    ntn002rtnews_2015901_llm_item_0_000['ntn002rtnews_2015901_llm_i  1     ✅     0.2     1.0     
+66    ntn002rtnews_1974218_llm_item_12_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+67    ntn002rtnews_1974218_llm_item_13_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+68    ntn002rtnews_1974218_llm_item_14_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+69    ntn002rtnews_1974218_llm_item_15_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+70    ntn002rtnews_1974218_llm_item_16_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+71    ntn002rtnews_1974218_llm_item_17_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+72    ntn002rtnews_1974218_llm_item_18_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+73    ntn002rtnews_1974218_llm_item_19_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+74    ntn002rtnews_1974218_llm_item_20_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+75    ntn002rtnews_1974218_llm_item_21_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+76    ntn002rtnews_1974218_llm_item_22_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+77    ntn002rtnews_1974218_llm_item_23_000['ntn002rtnews_1974218_llm_i  2     ❌     0.2     0.5     
+78    ntn002rtnews_1974218_llm_item_24_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+79    ntn002rtnews_1974218_llm_item_25_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+80    ntn002rtnews_1974218_llm_item_26_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+81    ntn002rtnews_1974218_llm_item_27_000['ntn002rtnews_1974218_llm_i  1     ✅     0.2     1.0     
+82    ntn002rtnews_1974218_llm_item_28_000['ntn002rtnews_2015886_llm_i  2     ❌     0.2     0.5     
+83    ntn002rtnews_2015890_llm_item_0_000['ntn002rtnews_2015890_llm_i  1     ✅     0.2     1.0     
+84    ntn002rtnews_2015889_llm_item_0_000['ntn002rtnews_2015889_llm_i  1     ✅     0.2     1.0     
+85    ntn002rtnews_2015893_llm_item_0_000['ntn002rtnews_2015893_llm_i  1     ✅     0.2     1.0     
+86    ntn002rtnews_2015894_llm_item_0_000['ntn002rtnews_2015894_llm_i  1     ✅     0.2     1.0     
+87    ntn002rtnews_2015892_llm_item_0_000['ntn002rtnews_2015892_llm_i  1     ✅     0.2     1.0     
+88    ntn002rtnews_2015895_llm_item_0_000['ntn002rtnews_2015895_llm_i  1     ✅     0.2     1.0     
+89    ntn002rtnews_2015896_llm_item_0_000['ntn002rtnews_2015896_llm_i  1     ✅     0.2     1.0     
+90    ntn002rtnews_2060516_llm_item_0_000['ntn002rtnews_2060516_llm_i  1     ✅     0.2     1.0     
+91    ntn002rtnews_2015901_llm_item_1_000['ntn002rtnews_2015901_llm_i  2     ❌     0.2     0.5     
+92    ntn002rtnews_2015899_llm_item_0_000['ntn002rtnews_2015899_llm_i  1     ✅     0.2     1.0     
+93    ntn002rtnews_2015899_llm_item_1_000['ntn002rtnews_2015899_llm_i  1     ✅     0.2     1.0     
+94    ntn002rtnews_2015899_llm_item_2_000['ntn002rtnews_2015899_llm_i  1     ✅     0.2     1.0     
+95    ntn002rtnews_2015899_llm_item_3_000['ntn002rtnews_2015889_llm_i  2     ❌     0.2     0.5     
+96    ntn002rtnews_2015899_llm_item_4_000['ntn002rtnews_2015899_llm_i  1     ✅     0.2     1.0     
+97    ntn002rtnews_2015899_llm_item_5_000['ntn002rtnews_2015889_llm_i  4     ❌     0.2     0.25    
+98    ntn002rtnews_2015899_llm_item_6_000['ntn002rtnews_2015899_llm_i  1     ✅     0.2     1.0     
+99    ntn002rtnews_2015899_llm_item_7_000['ntn002rtnews_2015899_llm_i  1     ✅     0.2     1.0     
 

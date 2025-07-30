@@ -179,7 +179,6 @@ def save_error_cases(details: list, id2text: dict = None, output_dir: str = "rep
             "similarities": d["similarities"],
             "rank": d["rank"],
             "precision": d["precision"],
-            "recall": d["recall"],
             "mrr": d["reciprocal_rank"]
         }
 
@@ -205,10 +204,12 @@ def save_error_cases(details: list, id2text: dict = None, output_dir: str = "rep
 
 
 def evaluate_retrieval(index, queries, ground_truth, k=5, id2text=None, index_to_doc_id=None):
+
     D, I = index.search(queries, k)
-    recall_at_k = []
+
     precision_at_k = []
     top_k_accuracy = []
+    top1_accuracy = []  # ✅ 新增 Top-1 Accuracy
     mean_rank = []
     reciprocal_ranks = []
     details = []
@@ -225,7 +226,6 @@ def evaluate_retrieval(index, queries, ground_truth, k=5, id2text=None, index_to
             "similarities": [float(x) for x in D[i]],
             "hit": False,
             "rank": None,
-            "recall": 0,
             "precision": 0,
             "mean_rank": k + 1,
             "reciprocal_rank": 0,
@@ -234,63 +234,33 @@ def evaluate_retrieval(index, queries, ground_truth, k=5, id2text=None, index_to
 
         try:
             rank = retrieved_doc_ids.index(relevant)
-            recall_at_k.append(1)
-            precision_at_k.append(1 / (rank + 1))
-            top_k_accuracy.append(1 if rank < k else 0)
+            precision_at_k.append(1 / k)
+            top_k_accuracy.append(1)
+            top1_accuracy.append(1 if rank == 0 else 0)
             mean_rank.append(rank + 1)
             reciprocal_ranks.append(1 / (rank + 1))
             detail.update({
                 "hit": True,
                 "rank": rank + 1,
-                "recall": 1,
-                "precision": round(1 / (rank + 1), 4),
+                "precision": round(1 / k, 4),
                 "mean_rank": rank + 1,
                 "reciprocal_rank": round(1 / (rank + 1), 4),
                 "top1_hit": rank == 0
             })
         except ValueError:
-            recall_at_k.append(0)
             precision_at_k.append(0)
             top_k_accuracy.append(0)
+            top1_accuracy.append(0)
             mean_rank.append(k + 1)
             reciprocal_ranks.append(0)
 
-        # # 語義比對
-        # def cos_sim(a, b):
-        #     return float(cosine_similarity([a], [b])[0][0])
-
-        # query_doc_id = ground_truth[i]
-        # question_text = id2text[query_doc_id]["query"]
-        # answer_text = id2text[query_doc_id]["answer"]
-
-
-        # q_bge = embed_bge(question_text)
-        # q_openai = embed_openai(question_text)
-        # a_bge = embed_bge(answer_text)
-        # a_openai = embed_openai(answer_text)
-
-        # retrieved_texts = [id2text.get(doc_id, {}).get("text", "") for doc_id in retrieved_doc_ids]
-        # retrieved_bge_vecs = [embed_bge(text) for text in retrieved_texts]
-        # retrieved_openai_vecs = [embed_openai(text) for text in retrieved_texts]
-
-        # detail["bge_answer_similarities"] = [cos_sim(a_bge, x) for x in retrieved_bge_vecs]
-        # detail["bge_question_similarities"] = [cos_sim(q_bge, x) for x in retrieved_bge_vecs]
-        # detail["openai_answer_similarities"] = [cos_sim(a_openai, x) for x in retrieved_openai_vecs]
-        # detail["openai_question_similarities"] = [cos_sim(q_openai, x) for x in retrieved_openai_vecs]
-
-        # detail["bge_max_answer_similarity"] = max(detail["bge_answer_similarities"], default=0)
-        # detail["bge_max_question_similarity"] = max(detail["bge_question_similarities"], default=0)
-        # detail["openai_max_answer_similarity"] = max(detail["openai_answer_similarities"], default=0)
-        # detail["openai_max_question_similarity"] = max(detail["openai_question_similarities"], default=0)
-
         details.append(detail)
-
     save_error_cases(details, id2text=id2text)
 
     return {
-        "Recall@K": round(np.mean(recall_at_k), 4),
         "Precision@K": round(np.mean(precision_at_k), 4),
         "Top-K Accuracy": round(np.mean(top_k_accuracy), 4),
+        "Top-1 Accuracy": round(np.mean(top1_accuracy), 4),
         "Mean Rank": round(np.mean(mean_rank), 4),
         "MRR": round(np.mean(reciprocal_ranks), 4),
         "Details": details
@@ -340,7 +310,7 @@ def format_details_human_readable(details: List[Dict]) -> str:
     lines.append("-" * len(header))
     for d in details:
         line = f"{d['query_id']:<6}{d['ground_truth']:<6}{str(d['retrieved_ids'])[:28]:<30}{str(d['rank'] or '-'):<6}"
-        line += f"{'✅' if d['top1_hit'] else '❌':<6}{d['recall']:<8}{d['precision']:<8}{d['reciprocal_rank']:<8}"
+        line += f"{'✅' if d['top1_hit'] else '❌':<6}{d['precision']:<8}{d['reciprocal_rank']:<8}"
         lines.append(line)
     return "\n".join(lines)
 

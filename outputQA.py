@@ -62,7 +62,7 @@ def fetch_documents(limit=1000) -> List[Dict]:
     return result
 
 # ----- 生成假問題 -----
-def generate_questions_for_docs(docs: List[Dict], total_questions=100) -> List[Dict]:
+def generate_questions_for_docs(docs: List[Dict], total_questions=1000) -> List[Dict]:
     chat_deployment = os.getenv("AOAI_CHAT_DEPLOYMENT")
     questions = []
     existing_questions = set()  # ➤ 用於避免重複問題
@@ -120,12 +120,12 @@ def generate_questions_for_docs(docs: List[Dict], total_questions=100) -> List[D
                     break  # 若是 LLM API 失敗就跳出 retry
     return questions
 
-def save_question(question: str, answer: str, document_id: str, source_table: str):
+def save_question(question: str, document_id: str, source_table: str, text: str):
     conn = psycopg2.connect(**DB_CONFIG)
     cur = conn.cursor()
     cur.execute(
-        'INSERT INTO "2500567RAG" (question, answer, document_id, source_table) VALUES (%s, %s, %s, %s);',
-        (question, answer, document_id, source_table)
+        'INSERT INTO "2500567RAG" (question, document_id, source_table, text) VALUES (%s, %s, %s, %s);',
+        (question, document_id, source_table, text)
     )
     conn.commit()
     conn.close()
@@ -172,23 +172,22 @@ def main():
     for source_table, docs in grouped_docs.items():
         print(f"\n🗂️ 類型: {source_table}，共 {len(docs)} 筆")
         print("🔄 開始生成問題...")
-        questions = generate_questions_for_docs(docs, total_questions=100)
+        questions = generate_questions_for_docs(docs, total_questions=1000)
         print(f"✅ 共為類型 {source_table} 生成 {len(questions)} 筆問題")
 
-        print("💾 生成答案並寫入資料庫...")
         for q in tqdm(questions, desc=f"{source_table} - 寫入中"):
             doc = next((d for d in docs if d["document_id"] == q["document_id"]), None)
             if doc:
-                answer = doc["text"]
                 save_question(
                     question=q["question"],
-                    answer=answer,
                     document_id=doc["document_id"],
-                    source_table=doc["source_table"]
+                    source_table=doc["source_table"],
+                    text=doc["text"]
                 )
+
         total_all_questions += len(questions)
 
-    print(f"\n✅ 全部類型問題與答案生成完畢！總數: {total_all_questions} 筆")
+    print(f"\n✅ 全部類型問題生成完畢！總數: {total_all_questions} 筆")
 
 
 
