@@ -23,6 +23,8 @@ from tqdm import tqdm
 from dotenv import load_dotenv
 import psycopg2
 from psycopg2.extras import RealDictCursor, execute_values
+from collections import defaultdict
+from sklearn.metrics.pairwise import cosine_similarity
 
 from openai import AzureOpenAI
 from FlagEmbedding import BGEM3FlagModel
@@ -200,7 +202,9 @@ def save_error_cases(details: list, id2text: dict = None, output_dir: str = "rep
     df.to_csv(output_path, index=False, encoding="utf-8-sig")
     print(f"❌ 錯誤案例已儲存：{output_path}")
     
-def evaluate_retrieval(index, queries, ground_truth, k=5, id2text=None):
+
+
+def evaluate_retrieval(index, queries, ground_truth, k=5, id2text=None, index_to_doc_id=None):
     D, I = index.search(queries, k)
     recall_at_k = []
     precision_at_k = []
@@ -212,10 +216,12 @@ def evaluate_retrieval(index, queries, ground_truth, k=5, id2text=None):
     for i, retrieved in enumerate(I):
         relevant = ground_truth[i]
         retrieved_list = list(retrieved)
+        retrieved_doc_ids = [index_to_doc_id[idx] for idx in retrieved_list]
+
         detail = {
             "query_id": i,
             "ground_truth": relevant,
-            "retrieved_ids": [int(x) for x in retrieved_list],
+            "retrieved_ids": retrieved_doc_ids,
             "similarities": [float(x) for x in D[i]],
             "hit": False,
             "rank": None,
@@ -225,13 +231,12 @@ def evaluate_retrieval(index, queries, ground_truth, k=5, id2text=None):
             "reciprocal_rank": 0,
             "top1_hit": False
         }
-    
+
         try:
-            rank = retrieved_list.index(relevant)
+            rank = retrieved_doc_ids.index(relevant)
             recall_at_k.append(1)
             precision_at_k.append(1 / (rank + 1))
-            # top_k_accuracy.append(1 if rank == 0 else 0) # Top-1 Accuracy rank == 0 → Top-1 命中。
-            top_k_accuracy.append(1 if rank < k else 0)    # Top-K Accuracy rank <  k → Top-k 命中
+            top_k_accuracy.append(1 if rank < k else 0)
             mean_rank.append(rank + 1)
             reciprocal_ranks.append(1 / (rank + 1))
             detail.update({
@@ -249,10 +254,37 @@ def evaluate_retrieval(index, queries, ground_truth, k=5, id2text=None):
             top_k_accuracy.append(0)
             mean_rank.append(k + 1)
             reciprocal_ranks.append(0)
-            
+
+        # # 語義比對
+        # def cos_sim(a, b):
+        #     return float(cosine_similarity([a], [b])[0][0])
+
+        # query_doc_id = ground_truth[i]
+        # question_text = id2text[query_doc_id]["query"]
+        # answer_text = id2text[query_doc_id]["answer"]
+
+
+        # q_bge = embed_bge(question_text)
+        # q_openai = embed_openai(question_text)
+        # a_bge = embed_bge(answer_text)
+        # a_openai = embed_openai(answer_text)
+
+        # retrieved_texts = [id2text.get(doc_id, {}).get("text", "") for doc_id in retrieved_doc_ids]
+        # retrieved_bge_vecs = [embed_bge(text) for text in retrieved_texts]
+        # retrieved_openai_vecs = [embed_openai(text) for text in retrieved_texts]
+
+        # detail["bge_answer_similarities"] = [cos_sim(a_bge, x) for x in retrieved_bge_vecs]
+        # detail["bge_question_similarities"] = [cos_sim(q_bge, x) for x in retrieved_bge_vecs]
+        # detail["openai_answer_similarities"] = [cos_sim(a_openai, x) for x in retrieved_openai_vecs]
+        # detail["openai_question_similarities"] = [cos_sim(q_openai, x) for x in retrieved_openai_vecs]
+
+        # detail["bge_max_answer_similarity"] = max(detail["bge_answer_similarities"], default=0)
+        # detail["bge_max_question_similarity"] = max(detail["bge_question_similarities"], default=0)
+        # detail["openai_max_answer_similarity"] = max(detail["openai_answer_similarities"], default=0)
+        # detail["openai_max_question_similarity"] = max(detail["openai_question_similarities"], default=0)
+
         details.append(detail)
-        
-        # 🔸 儲存錯誤案例 CSV
+
     save_error_cases(details, id2text=id2text)
 
     return {
@@ -263,6 +295,7 @@ def evaluate_retrieval(index, queries, ground_truth, k=5, id2text=None):
         "MRR": round(np.mean(reciprocal_ranks), 4),
         "Details": details
     }
+
 
 # ----- 資料儲存 -----
 
@@ -327,6 +360,7 @@ def save_full_report(results_dict, summary_text, run_count):
             f.write("-" * 80 + "\n")
             for model_name, metric_data in models.items():
                 f.write(f"🔹 {model_name} 模型:\n")
+                
                 for metric, values in metric_data.items():
                     if run_count == 1:
                         f.write(f"{metric}: {values[0]}\n")
@@ -334,6 +368,19 @@ def save_full_report(results_dict, summary_text, run_count):
                         avg = round(sum(values) / len(values), 4)
                         f.write(f"{metric}: Run1={values[0]}  Run2={values[1]}  Run3={values[2]}  Avg={avg}\n")
                 f.write("\n")
+                
+                # 🔹 額外語義比對分數（若存在）
+                max_sim_keys = [
+                    "bge_max_answer_similarity",
+                    "bge_max_question_similarity",
+                    "openai_max_answer_similarity",
+                    "openai_max_question_similarity",
+                ]
+                for key in max_sim_keys:
+                    scores = [d.get(key, 0) for d in metric_data.get("Details", []) if isinstance(d, dict)]
+                    if scores:
+                        avg_sim = round(np.mean(scores), 4)
+                        f.write(f"🔸 Avg {key}: {avg_sim}\n")
 
         f.write("\n[🧠] LLM 模型分析報告\n")
         f.write("=" * 80 + "\n")
@@ -381,13 +428,13 @@ def analyze_results_with_llm(results_dict: dict) -> str:
 
 # ----- 主程式 -----
 
-from collections import defaultdict
+
 
 def main():
     
     conn = psycopg2.connect(**DB_CONFIG)
     cur = conn.cursor(cursor_factory=RealDictCursor)
-    cur.execute('SELECT id, question, answer, question_embedding_bge, question_embedding_openai, answer_embedding_bge, answer_embedding_openai, source_table, text FROM "2500567RAG" ORDER BY id;')
+    cur.execute('SELECT id, document_id, question, answer, source_table, text FROM "2500567RAG" ORDER BY id;')
     rows = cur.fetchall()
     conn.close()
 
@@ -400,24 +447,32 @@ def main():
     
     print(f"🔍 開始依照 source_table 共 {len(grouped)} 組資料進行評估...\n")
     for source, items in tqdm(grouped.items(), desc="評估中", unit="組"):
-        bge_q = np.array([row["question_embedding_bge"] for row in items], dtype='float32')
-        bge_a = np.array([row["answer_embedding_bge"] for row in items], dtype='float32')
-        openai_q = np.array([row["question_embedding_openai"] for row in items], dtype='float32')
-        openai_a = np.array([row["answer_embedding_openai"] for row in items], dtype='float32')
-        ground_truth = list(range(len(items)))
         
+        # 即時計算向量
+        bge_q = np.array([embed_bge(row["question"]) for row in items], dtype='float32')
+        bge_a = np.array([embed_bge(row["text"]) for row in items], dtype='float32')
+        openai_q = np.array([embed_openai(row["question"]) for row in items], dtype='float32')
+        openai_a = np.array([embed_openai(row["text"]) for row in items], dtype='float32')
+        doc_ids = [row["document_id"] for row in items]
+        ground_truth = doc_ids
+
+        # 建立 FAISS index 時的順序 → doc_id 對照
+        index_to_doc_id = {i: doc_id for i, doc_id in enumerate(doc_ids)}
+                
         id2text = {
-            i: {
-                "text": row["answer"],
-                "query": row["question"],
-                "document_id": row["id"],
+            row["document_id"]: {
+                "text": row["text"],                   # 整篇原文
+                "query": row["question"],              # 問題
+                "answer": row["answer"],               # 精準答案
+                "document_id": row["document_id"],
                 "source_table": row["source_table"]
             }
-            for i, row in enumerate(items)
-        } 
+            for row in items
+        }
+ 
 
-        result_bge = evaluate_retrieval(build_faiss_index(bge_a), bge_q, ground_truth, id2text=id2text)
-        result_openai = evaluate_retrieval(build_faiss_index(openai_a), openai_q, ground_truth, id2text=id2text)
+        result_bge = evaluate_retrieval(build_faiss_index(bge_a), bge_q, ground_truth, id2text=id2text, index_to_doc_id=index_to_doc_id)
+        result_openai = evaluate_retrieval(build_faiss_index(openai_a), openai_q, ground_truth, id2text=id2text, index_to_doc_id=index_to_doc_id)
 
         all_results[source] = {
             "BGE": wrap_metrics(result_bge),

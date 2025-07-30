@@ -23,6 +23,7 @@ from tqdm import tqdm
 from dotenv import load_dotenv
 import psycopg2
 from psycopg2.extras import RealDictCursor, execute_values
+from collections import defaultdict
 
 from openai import AzureOpenAI
 from FlagEmbedding import BGEM3FlagModel
@@ -381,13 +382,13 @@ def analyze_results_with_llm(results_dict: dict) -> str:
 
 # ----- 主程式 -----
 
-from collections import defaultdict
+
 
 def main():
     
     conn = psycopg2.connect(**DB_CONFIG)
     cur = conn.cursor(cursor_factory=RealDictCursor)
-    cur.execute('SELECT id, question, answer, question_embedding_bge, question_embedding_openai, answer_embedding_bge, answer_embedding_openai, source_table, text FROM "2500567RAG" ORDER BY id;')
+    cur.execute('SELECT id, question, answer, source_table, text FROM "2500567RAG" ORDER BY id;')
     rows = cur.fetchall()
     conn.close()
 
@@ -400,10 +401,12 @@ def main():
     
     print(f"🔍 開始依照 source_table 共 {len(grouped)} 組資料進行評估...\n")
     for source, items in tqdm(grouped.items(), desc="評估中", unit="組"):
-        bge_q = np.array([row["question_embedding_bge"] for row in items], dtype='float32')
-        bge_a = np.array([row["answer_embedding_bge"] for row in items], dtype='float32')
-        openai_q = np.array([row["question_embedding_openai"] for row in items], dtype='float32')
-        openai_a = np.array([row["answer_embedding_openai"] for row in items], dtype='float32')
+        
+        # 即時計算向量
+        bge_q = np.array([embed_bge(row["question"]) for row in items], dtype='float32')
+        bge_a = np.array([embed_bge(row["text"]) for row in items], dtype='float32')
+        openai_q = np.array([embed_openai(row["question"]) for row in items], dtype='float32')
+        openai_a = np.array([embed_openai(row["text"]) for row in items], dtype='float32')
         ground_truth = list(range(len(items)))
         
         id2text = {

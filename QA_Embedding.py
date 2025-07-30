@@ -7,12 +7,28 @@ import os
 import psycopg2
 import numpy as np
 import faiss
+import time
+import tiktoken
 from tqdm import tqdm
 from typing import List, Dict
 from openai import AzureOpenAI
 from dotenv import load_dotenv
 from psycopg2.extras import execute_values
 from FlagEmbedding import BGEM3FlagModel
+
+encoding = tiktoken.encoding_for_model("text-embedding-ada-002")  # 根據你用的 embedding 模型設定
+embedding_token_usage = {"openai": 0}  # 放 main() 外或 global
+
+embedding_time_stats = {
+    "openai": [],
+    "bge": []
+}
+
+embedding_token_usage = {
+    "openai": 0
+}
+
+
 
 # ----- 環境配置 -----
 load_dotenv()
@@ -177,18 +193,34 @@ def extract_answer_from_text(text: str, question: str, client=None, deployment=N
 
 def embed_openai(text: str) -> np.ndarray:
     try:
+        start = time.time()
         response = embedding_ada.embeddings.create(
             input=text,
             model=os.getenv("EMBEDDING_MODEL")
         )
+        duration = time.time() - start
+        embedding_time_stats["openai"].append(duration)
+        print(f"[⏱️ OpenAI] 單筆處理時間: {duration:.4f} 秒")
+
+        # ➕ Token 統計
+        tokens = encoding.encode(text)
+        embedding_token_usage["openai"] += len(tokens)
+        print(f"[🔢 OpenAI] 本次使用 tokens: {len(tokens)}，累積: {embedding_token_usage['openai']}")
+
         return np.array(response.data[0].embedding, dtype="float32")
     except Exception as e:
         print(f"embed_openai 出錯: {e}")
         return np.zeros((1536,), dtype="float32")
 
+
 def embed_bge(text: str) -> np.ndarray:
     try:
+        start = time.time()
         output = BGE_MODEL.encode(text)
+        duration = time.time() - start
+        embedding_time_stats["bge"].append(duration)
+        print(f"[⏱️ BGE] 單筆處理時間: {duration:.4f} 秒")
+
         dense_vecs = output.get("dense_vecs")
         if dense_vecs is None:
             return np.zeros((1024,), dtype="float32")
@@ -196,6 +228,7 @@ def embed_bge(text: str) -> np.ndarray:
     except Exception as e:
         print(f"embed_bge 出錯: {e}")
         return np.zeros((1024,), dtype="float32")
+
     
 # ----- 資料儲存 -----
 
@@ -267,6 +300,7 @@ def main():
     proceed = check_and_clear_table_if_needed()
     if not proceed:
         return
+    
 
 # =============開始抽取資料=============
     print("開始依照 source_table 類型抽取資料...")
@@ -312,6 +346,13 @@ def main():
         total_all_questions += len(questions)
 
     print(f"\n✅ 全部類型問題與答案生成完畢！總數: {total_all_questions} 筆")
+    
+    avg_openai = round(np.mean(embedding_time_stats["openai"]), 4) if embedding_time_stats["openai"] else 0
+    avg_bge = round(np.mean(embedding_time_stats["bge"]), 4) if embedding_time_stats["bge"] else 0
+
+    print(f"\n📈 OpenAI 平均處理時間：{avg_openai} 秒 / 筆")
+    print(f"📈 BGE 平均處理時間：{avg_bge} 秒 / 筆")
+
 
 
 
