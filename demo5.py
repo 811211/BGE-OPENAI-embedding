@@ -1,9 +1,9 @@
 # ===========================================
-# 📄 demo2.py
+# 📄 demo5.py
 # 功能：
 # 1. 從 PostgreSQL 資料庫讀取問題與答案及其 embedding
 # 2. 使用 FAISS 建立索引並進行模型檢索評估
-# 3. 評估指標包含 Recall@K, Precision@K, Top-K Accuracy, Mean Rank, MRR
+# 3. 評估指標包含 Precision@K, Top-K Accuracy, Mean Rank, MRR
 # 4. 分析錯誤案例並儲存詳細錯誤資訊（含原始問題、正確答案、檢索結果等）
 # 5. 呼叫 LLM 分析模型表現，並輸出完整報告與統計資訊
 # ===========================================
@@ -56,6 +56,12 @@ DB_CONFIG = {
     "port": 65432
 }
 
+embedding_stats = {
+    "OpenAI": {"total_time": 0.0, "count": 0, "token_usage": 0},
+    "BGE": {"total_time": 0.0, "count": 0}
+}
+
+
 # -----初始化 AzureOpenAI client-----
 
 client = AzureOpenAI(
@@ -70,10 +76,9 @@ embedding_ada = AzureOpenAI(
     api_version=os.getenv("AOAI_API_VERSION"),
 )
 
-BGE_MODEL = BGEM3FlagModel(
-    r"C:\Users\user\.cache\huggingface\hub\models--BAAI--bge-m3\snapshots\5617a9f61b028005a4858fdac845db406aefb181",
-    use_fp16=True
-)
+BGE_MODEL = BGEM3FlagModel("BAAI/bge-m3", use_fp16=True)
+
+
 
 # ----- 工具函數 -----
 
@@ -128,26 +133,37 @@ def wrap_metrics(metrics: dict) -> dict:
 
 # ----- embedding 函數 -----
 
-def embed_openai(text: str) -> np.ndarray:
+def embed_openai(raw_text: str) -> np.ndarray:
     try:
         start = time.time()
         response = embedding_ada.embeddings.create(
-            input=text,
+            input=raw_text,
             model=os.getenv("EMBEDDING_MODEL")
         )
         duration = time.time() - start
         print(f"[⏱️ OpenAI] 單筆處理時間: {duration:.4f} 秒")
+        
+        # ✅ 累加統計
+        embedding_stats["OpenAI"]["total_time"] += duration
+        embedding_stats["OpenAI"]["count"] += 1
+        embedding_stats["OpenAI"]["token_usage"] += response.usage.total_tokens
+        
         return np.array(response.data[0].embedding, dtype="float32")
     except Exception as e:
         print(f"embed_openai 出錯: {e}")
         return np.zeros((1536,), dtype="float32")
 
-def embed_bge(text: str) -> np.ndarray:
+def embed_bge(raw_text: str) -> np.ndarray:
     try:
         start = time.time()
-        output = BGE_MODEL.encode(text)
+        output = BGE_MODEL.encode(raw_text)
         duration = time.time() - start
         print(f"[⏱️ BGE] 單筆處理時間: {duration:.4f} 秒")
+        
+        # ✅ 累加統計
+        embedding_stats["BGE"]["total_time"] += duration
+        embedding_stats["BGE"]["count"] += 1
+        
         dense_vecs = output.get("dense_vecs")
         if dense_vecs is None:
             return np.zeros((1024,), dtype="float32")
@@ -184,12 +200,12 @@ def save_error_cases(details: list, id2text: dict = None, output_dir: str = "rep
 
         if id2text:
             meta = id2text.get(d["ground_truth"], {})
-            row["ground_truth_text"] = meta.get("text", "")
+            row["ground_truth_text"] = meta.get("raw_text", "")
             row["query_text"] = id2text.get(d["query_id"], {}).get("query", "")  
-            row["document_id"] = meta.get("document_id", "")
+            row["original_id"] = meta.get("original_id", "")
             row["source_table"] = meta.get("source_table", "")
             row["retrieved_texts"] = [
-                id2text.get(rid, {}).get("text", "") for rid in d["retrieved_ids"]
+                id2text.get(rid, {}).get("raw_text", "") for rid in d["retrieved_ids"]
             ]
 
 
@@ -209,7 +225,7 @@ def evaluate_retrieval(index, queries, ground_truth, k=5, id2text=None, index_to
 
     precision_at_k = []
     top_k_accuracy = []
-    top1_accuracy = []  # ✅ 新增 Top-1 Accuracy
+    top1_accuracy = []  
     mean_rank = []
     reciprocal_ranks = []
     details = []
@@ -305,14 +321,23 @@ def prompt_save_as(src_path):
         
 def format_details_human_readable(details: List[Dict]) -> str:
     lines = []
-    header = f"{'Query':<6}{'GT':<6}{'TopK IDs':<30}{'Rank':<6}{'Top1':<6}{'Recall':<8}{'Prec':<8}{'MRR':<8}"
+    header = f"{'Query':<6}{'Rank':<6}{'Top1':<6}{'Precision':<10}{'MRR':<8}"
     lines.append(header)
-    lines.append("-" * len(header))
+    lines.append("-" * 90)
+
     for d in details:
-        line = f"{d['query_id']:<6}{d['ground_truth']:<6}{str(d['retrieved_ids'])[:28]:<30}{str(d['rank'] or '-'):<6}"
-        line += f"{'✅' if d['top1_hit'] else '❌':<6}{d['precision']:<8}{d['reciprocal_rank']:<8}"
+        # 每筆主要資訊（query ID、排名、精確度等）
+        line = f"{d['query_id']:<6}{str(d['rank'] or '-'):<6}{'✅' if d['top1_hit'] else '❌':<6}"
+        line += f"{d['precision']:<10}{d['reciprocal_rank']:<8}"
         lines.append(line)
+
+        # 顯示 ground-truth 與 TopK ID（單獨顯示，避免擠壓）
+        lines.append(f"{'GT:':<6}{d['ground_truth']}")
+        lines.append(f"{'TopK:':<6}{', '.join(d['retrieved_ids'])}")
+        lines.append("-" * 90)
+
     return "\n".join(lines)
+
 
         
 def save_full_report(results_dict, summary_text, run_count):
@@ -320,6 +345,7 @@ def save_full_report(results_dict, summary_text, run_count):
 
     filename = f"完整評估報告_Run{run_count}.txt"
     with open(filename, "w", encoding="utf-8") as f:
+        
         # 標題
         f.write(f"[📊] BGE-OPENAI Embedding Evaluation Report (Run {run_count})\n")
         f.write("=" * 80 + "\n\n")
@@ -330,7 +356,6 @@ def save_full_report(results_dict, summary_text, run_count):
             f.write("-" * 80 + "\n")
             for model_name, metric_data in models.items():
                 f.write(f"🔹 {model_name} 模型:\n")
-                
                 for metric, values in metric_data.items():
                     if run_count == 1:
                         f.write(f"{metric}: {values[0]}\n")
@@ -339,53 +364,63 @@ def save_full_report(results_dict, summary_text, run_count):
                         f.write(f"{metric}: Run1={values[0]}  Run2={values[1]}  Run3={values[2]}  Avg={avg}\n")
                 f.write("\n")
                 
-                # 🔹 額外語義比對分數（若存在）
-                max_sim_keys = [
-                    "bge_max_answer_similarity",
-                    "bge_max_question_similarity",
-                    "openai_max_answer_similarity",
-                    "openai_max_question_similarity",
-                ]
-                for key in max_sim_keys:
-                    scores = [d.get(key, 0) for d in metric_data.get("Details", []) if isinstance(d, dict)]
-                    if scores:
-                        avg_sim = round(np.mean(scores), 4)
-                        f.write(f"🔸 Avg {key}: {avg_sim}\n")
+        # 嵌入計算時間與成本統計
+        f.write("[⏱️] 嵌入計算時間與成本統計\n")
+        f.write("=" * 80 + "\n")
+        for model, stat in embedding_stats.items():
+            f.write(f"🔹 {model} 模型\n")
+            f.write(f"總處理時間：{round(stat['total_time'], 2)} 秒\n")
+            f.write(f"總筆數：{stat['count']} 筆\n")
+            if stat["count"] > 0:
+                avg_time = round(stat['total_time'] / stat['count'], 4)
+                f.write(f"平均時間：{avg_time} 秒/筆\n")
+            if model == "OpenAI":
+                tokens = stat.get("token_usage", 0)
+                cost = round(tokens / 1000 * 0.0001, 6)  # 自訂單價
+                f.write(f"Token 使用量：{tokens} tokens\n")
+                f.write(f"成本估算：${cost} USD\n")
+            else:
+                f.write("本地模型無 token 成本\n")
+            f.write("\n")
 
-        f.write("\n[🧠] LLM 模型分析報告\n")
+        # LLM 分析區段
+        f.write("[🧠] LLM 模型分析報告\n")
         f.write("=" * 80 + "\n")
         f.write(summary_text + "\n\n")
 
+        # Retrieval 詳細記錄
         f.write("[🔍] Retrieval 詳細過程記錄\n")
         f.write("=" * 80 + "\n")
-
         for source, models in results_dict.items():
             for model_name, metric_data in models.items():
                 if "Details" in metric_data:
                     f.write(f"📂 {source} - {model_name} Retrieval Details:\n")
-                    text = format_details_human_readable(metric_data["Details"])
-                    f.write(text + "\n\n")               
+                    raw_text = format_details_human_readable(metric_data["Details"])
+                    f.write(raw_text + "\n\n")               
+
     return filename
+
 
 # ----- LLM 分析 -----
 
 def analyze_results_with_llm(results_dict: dict) -> str:
     import json
-    text = json.dumps(results_dict, ensure_ascii=False, indent=2)
+    raw_text = json.dumps(results_dict, ensure_ascii=False, indent=2)
 
     analysis_prompt = f"""
 你是一個資訊檢索與分析專家，請根據以下模型對比結果進行深入分析。
-請特別關注 Top-1 accuracy 與 Recall@K 是否存在準確 vs. 覆蓋的平衡問題。
 
-你需要根據以下面向來產出結果分析與討論完整報告：
+你需要根據以下面向並嚴格依照模型對比結果來產出結果分析與討論完整報告：
 
 1. 整體準確性比較（哪個模型 consistently 領先？）
 2. 錯誤案例可能原因（哪些情況下兩者差異大）
 3. 性能與成本比較（OpenAI API 的延遲和費用 vs. 本地部署BGE模型的計算開銷）
 4. 結論： 綜合量化指標和質化分析，給出應用建議。
 
+
+
 請以清晰條列方式產出分析報告。以下是指標結果：
-{text}
+{raw_text}
 """
     response = client.chat.completions.create(
         model=os.getenv("AOAI_CHAT_DEPLOYMENT"),
@@ -404,7 +439,7 @@ def main():
     
     conn = psycopg2.connect(**DB_CONFIG)
     cur = conn.cursor(cursor_factory=RealDictCursor)
-    cur.execute('SELECT id, document_id, question, answer, source_table, text FROM "2500567RAG" ORDER BY id;')
+    cur.execute('SELECT id, original_id, question, source_table, raw_text FROM "2500567RAG" ORDER BY id;')
     rows = cur.fetchall()
     conn.close()
 
@@ -412,7 +447,7 @@ def main():
     for row in rows:
         grouped[row['source_table']].append(row)
 
-    run_count = 1
+    run_count = 1  # 控制次數
     all_results = {}
     
     print(f"🔍 開始依照 source_table 共 {len(grouped)} 組資料進行評估...\n")
@@ -420,21 +455,20 @@ def main():
         
         # 即時計算向量
         bge_q = np.array([embed_bge(row["question"]) for row in items], dtype='float32')
-        bge_a = np.array([embed_bge(row["text"]) for row in items], dtype='float32')
+        bge_a = np.array([embed_bge(row["raw_text"]) for row in items], dtype='float32')
         openai_q = np.array([embed_openai(row["question"]) for row in items], dtype='float32')
-        openai_a = np.array([embed_openai(row["text"]) for row in items], dtype='float32')
-        doc_ids = [row["document_id"] for row in items]
+        openai_a = np.array([embed_openai(row["raw_text"]) for row in items], dtype='float32')
+        doc_ids = [row["original_id"] for row in items]
         ground_truth = doc_ids
 
         # 建立 FAISS index 時的順序 → doc_id 對照
         index_to_doc_id = {i: doc_id for i, doc_id in enumerate(doc_ids)}
                 
         id2text = {
-            row["document_id"]: {
-                "text": row["text"],                   # 整篇原文
+            row["original_id"]: {
+                "raw_text": row["raw_text"],                   # 整篇原文
                 "query": row["question"],              # 問題
-                "answer": row["answer"],               # 精準答案
-                "document_id": row["document_id"],
+                "original_id": row["original_id"],
                 "source_table": row["source_table"]
             }
             for row in items

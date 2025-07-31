@@ -1,20 +1,32 @@
 # ===========================================
 # 📄 QA_Embedding
-# 功能：生成問題並比較模型
+# 功能：
+# - 從資料庫依類型抽取文件
+# - 為每筆文件生成唯一對應的測試問題（使用 Azure OpenAI）
+# - 從內文擷取精確對應答案（原文段落）
+# - 生成 BGE 與 OpenAI 各自的嵌入向量
+# - 記錄嵌入所需的 token 數與時間成本
+# - 將結果存回 PostgreSQL
 # ===========================================
-import json
+
 import os
-import psycopg2
+import json
+import time
 import numpy as np
 import faiss
-import time
 import tiktoken
+import psycopg2
 from tqdm import tqdm
 from typing import List, Dict
-from openai import AzureOpenAI
 from dotenv import load_dotenv
-from psycopg2.extras import execute_values
+from openai import AzureOpenAI
 from FlagEmbedding import BGEM3FlagModel
+from psycopg2.extras import execute_values
+
+# 其他模組請依需求加入：
+# - 向量比對與檢索評估
+# - 錯誤案例分析與報告輸出
+# - LLM 分析與總結結果
 
 encoding = tiktoken.encoding_for_model("text-embedding-ada-002")  # 根據你用的 embedding 模型設定
 embedding_token_usage = {"openai": 0}  # 放 main() 外或 global
