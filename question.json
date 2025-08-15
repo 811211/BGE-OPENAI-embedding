@@ -1,0 +1,31 @@
+{
+  "logic": [
+    { "id": "L1", "question": "1+2=?", "answer": "3" }
+  ],
+  "fact": [
+    { "id": "F1", "question": "水在標準大氣壓下沸點(°C)?", "answer": "100" }
+  ],
+  "longtext": [
+    {
+      "id": "T1",
+      "passage": "資料可視化能幫助快速找出趨勢與異常點。",
+      "question": "資料可視化的其中一個好處是？",
+      "answer_contains": "趨勢"
+    }
+  ],
+  "multiturn": [
+    {
+      "id": "C1",
+      "context": [
+        { "role": "system", "content": "你是一位耐心而嚴謹的助理。" },
+        { "role": "user", "content": "我叫小藍，之後請用我的名字回覆。" },
+        { "role": "assistant", "content": "好的，小藍！我會記住你的名字。" }
+      ],
+      "follow_up": { "role": "user", "content": "我剛剛說我叫什麼？" },
+      "expected_contains": "小藍"
+    }
+  ],
+  "jsonformat": [
+    { "id": "J1", "question": "用一句話解釋機器學習與深度學習的差異。" }
+  ]
+}
